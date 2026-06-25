@@ -976,7 +976,10 @@
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+      align-items: center;
     }
+    .ai-3d-icon-mobile { display: none; }
+    .ai-dis-icon-btn { display: none; }
 
     .btn-discord {
       display: inline-flex;
@@ -1513,8 +1516,10 @@
       .footer-social { flex-wrap: wrap; justify-content: center; }
       footer { padding: 48px 24px 32px; }
       .event-overlay { padding: 32px; }
-      .ai-3d-icon { width: 300px; top: -40px; left: -20px; }
+      .ai-3d-icon { display: none; }
       .ai-dis-icon { display: none; }
+      .ai-3d-icon-mobile { display: block; width: 90px; height: 90px; object-fit: contain; flex-shrink: 0; }
+      .ai-dis-icon-btn { display: block; width: 44px; height: 44px; border-radius: 12px; object-fit: cover; flex-shrink: 0; }
     }
   </style>
   <!-- Meta Pixel -->
@@ -1997,6 +2002,7 @@
           ไม่เหมือนที่ไหน
         </h2>
         <img src="djlabsiam%20DATA/Picture/AI/Dis%20Icon.PNG" alt="" class="ai-dis-icon" style="width:90px;flex-shrink:0;border-radius:20px;" loading="lazy">
+        <img src="djlabsiam%20DATA/Picture/AI/AI%20DIS%203D%20ICON.png" alt="" class="ai-3d-icon-mobile" loading="lazy">
       </div>
       <p class="ai-desc">
         AI ที่เทรนด์มาจากความเชี่ยวชาญจริงกว่า 10 ปี ตอบได้ลึกกว่า Google
@@ -2006,6 +2012,7 @@
       <div class="ai-platforms">
         <a href="#" target="_blank" class="btn-discord">Discord Server</a>
         <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="btn-line-ai">LINE OA @djlabsiam</a>
+        <img src="djlabsiam%20DATA/Picture/AI/Dis%20Icon.PNG" alt="" class="ai-dis-icon-btn" loading="lazy">
       </div>
       <div class="ai-stats">
         <div>
