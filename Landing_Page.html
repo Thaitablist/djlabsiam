@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ LAB SIAM — โรงเรียนสอน DJ & Authorized Pioneer DJ Dealer</title>
+  <meta name="description" content="เรียน DJ จากมืออาชีพตัวจริง ตัวแทนจำหน่ายอุปกรณ์ Pioneer DJ และ AlphaTheta อย่างเป็นทางการ Lido Connect Siam Square">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://djlabsiam.com/">
+  <meta property="og:title" content="DJ LAB SIAM — โรงเรียนสอน DJ & Authorized Pioneer DJ Dealer">
+  <meta property="og:description" content="เรียน DJ จากมืออาชีพตัวจริง ตัวแทนจำหน่ายอุปกรณ์ Pioneer DJ และ AlphaTheta อย่างเป็นทางการ Lido Connect Siam Square">
+  <meta property="og:image" content="og_image.jpg">
+  <meta property="og:locale" content="th_TH">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DJ LAB SIAM — โรงเรียนสอน DJ & Authorized Pioneer DJ Dealer">
+  <meta name="twitter:description" content="เรียน DJ จากมืออาชีพตัวจริง ตัวแทนจำหน่ายอุปกรณ์ Pioneer DJ และ AlphaTheta อย่างเป็นทางการ">
+  <meta name="twitter:image" content="og_image.jpg">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://djlabsiam.com/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #CC001A;
+      --red-dark: #A80014;
+      --black: #0F0F0F;
+      --gray-dark: #333333;
+      --gray: #888888;
+      --gray-light: #DDDDDD;
+      --bg: #F5F4F0;
+      --white: #FFFFFF;
+      --font: 'Prompt', sans-serif;
+      --font-body: 'Noto Sans Thai', 'Prompt', sans-serif;
+      --line-green: #06C755;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 72px;
+      background: var(--white);
+      border-bottom: 1px solid #E8E8E8;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-mark {
+      height: 40px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 0 22px rgba(255,255,255,0.28));
+    }
+
+    .nav-logo-text {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray-dark);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--red); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover { background: var(--red-dark); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 56px 80px 64px;
+      background: var(--bg);
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 28px;
+    }
+
+    .hero-h1 {
+      font-size: clamp(56px, 7vw, 96px);
+      font-weight: 900;
+      line-height: 1;
+      color: var(--black);
+      letter-spacing: -0.03em;
+      margin-bottom: 32px;
+    }
+
+    .hero-h1 .accent-line {
+      display: block;
+      color: var(--red);
+    }
+
+    .hero-h1 .outline-text {
+      display: block;
+      -webkit-text-stroke: 2px var(--black);
+      color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--gray-dark);
+      line-height: 1.8;
+      max-width: 360px;
+      margin-bottom: 44px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      padding: 15px 32px;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      padding: 15px 32px;
+      background: transparent;
+      color: var(--black);
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid var(--black);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-secondary:hover { background: var(--black); color: var(--white); }
+
+    .hero-partners {
+      padding-top: 28px;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    .hero-partners-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .hero-partners-logos {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .partner-logo-wrap {
+      display: flex;
+      align-items: center;
+      height: 28px;
+      opacity: 0.65;
+      transition: opacity 0.2s;
+      filter: grayscale(100%);
+    }
+
+    .partner-logo-wrap:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+
+    .partner-logo-wrap img {
+      height: 100%;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* Fallback text if logo image missing */
+    .partner-logo-text {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--black);
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .partner-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--gray-light);
+      flex-shrink: 0;
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.88);
+      transition: transform 6s ease;
+    }
+
+    .hero-right:hover .hero-img { transform: scale(1.03); }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      background: var(--red);
+      color: var(--white);
+      padding: 12px 20px;
+    }
+
+    .hero-badge-text {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ─── MARQUEE ─── */
+    .marquee-strip {
+      background: var(--red);
+      padding: 14px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-inner {
+      display: inline-flex;
+      animation: marquee 22s linear infinite;
+    }
+
+    .marquee-item {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      padding: 0 32px;
+    }
+
+    .marquee-sep {
+      color: rgba(255,255,255,0.4);
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ─── STATS BAR ─── */
+    .stats-bar {
+      background: var(--black);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat-item {
+      padding: 44px 48px;
+      border-right: 1px solid #2A2A2A;
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-num {
+      font-size: 52px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      display: block;
+      letter-spacing: -0.03em;
+    }
+
+    .stat-num span { color: var(--red); }
+
+    .stat-label {
+      font-size: 13px;
+      color: #888888;
+      font-weight: 400;
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* ─── SECTION HEADER ─── */
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 14px;
+    }
+
+    .section-tag::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 2px;
+      background: var(--red);
+    }
+
+    .section-h2 {
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 900;
+      font-family: var(--font);
+      color: var(--black);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    /* ─── COURSES ─── */
+    .courses-section {
+      padding: 100px 64px 0;
+      background: var(--white);
+    }
+
+    .process-subsection {
+      background: var(--bg);
+      padding: 80px 64px 100px;
+      margin-top: 60px;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    .process-subsection .section-tag {
+      margin-bottom: 12px;
+    }
+
+    .process-subsection .section-h2 {
+      margin-bottom: 56px;
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .course-card {
+      background: var(--bg);
+      padding: 40px 32px;
+      position: relative;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .course-card:hover { background: var(--black); transform: translateY(-4px); }
+    .course-card.featured { background: var(--red); }
+    .course-card.featured:hover { background: var(--red-dark); }
+
+    .course-num {
+      font-size: 72px;
+      font-weight: 900;
+      color: var(--gray-light);
+      line-height: 1;
+      display: block;
+      margin-bottom: 24px;
+      letter-spacing: -0.04em;
+      transition: color 0.25s;
+    }
+
+    .course-card:hover .course-num { color: #333; }
+    .course-card.featured .course-num { color: rgba(255,255,255,0.25); }
+
+    .course-level {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray);
+      background: var(--white);
+      padding: 4px 10px;
+      margin-bottom: 16px;
+      transition: color 0.25s, background 0.25s;
+    }
+
+    .course-card:hover .course-level { background: #2A2A2A; color: var(--gray); }
+    .course-card.featured .course-level { background: rgba(255,255,255,0.25); color: var(--white); }
+
+    .course-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--black);
+      line-height: 1.2;
+      margin-bottom: 12px;
+      transition: color 0.25s;
+    }
+
+    .course-card:hover .course-name { color: var(--white); }
+    .course-card.featured .course-name { color: var(--white); }
+
+    .course-desc {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      transition: color 0.25s;
+    }
+
+    .course-card:hover .course-desc { color: #999; }
+    .course-card.featured .course-desc { color: rgba(255,255,255,0.8); }
+
+    .course-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      border-bottom: 2px solid var(--black);
+      padding-bottom: 2px;
+      transition: color 0.25s, border-color 0.25s;
+    }
+
+    .course-card:hover .course-link { color: var(--white); border-color: var(--white); }
+    .course-card.featured .course-link { color: var(--white); border-color: rgba(255,255,255,0.6); }
+
+    /* ─── STORE SECTION ─── */
+    .store-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 600px;
+    }
+
+    .store-img-wrap {
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    .store-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 6s ease;
+      filter: brightness(0.85);
+    }
+
+    .store-img-wrap:hover .store-img { transform: scale(1.04); }
+
+    .store-content {
+      padding: 80px 72px;
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .store-h2 {
+      font-size: 42px;
+      font-weight: 900;
+      color: var(--black);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin: 0 0 40px;
+    }
+
+    .brand-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: 32px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: var(--bg);
+      transition: background 0.2s;
+    }
+
+    .brand-row:hover { background: var(--black); }
+
+    .brand-row-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--black);
+      transition: color 0.2s;
+    }
+
+    .brand-row:hover .brand-row-name { color: var(--white); }
+
+    .brand-row-badge {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      border: 1px solid var(--red);
+      padding: 3px 8px;
+    }
+
+    .store-desc {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    /* ─── EVENT SECTION ─── */
+    .event-section {
+      position: relative;
+      height: 520px;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    .event-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.55);
+    }
+
+    .event-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 64px;
+    }
+
+    .event-content { max-width: 640px; }
+
+    .event-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      border-left: 3px solid var(--red);
+      padding-left: 12px;
+      margin-bottom: 20px;
+    }
+
+    .event-title {
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .event-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+    }
+
+    /* ─── PROCESS ─── */
+    .process-section {
+      padding: 100px 64px;
+      background: var(--bg);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 56px;
+    }
+
+    .process-step {
+      background: var(--white);
+      padding: 40px 32px;
+      position: relative;
+    }
+
+    .process-step-num {
+      font-size: 80px;
+      font-weight: 900;
+      color: var(--gray-light);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .process-step-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+
+    .process-step-desc {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .process-step-arrow {
+      position: absolute;
+      top: 40px;
+      right: 32px;
+      font-size: 24px;
+      color: var(--red);
+      font-weight: 300;
+    }
+
+    .process-step:last-child .process-step-arrow { display: none; }
+
+    /* ─── TEACHERS ─── */
+    .teachers-section {
+      padding: 80px 0 0;
+      background: var(--white);
+    }
+
+    .teachers-header {
+      padding: 0 64px 48px;
+    }
+
+    .teachers-scroll {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 2px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .teachers-scroll::-webkit-scrollbar { display: none; }
+
+    .teacher-card {
+      position: relative;
+      height: 460px;
+      overflow: hidden;
+      background: var(--black);
+      min-width: 180px;
+    }
+
+    .teacher-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(20%) brightness(0.78);
+      transform: scale(var(--scale, 1));
+      transform-origin: var(--origin, 50% 0%);
+      transition: filter 0.4s, transform 0.6s;
+    }
+
+    .teacher-card:hover .teacher-img {
+      filter: grayscale(0%) brightness(0.9);
+      transform: scale(calc(var(--scale, 1) * 1.04));
+    }
+
+    /* Light bg variant for teachers with light-background photos */
+    .teacher-card.light {
+      background: #F0F0F0;
+    }
+
+    .teacher-card.light .teacher-img {
+      filter: none;
+    }
+
+    .teacher-card.light:hover .teacher-img {
+      filter: none;
+      transform: scale(calc(var(--scale, 1) * 1.04));
+    }
+
+    .teacher-card.light .teacher-name { color: var(--black); }
+    .teacher-card.light .teacher-role { color: var(--red); }
+
+    .teacher-name-wrap {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+    }
+
+    .teacher-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .teacher-role {
+      font-size: 10px;
+      color: var(--red);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* ─── LOCATION ─── */
+    .location-section {
+      background: var(--black);
+    }
+
+    .location-img-wrap {
+      width: 100%;
+      aspect-ratio: 32 / 9;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .location-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 8s ease;
+    }
+
+    .location-img-wrap:hover .location-img { transform: scale(1.03); }
+
+    .location-info-bar {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr auto;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .location-info-col {
+      padding: 44px 48px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .location-info-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .location-info-title {
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .location-info-title span { color: var(--red); }
+
+    .location-info-text {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.9;
+    }
+
+    .location-info-cta {
+      padding: 44px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ─── AI SECTION ─── */
+    .ai-section {
+      background: var(--black);
+      position: relative;
+      overflow: visible;
+      border-top: 1px solid #1A1A1A;
+      border-bottom: 1px solid #1A1A1A;
+    }
+
+    .ai-visual {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 58%;
+      height: 100%;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .ai-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .ai-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to left,
+        #0F0F0F 0%,
+        rgba(15,15,15,0.75) 20%,
+        rgba(15,15,15,0.15) 50%,
+        transparent 75%
+      );
+    }
+
+    .ai-3d-icon {
+      position: absolute;
+      top: calc(48% - 460px);
+      left: calc(-4% + 20px);
+      transform: translateY(-20%);
+      width: 844px;
+      z-index: 2;
+      pointer-events: none;
+      filter:
+        drop-shadow(0 0 20px rgba(204,0,26,0.35))
+        drop-shadow(0 12px 32px rgba(0,0,0,0.55));
+      animation: ai-icon-float 5s ease-in-out infinite;
+    }
+
+    @keyframes ai-icon-float {
+      0%, 100% { transform: translateY(-54%) translateY(0px); }
+      50%       { transform: translateY(-54%) translateY(-14px); }
+    }
+
+    .ai-content {
+      position: relative;
+      z-index: 1;
+      margin-left: 54%;
+      padding: 100px 80px 100px 60px;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .ai-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 22px;
+    }
+
+    .ai-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.75); }
+    }
+
+    .ai-h2 {
+      font-size: clamp(30px, 3vw, 52px);
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .ai-h2 span { color: var(--red); }
+
+    .ai-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.85;
+      margin-bottom: 36px;
+      max-width: 440px;
+    }
+
+    .ai-platforms {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-discord {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: #5865F2;
+      color: var(--white);
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-discord:hover { background: #4752C4; transform: translateY(-1px); }
+
+    .btn-line-ai {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: transparent;
+      color: rgba(255,255,255,0.75);
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.18);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .btn-line-ai:hover {
+      border-color: rgba(255,255,255,0.5);
+      color: var(--white);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .ai-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .ai-stat-num {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--red);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .ai-stat-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 5px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--black);
+      padding: 60px 64px 40px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid #2A2A2A;
+    }
+
+    .footer-logo {
+      height: 44px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 0 22px rgba(255,255,255,0.28));
+      margin-bottom: 20px;
+    }
+
+    .footer-brand-desc {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: #888;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+    }
+
+    .footer-copy { font-size: 12px; color: #555; }
+
+    .footer-social { display: flex; gap: 20px; }
+
+    .footer-social a {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: #555;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .footer-social a:hover { color: var(--red); }
+
+    /* ─── SCROLL OFFSET (fixed nav compensation) ─── */
+    #courses, #equipment, #process, #location {
+      scroll-margin-top: 80px;
+    }
+
+    /* ─── STUDENT GALLERY ─── */
+    .gallery-section {
+      padding: 80px 64px;
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    .gallery-scroll {
+      display: flex;
+      gap: 8px;
+      margin-top: 48px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      cursor: grab;
+    }
+
+    .gallery-scroll::-webkit-scrollbar { display: none; }
+    .gallery-scroll:active { cursor: grabbing; }
+
+    .gallery-item {
+      flex: 0 0 240px;
+      height: 360px;
+      overflow: hidden;
+      scroll-snap-align: start;
+      position: relative;
+      background: var(--black);
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover .gallery-img { transform: scale(1.05); }
+
+    /* ─── YOUTUBE SECTION ─── */
+    .youtube-section {
+      padding: 80px 64px;
+      background: var(--white);
+    }
+
+    .youtube-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .youtube-cta-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      border-bottom: 2px solid var(--black);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .youtube-cta-link:hover { color: #FF0000; border-color: #FF0000; }
+
+    .yt-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .yt-card {
+      position: relative;
+      background: var(--black);
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+
+    .yt-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a1a1a 50%, #1a1010 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s;
+      position: relative;
+    }
+
+    .yt-card:hover .yt-thumb { opacity: 0.8; }
+
+    .yt-play-btn {
+      width: 56px;
+      height: 56px;
+      background: #FF0000;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s;
+    }
+
+    .yt-card:hover .yt-play-btn { transform: scale(1.1); }
+
+    .yt-duration {
+      position: absolute;
+      bottom: 8px;
+      right: 10px;
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 2px 6px;
+      border-radius: 3px;
+      letter-spacing: 0.02em;
+    }
+
+    .yt-play-icon {
+      width: 0;
+      height: 0;
+      border-top: 11px solid transparent;
+      border-bottom: 11px solid transparent;
+      border-left: 18px solid white;
+      margin-left: 4px;
+    }
+
+    .yt-meta {
+      padding: 14px 16px;
+      background: var(--white);
+      border: 1px solid #EEEEEE;
+      border-top: none;
+    }
+
+    .yt-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .yt-channel-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #FF0000;
+      margin-bottom: 14px;
+    }
+
+    .yt-channel-tag::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 2px;
+      background: #FF0000;
+    }
+
+    /* ─── SUNDAY LIVE SECTION ─── */
+    .sunday-section {
+      background: var(--black);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 480px;
+    }
+
+    .sunday-content {
+      padding: 72px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .sunday-live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #E8001D;
+      color: white;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      width: fit-content;
+      margin-bottom: 24px;
+    }
+
+    .sunday-live-dot {
+      width: 7px;
+      height: 7px;
+      background: white;
+      border-radius: 50%;
+      animation: pulse-dot 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .sunday-h2 {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .sunday-time {
+      font-size: 16px;
+      color: var(--red);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .sunday-desc {
+      font-size: 15px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    .sunday-embed {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111;
+      overflow: hidden;
+    }
+
+    .sunday-embed iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 480px;
+      border: none;
+      display: block;
+    }
+
+    /* ─── HAMBURGER / MOBILE NAV ─── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      padding: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 200;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--black);
+      transition: transform 0.3s, opacity 0.2s;
+      transform-origin: center;
+    }
+
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 72px 0 0 0;
+      background: var(--white);
+      z-index: 90;
+      flex-direction: column;
+      padding: 32px 24px;
+      border-top: 1px solid #E8E8E8;
+      overflow-y: auto;
+    }
+
+    .mobile-nav.open { display: flex; }
+
+    .mobile-nav a {
+      display: block;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--black);
+      text-decoration: none;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--gray-light);
+      letter-spacing: -0.01em;
+      transition: color 0.2s;
+    }
+
+    .mobile-nav a:hover { color: var(--red); }
+
+    .mobile-nav .mobile-nav-cta {
+      display: block;
+      text-align: center;
+      margin-top: 28px;
+      padding: 16px 32px;
+      background: var(--red);
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 700;
+      border-bottom: none;
+    }
+
+    .mobile-nav .mobile-nav-cta:hover { background: var(--red-dark); color: var(--white); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      nav { padding: 0 28px; }
+      .nav-links { gap: 20px; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 60px 40px; }
+      .hero-right { height: 60vw; }
+      .store-section { grid-template-columns: 1fr; }
+      .store-img-wrap { height: 320px; }
+      .location-info-bar { grid-template-columns: 1fr 1fr; }
+      .courses-grid { grid-template-columns: 1fr 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .ai-visual { width: 100%; height: 50%; top: 0; bottom: auto; left: 0; }
+      .ai-visual::after {
+        background: linear-gradient(
+          to top,
+          #0F0F0F 0%,
+          rgba(15,15,15,0.6) 40%,
+          transparent 100%
+        );
+      }
+      .ai-visual img { object-position: center center; }
+      .ai-content { margin-left: 0; min-height: auto; padding: 72px 40px; margin-top: 50vw; }
+      .ai-platforms { justify-content: flex-start; }
+      .footer-top { grid-template-columns: 1fr; gap: 36px; }
+      .stats-bar { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid #2A2A2A; }
+      .stat-item:last-child { border-bottom: none; }
+    }
+
+    @media (max-width: 1024px) {
+      .teachers-scroll {
+        grid-template-columns: repeat(6, minmax(200px, 1fr));
+      }
+      .teacher-card { height: 380px; }
+      .sunday-section { grid-template-columns: 1fr; }
+      .sunday-embed { min-height: 320px; }
+      .sunday-embed iframe { min-height: 320px; }
+      .yt-strip { grid-template-columns: 1fr 1fr; }
+      .gallery-section, .youtube-section { padding: 64px 40px; }
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .hero-left { padding: 48px 24px; }
+      .courses-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
+      .courses-section, .process-section { padding: 64px 24px; }
+      .ai-content { padding: 48px 24px; margin-left: 0; margin-top: 0; }
+      .teachers-section { padding: 64px 0 0; }
+      .teachers-header { padding: 0 24px 36px; }
+      .teachers-scroll { grid-template-columns: repeat(6, minmax(160px, 1fr)); }
+      .teacher-card { height: 300px; }
+      .store-content { padding: 56px 32px; }
+      .location-info-bar { grid-template-columns: 1fr; }
+      .location-info-col, .location-info-cta { padding: 28px 24px; border-right: none; }
+      .cta-actions { flex-direction: column; }
+      .yt-strip { grid-template-columns: 1fr; }
+      .gallery-section, .youtube-section { padding: 56px 24px; }
+      .sunday-content { padding: 48px 28px; }
+      .footer-bottom { flex-direction: column; gap: 16px; }
+      .footer-social { flex-wrap: wrap; justify-content: center; }
+      footer { padding: 48px 24px 32px; }
+      .event-overlay { padding: 32px; }
+    }
+  </style>
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'YOUR_PIXEL_ID');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel -->
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <img src="logo_mark.png" alt="DJ LAB SIAM" class="nav-logo-mark">
+      <span class="nav-logo-text">DJ LAB SIAM</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#courses">คอร์สเรียน</a></li>
+      <li><a href="#equipment">อุปกรณ์</a></li>
+      <li><a href="#process">ขั้นตอน</a></li>
+      <li><a href="#location">สถานที่</a></li>
+    </ul>
+    <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="nav-cta">ติดต่อ LINE</a>
+    <button class="nav-hamburger" id="hamburgerBtn" aria-label="เปิดเมนู" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <a href="#courses" class="mobile-nav-item">คอร์สเรียน</a>
+    <a href="#equipment" class="mobile-nav-item">อุปกรณ์</a>
+    <a href="#process" class="mobile-nav-item">ขั้นตอน</a>
+    <a href="#location" class="mobile-nav-item">สถานที่</a>
+    <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="mobile-nav-cta">ติดต่อ LINE @djlabsiam</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <h1 class="hero-h1">
+        เรียน DJ<br>
+        <span class="accent-line">จากมืออาชีพ</span>
+        <span class="outline-text">ตัวจริง</span>
+      </h1>
+      <p class="hero-desc">
+        โรงเรียนสอน DJ ที่ทีมงานทุกคนเป็น DJ มืออาชีพ
+        ตั้งแต่ Beginner จนถึง Professional
+        ตัวแทนจำหน่าย Pioneer DJ และ AlphaTheta อย่างเป็นทางการ
+      </p>
+      <div class="hero-actions">
+        <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="btn-primary" style="background:var(--line-green);border-color:var(--line-green);">ทักหา LINE @djlabsiam</a>
+        <a href="#courses" class="btn-secondary">ดูคอร์สทั้งหมด</a>
+      </div>
+      <div class="hero-partners">
+        <span class="hero-partners-label">Official Partner &amp; Authorized Dealer</span>
+        <div class="hero-partners-logos">
+          <div class="partner-logo-wrap" style="height:120px;">
+            <img src="djlabsiam%20DATA/Picture/Partner/alphatheta-logo-png_seeklogo-622846.png" alt="AlphaTheta"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="partner-logo-text" style="display:none;">AlphaTheta</span>
+          </div>
+          <div class="partner-divider"></div>
+          <div class="partner-logo-wrap" style="height:22px;">
+            <img src="djlabsiam%20DATA/Picture/Partner/Mahajak_Logo.png" alt="Mahajak"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="partner-logo-text" style="display:none;">Mahajak</span>
+          </div>
+          <div class="partner-divider"></div>
+          <div class="partner-logo-wrap">
+            <img src="djlabsiam%20DATA/Picture/Partner/oyside%20logo%20b.jpg" alt="NEO by OYAIDE"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+            <span class="partner-logo-text" style="display:none;">NEO by OYAIDE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img
+        src="djlabsiam%20DATA/Picture/Action/DSC017502.jpg"
+        alt="DJ LAB SIAM — Turntable Setup"
+        class="hero-img"
+        style="object-position: center 52%;"
+      >
+      <div style="position:absolute;top:40px;left:40px;">
+        <img src="logo_full.png" alt="DJ LAB SIAM" style="height:52px;width:auto;display:block;filter:drop-shadow(0 0 22px rgba(255,255,255,0.28));">
+      </div>
+      <div class="hero-badge">
+        <span class="hero-badge-text">Lido Connect · Siam Square</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-inner">
+      <span class="marquee-item">Pioneer DJ</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">AlphaTheta</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">NEO by OYAIDE</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">Turntablism</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">Open Format</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">Scratching</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">CDJ-3000</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">DJM-V5</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">rekordbox</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">Authorized Dealer</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">Pioneer DJ</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">AlphaTheta</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">NEO by OYAIDE</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">Turntablism</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">Open Format</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">Scratching</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">CDJ-3000</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">DJM-V5</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">rekordbox</span><span class="marquee-sep"> · </span>
+      <span class="marquee-item">Authorized Dealer</span><span class="marquee-sep"> · </span>
+    </div>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num">44<span>K+</span></span>
+      <span class="stat-label">Facebook Community</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">10<span>K+</span></span>
+      <span class="stat-label">Member</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">100<span>%</span></span>
+      <span class="stat-label">Pro DJ Instructors — ทีมงานทุกคนเป็น DJ มืออาชีพ</span>
+    </div>
+  </div>
+
+  <!-- COURSES -->
+  <section class="courses-section" id="courses">
+    <div class="section-header">
+      <div>
+        <div class="section-tag">คอร์สเรียน</div>
+        <h2 class="section-h2">เลือกระดับที่ใช่<br>สำหรับคุณ</h2>
+      </div>
+      <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="btn-secondary" style="font-size:13px;padding:12px 24px;">สอบถามรายละเอียด</a>
+    </div>
+    <div class="courses-grid">
+      <div class="course-card">
+        <span class="course-num">01</span>
+        <span class="course-level">Beginner</span>
+        <div class="course-name">เริ่มต้น<br>จาก Zero</div>
+        <div class="course-desc">ไม่ต้องมีพื้นฐาน เรียนรู้การ Beatmatch, Mix พื้นฐาน และ rekordbox ตั้งแต่เริ่มต้น</div>
+        <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="course-link">สอบถาม →</a>
+      </div>
+      <div class="course-card featured">
+        <span class="course-num">02</span>
+        <span class="course-level">Intermediate</span>
+        <div class="course-name">ยกระดับ<br>ทักษะ</div>
+        <div class="course-desc">Harmonic Mixing, EQ Technique, Phrasing และ Open Format สำหรับคนที่เล่นได้แล้วอยากดีขึ้น</div>
+        <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="course-link">สอบถาม →</a>
+      </div>
+      <div class="course-card">
+        <span class="course-num">03</span>
+        <span class="course-level">Turntablism</span>
+        <div class="course-name">Scratch &amp;<br>Turntablism</div>
+        <div class="course-desc">Baby Scratch, Flare, Chirp, Beat Juggling สอนโดย DJ สายนี้โดยตรง เน้น Technique เข้มข้น</div>
+        <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="course-link">สอบถาม →</a>
+      </div>
+      <div class="course-card">
+        <span class="course-num">04</span>
+        <span class="course-level">Professional</span>
+        <div class="course-name">ระดับ<br>Professional</div>
+        <div class="course-desc">Performance Workflow, Club Standard Setup, Career Guidance สำหรับคนที่จริงจังกับการเป็น DJ อาชีพ</div>
+        <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="course-link">สอบถาม →</a>
+      </div>
+    </div>
+
+  <!-- HOW TO START -->
+  <div class="process-subsection" id="process">
+    <div class="section-tag">ขั้นตอนการเรียน</div>
+    <h2 class="section-h2">เริ่มต้นง่าย<br>ใน 4 ขั้นตอน</h2>
+    <div class="process-grid">
+      <div class="process-step">
+        <span class="process-step-num">01</span>
+        <div class="process-step-title">ทักมาคุย</div>
+        <div class="process-step-desc">ทักหา LINE @djlabsiam แจ้งระดับและเป้าหมาย ทีมเราจะแนะนำคอร์สที่เหมาะสม</div>
+        <span class="process-step-arrow">→</span>
+      </div>
+      <div class="process-step">
+        <span class="process-step-num">02</span>
+        <div class="process-step-title">เลือกคอร์ส</div>
+        <div class="process-step-desc">เลือก Package ที่ตรงกับระดับและเวลาที่มี แบบ 1:1 หรือ Group ก็ได้</div>
+        <span class="process-step-arrow">→</span>
+      </div>
+      <div class="process-step">
+        <span class="process-step-num">03</span>
+        <div class="process-step-title">นัดวันเรียน</div>
+        <div class="process-step-desc">จัดตารางให้ตรงกับเวลาที่ว่าง เรียนที่ DJ LAB SIAM Lido Connect Siam Square</div>
+        <span class="process-step-arrow">→</span>
+      </div>
+      <div class="process-step">
+        <span class="process-step-num">04</span>
+        <div class="process-step-title">เริ่มเล่น</div>
+        <div class="process-step-desc">เรียนบน Pioneer DJ CDJ + DJM จริง ทีมงาน Pro DJ ดูแลตลอดคอร์ส</div>
+        <span class="process-step-arrow">→</span>
+      </div>
+    </div>
+  </div>
+
+  </section>
+
+  <!-- EQUIPMENT / STORE -->
+  <section class="store-section" id="equipment">
+    <div class="store-img-wrap">
+      <img
+        src="djlabsiam%20DATA/Picture/Location/unnamed%20%281%29.jpg"
+        alt="DJ LAB SIAM Store — Pioneer DJ & AlphaTheta Equipment"
+        class="store-img"
+        loading="lazy"
+      >
+    </div>
+    <div class="store-content">
+      <div class="section-tag">อุปกรณ์ DJ</div>
+      <h2 class="store-h2">Authorized<br>Dealer<br>อย่างเป็นทางการ</h2>
+      <div class="brand-list">
+        <div class="brand-row">
+          <span class="brand-row-name">Pioneer DJ</span>
+          <span class="brand-row-badge">Authorized</span>
+        </div>
+        <div class="brand-row">
+          <span class="brand-row-name">AlphaTheta</span>
+          <span class="brand-row-badge">Authorized</span>
+        </div>
+        <div class="brand-row">
+          <span class="brand-row-name">NEO by OYAIDE</span>
+          <span class="brand-row-badge">Official</span>
+        </div>
+      </div>
+      <p class="store-desc">
+        สินค้าครบ — CDJ Player, DJM Mixer, Controller, Headphones,
+        สาย RCA และ XLR คุณภาพสูง พร้อมรับประกันจากผู้ผลิต
+      </p>
+    </div>
+  </section>
+
+    </div>
+  </div>
+
+
+  <!-- TEACHERS -->
+  <section class="teachers-section">
+    <div class="teachers-header">
+      <div class="section-tag">ครูผู้สอน</div>
+      <h2 class="section-h2">ทีมงานทุกคน<br>เป็น Pro DJ</h2>
+    </div>
+    <div class="teachers-scroll">
+      <div class="teacher-card">
+        <img src="djlabsiam%20DATA/Picture/Teacher/Zlex.png" alt="Zlex" class="teacher-img" style="--scale: 2.00; --origin: 50% 8%;" loading="lazy">
+        <div class="teacher-name-wrap">
+          <div class="teacher-name">Zlex</div>
+          <span class="teacher-role">Scratch · Turntablism</span>
+        </div>
+      </div>
+      <div class="teacher-card">
+        <img src="djlabsiam%20DATA/Picture/Teacher/LEONIE.jpg" alt="Leonie" class="teacher-img" style="--scale: 1.3; --origin: 50% 0%;" loading="lazy">
+        <div class="teacher-name-wrap">
+          <div class="teacher-name">Leonie</div>
+          <span class="teacher-role">Open Format</span>
+        </div>
+      </div>
+      <div class="teacher-card">
+        <img src="djlabsiam%20DATA/Picture/Teacher/Nutty.jpg" alt="Nutty" class="teacher-img" style="--scale: 1.20; --origin: 50% 0%;" loading="lazy">
+        <div class="teacher-name-wrap">
+          <div class="teacher-name">Nutty</div>
+          <span class="teacher-role">Open Format · Technical DJ</span>
+        </div>
+      </div>
+      <div class="teacher-card">
+        <img src="djlabsiam%20DATA/Picture/Teacher/Tibass%20white%20bg.jpg" alt="Tibass" class="teacher-img" style="--scale: 1.25; --origin: 50% 36%;" loading="lazy">
+        <div class="teacher-name-wrap">
+          <div class="teacher-name">Tibass</div>
+          <span class="teacher-role">Open Format</span>
+        </div>
+      </div>
+      <div class="teacher-card">
+        <img src="djlabsiam%20DATA/Picture/Teacher/Maniac%E0%B8%AB%E0%B8%A1%E0%B8%B4%E0%B8%87.jpg" alt="Maniac" class="teacher-img" style="--scale: 1.00; --origin: 50% 0%;" loading="lazy">
+        <div class="teacher-name-wrap">
+          <div class="teacher-name">Maniac</div>
+          <span class="teacher-role">Scratch · Open Format</span>
+        </div>
+      </div>
+      <div class="teacher-card">
+        <img src="djlabsiam%20DATA/Picture/Teacher/alldayz%20white%20bg.png" alt="Alldayz" class="teacher-img" style="--scale: 1.27; --origin: 50% 14%;" loading="lazy">
+        <div class="teacher-name-wrap">
+          <div class="teacher-name">Alldayz</div>
+          <span class="teacher-role">Open Format</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="location-section" id="location">
+    <div class="location-img-wrap">
+      <img
+        src="djlabsiam%20DATA/Picture/Location/43273a_a6508b2a74a349fb8ab297f5e27db465~mv2.jpg"
+        alt="Lido Connect — DJ LAB SIAM Location"
+        class="location-img"
+        loading="lazy"
+      >
+    </div>
+    <div class="location-info-bar">
+      <div class="location-info-col">
+        <div class="location-info-label">พบเราได้ที่</div>
+        <div class="location-info-title">Lido Connect<br><span>Siam Square</span></div>
+      </div>
+      <div class="location-info-col">
+        <div class="location-info-label">ที่อยู่</div>
+        <div class="location-info-text">Lido Connect ชั้น 2<br>Siam Square Soi 3<br>ปทุมวัน กรุงเทพฯ 10330</div>
+      </div>
+      <div class="location-info-col">
+        <div class="location-info-label">ติดต่อ</div>
+        <div class="location-info-text">
+          02-252-5868 / 088-656-0464<br>
+          LINE: @djlabsiam<br>
+          เปิด 12:00–20:00 น. ทุกวัน
+        </div>
+      </div>
+      <div class="location-info-cta" style="display:flex;flex-direction:column;gap:10px;">
+        <a href="https://www.google.com/maps/search/Lido+Connect+Siam+Square+Bangkok" target="_blank" class="btn-primary" style="white-space:nowrap;text-align:center;">แผนที่</a>
+        <a href="djlabsiam%20DATA/Picture/Location/lido2ndfloorplan.svg" target="_blank" class="btn-secondary" style="white-space:nowrap;font-size:13px;padding:10px 20px;text-align:center;">Lido Map</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDENT GALLERY -->
+  <section class="gallery-section">
+    <div class="section-tag">นักเรียนและลูกค้า</div>
+    <h2 class="section-h2">ผลลัพธ์จริง<br>จากคนจริง</h2>
+    <div class="gallery-scroll" id="galleryScroll">
+      <div class="gallery-item">
+        <img loading="lazy" src="djlabsiam%20DATA/Picture/%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99/467889929_918962870362814_7251440454800834735_n.jpg" alt="นักเรียน DJ LAB SIAM" class="gallery-img">
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="djlabsiam%20DATA/Picture/%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99/471666593_1767228717405962_4453620327841921398_n.jpg" alt="นักเรียน DJ LAB SIAM" class="gallery-img">
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="djlabsiam%20DATA/Picture/%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99/655147204_1307656644570526_2235886432276115252_n.jpg" alt="นักเรียน DJ LAB SIAM" class="gallery-img">
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="djlabsiam%20DATA/Picture/%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99/659780865_1095147502818964_4113746813935636661_n.jpg" alt="นักเรียน DJ LAB SIAM" class="gallery-img">
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="djlabsiam%20DATA/Picture/%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99/662389581_1330021985847114_7071769201598514061_n.jpg" alt="นักเรียน DJ LAB SIAM" class="gallery-img">
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="djlabsiam%20DATA/Picture/%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99/662869708_996529102703985_8991692201279467464_n.jpg" alt="นักเรียน DJ LAB SIAM" class="gallery-img">
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="djlabsiam%20DATA/Picture/%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99/667836766_1662219018428625_6734807537503945992_n.jpg" alt="นักเรียน DJ LAB SIAM" class="gallery-img">
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="djlabsiam%20DATA/Picture/%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99/6ec8ffbf-e3bf-4c4c-acd7-14dd93589d47.jpg" alt="นักเรียน DJ LAB SIAM" class="gallery-img">
+      </div>
+      <div class="gallery-item">
+        <img loading="lazy" src="djlabsiam%20DATA/Picture/%E0%B8%99%E0%B8%B1%E0%B8%81%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2%E0%B8%99/a0f72108-8af5-4f92-b1a0-03f5801b35c7.jpg" alt="นักเรียน DJ LAB SIAM" class="gallery-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUTUBE SECTION -->
+  <section class="youtube-section">
+    <div class="youtube-header">
+      <div>
+        <div class="yt-channel-tag">YouTube</div>
+        <h2 class="section-h2">Tutorial &amp; Content<br>บน YouTube</h2>
+      </div>
+      <a href="https://www.youtube.com/@DJLABSIAM" target="_blank" class="youtube-cta-link">
+        ดูทุกวิดีโอ →
+      </a>
+    </div>
+    <div class="yt-strip">
+      <a href="https://www.youtube.com/@DJLABSIAM" target="_blank" class="yt-card">
+        <div class="yt-thumb" style="background-image:url('djlabsiam%20DATA/Picture/Youtube%20Thumbnail/%E0%B9%81%E0%B8%97%E0%B8%87%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%87.png');background-size:cover;background-position:center;">
+          <div class="yt-play-btn"><div class="yt-play-icon"></div></div>
+          <span class="yt-duration">13:51</span>
+        </div>
+        <div class="yt-meta">
+          <div class="yt-title">โปรแกรม DJ ที่เราใช้ 'แทงข้างหลัง' ผู้ใช้งาน</div>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/@DJLABSIAM" target="_blank" class="yt-card">
+        <div class="yt-thumb" style="background-image:url('djlabsiam%20DATA/Picture/Youtube%20Thumbnail/Vinyl%20%E0%B8%94%E0%B8%B5%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AA%E0%B8%B8%E0%B8%94.png');background-size:cover;background-position:center;">
+          <div class="yt-play-btn"><div class="yt-play-icon"></div></div>
+          <span class="yt-duration">20:50</span>
+        </div>
+        <div class="yt-meta">
+          <div class="yt-title">DJ Vinyl Record ดีที่สุด... จริงหรือ???</div>
+        </div>
+      </a>
+      <a href="https://youtu.be/Meq8adseXfA?si=1Z-CCLUL6D39u-UM" target="_blank" class="yt-card">
+        <div class="yt-thumb" style="background-image:url('djlabsiam%20DATA/Picture/Youtube%20Thumbnail/Lyric%20Scratch.png');background-size:cover;background-position:center;">
+          <div class="yt-play-btn"><div class="yt-play-icon"></div></div>
+          <span class="yt-duration">18:56</span>
+        </div>
+        <div class="yt-meta">
+          <div class="yt-title">DJ เล่นเบรกแรก ใส่สุด หรือ ต้องวอมรอ?</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SUNDAY LIVE -->
+  <section class="sunday-section">
+    <div class="sunday-content">
+      <span class="sunday-live-badge">
+        <span class="sunday-live-dot"></span>
+        Live Every Sunday
+      </span>
+      <h2 class="sunday-h2">SUNDAY<br>LIVE</h2>
+      <div class="sunday-time">ทุกวันอาทิตย์ · 18:30 น.</div>
+      <p class="sunday-desc">
+        รายการ Live สด พูดคุยเรื่องดีเจทุกมิติ —
+        เทคนิค, อุปกรณ์, วงการ, Q&amp;A กับทีม DJ LAB SIAM
+        ทาง Facebook Page ทุกอาทิตย์ 18:30 น.
+      </p>
+      <a href="https://www.facebook.com/PioneerDjLabSiam/" target="_blank" class="btn-primary" style="width:fit-content;">
+        ติดตาม Facebook Page
+      </a>
+    </div>
+    <div class="sunday-embed">
+      <iframe
+        src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1721564759152423&width=640&show_text=false&height=480&appId"
+        style="border:none;overflow:hidden;width:100%;min-height:480px;"
+        scrolling="no"
+        frameborder="0"
+        allowfullscreen="true"
+        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- AI SECTION -->
+  <section class="ai-section">
+    <div class="ai-content">
+      <div class="ai-badge">
+        <span class="ai-badge-dot"></span>
+        DJLAB AI &mdash; พร้อมตอบทุกคำถาม
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <h2 class="ai-h2" style="margin:0;">
+          ถามได้ทุกอย่าง<br>
+          เรื่อง <span>DJ</span><br>
+          ไม่เหมือนที่ไหน
+        </h2>
+        <img src="djlabsiam%20DATA/Picture/AI/Dis%20Icon.PNG" alt="" style="width:90px;flex-shrink:0;border-radius:20px;" loading="lazy">
+      </div>
+      <p class="ai-desc">
+        AI ที่เทรนด์มาจากความเชี่ยวชาญจริงกว่า 10 ปี ตอบได้ลึกกว่า Google
+        ไม่ว่าจะเป็นเทคนิค อุปกรณ์ software หรือเส้นทางการเป็น DJ Professional
+        พร้อมตอบตลอด 24 ชั่วโมง ทั้งบน Discord Server และ LINE OA
+      </p>
+      <div class="ai-platforms">
+        <a href="#" target="_blank" class="btn-discord">Discord Server</a>
+        <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="btn-line-ai">LINE OA @djlabsiam</a>
+      </div>
+      <div class="ai-stats">
+        <div>
+          <div class="ai-stat-num">24/7</div>
+          <div class="ai-stat-label">พร้อมตอบตลอดเวลา</div>
+        </div>
+        <div>
+          <div class="ai-stat-num">10+</div>
+          <div class="ai-stat-label">ปีของข้อมูล DJ จริง</div>
+        </div>
+        <div>
+          <div class="ai-stat-num">Free</div>
+          <div class="ai-stat-label">ไม่มีค่าใช้จ่าย</div>
+        </div>
+      </div>
+    </div>
+    <div class="ai-visual">
+      <img
+        src="djlabsiam%20DATA/Picture/AI/DJLAB%20DIS%20.png"
+        alt="DJLAB AI — Discord Server DJ LAB SIAM"
+        loading="lazy"
+      >
+    </div>
+    <img
+      src="djlabsiam%20DATA/Picture/AI/AI%20DIS%203D%20ICON.png"
+      alt=""
+      class="ai-3d-icon"
+      loading="lazy"
+    >
+  </section>
+
+  <!-- EVENT -->
+  <div class="event-section">
+    <img
+      src="djlabsiam%20DATA/Picture/Action/Mahajak%20x%20DJ%20LAB%20SIAM%20event.jpg"
+      alt="DJ LAB Open Format Contest — AlphaTheta x Mahajak"
+      class="event-img"
+      loading="lazy"
+    >
+    <div class="event-overlay">
+      <div class="event-content">
+        <span class="event-tag">Event Highlight</span>
+        <h2 class="event-title">DJ LAB Open Format Contest<br>ร่วมกับ AlphaTheta &amp; Mahajak</h2>
+        <p class="event-desc">
+          ผู้จัดงานแข่งขัน DJ ระดับประเทศ ร่วมกับ AlphaTheta และ Mahajak
+          พิสูจน์ว่า DJ LAB SIAM ไม่ใช่แค่โรงเรียน แต่เป็นศูนย์กลาง DJ community ของไทย
+        </p>
+      </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <img src="logo_full.png" alt="DJ LAB SIAM" class="footer-logo">
+        <p class="footer-brand-desc">
+          โรงเรียนสอน DJ และตัวแทนจำหน่ายอุปกรณ์ Pioneer DJ / AlphaTheta
+          อย่างเป็นทางการ ตั้งอยู่ที่ Lido Connect Siam Square กรุงเทพฯ
+        </p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="#courses">คอร์สเรียน</a></li>
+          <li><a href="#equipment">อุปกรณ์</a></li>
+          <li><a href="#process">ขั้นตอน</a></li>
+          <li><a href="#location">สถานที่</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">ติดต่อ</div>
+        <ul class="footer-links">
+          <li><a href="https://line.me/ti/p/@djlabsiam" target="_blank">LINE: @djlabsiam</a></li>
+          <li><a href="tel:022525868">02-252-5868</a></li>
+          <li><a href="tel:0886560464">088-656-0464</a></li>
+          <li><a href="mailto:djlabsiam@gmail.com">djlabsiam@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 DJ LAB SIAM. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://discord.gg/djlabsiam" target="_blank">Discord</a>
+        <a href="https://www.facebook.com/PioneerDjLabSiam/" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/djlabsiam/" target="_blank">Instagram</a>
+        <a href="https://www.tiktok.com/@djlabsiam4" target="_blank">TikTok</a>
+        <a href="https://www.youtube.com/@DJLABSIAM" target="_blank">YouTube</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger mobile nav
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    if (hamburgerBtn && mobileNav) {
+      hamburgerBtn.addEventListener('click', () => {
+        const isOpen = mobileNav.classList.toggle('open');
+        hamburgerBtn.classList.toggle('open', isOpen);
+        hamburgerBtn.setAttribute('aria-expanded', isOpen);
+        mobileNav.setAttribute('aria-hidden', !isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+
+      // Close on link click
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNav.classList.remove('open');
+          hamburgerBtn.classList.remove('open');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+          mobileNav.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+
+    // Drag-to-scroll for student gallery
+    const slider = document.getElementById('galleryScroll');
+    if (slider) {
+      let isDown = false, startX, scrollLeft;
+      slider.addEventListener('mousedown', e => {
+        isDown = true;
+        slider.style.cursor = 'grabbing';
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+      });
+      slider.addEventListener('mouseleave', () => { isDown = false; slider.style.cursor = 'grab'; });
+      slider.addEventListener('mouseup', () => { isDown = false; slider.style.cursor = 'grab'; });
+      slider.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        slider.scrollLeft = scrollLeft - (x - startX) * 1.5;
+      });
+    }
+  </script>
+</body>
+</html>

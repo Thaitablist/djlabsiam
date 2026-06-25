@@ -1,0 +1,14 @@
+# Exclude planning & internal documents
+Discord_Launch_Marketing_Plan.md
+Marketing_Overview_Report.html
+Priority_Channel_Report.html
+Instagram_Audit_Report.html
+Solution_Development_Report.html
+CLAUDE.md
+brand.md
+
+# Exclude DS_Store etc.
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
