@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>แผนการตลาด Discord Server — DJ LAB SIAM</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --dark: #1a1a1a;
+    --accent: #e63946;
+    --accent2: #457b9d;
+    --light-gray: #f5f5f5;
+    --mid-gray: #e0e0e0;
+    --text-muted: #666;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Sarabun', 'Noto Sans Thai', 'TH Sarabun New', Arial, sans-serif;
+    font-size: 13pt;
+    line-height: 1.7;
+    color: var(--dark);
+    background: #fff;
+  }
+
+  /* === PRINT === */
+  @media print {
+    body { font-size: 11pt; }
+    .cover { page-break-after: always; }
+    .section { page-break-inside: avoid; }
+    h2 { page-break-after: avoid; }
+    .no-break { page-break-inside: avoid; }
+    @page {
+      size: A4;
+      margin: 20mm 18mm 20mm 18mm;
+    }
+    @page :first { margin: 0; }
+  }
+
+  /* === COVER === */
+  .cover {
+    background: var(--black);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px 70px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: rgba(230, 57, 70, 0.12);
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: rgba(69, 123, 157, 0.1);
+  }
+
+  .cover-top { position: relative; z-index: 1; }
+  .cover-brand {
+    font-size: 11pt;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 60px;
+  }
+  .cover-title {
+    font-size: 38pt;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .cover-subtitle {
+    font-size: 16pt;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 40px;
+  }
+  .cover-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.7);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 9pt;
+    letter-spacing: 1px;
+    font-weight: 400;
+  }
+
+  .cover-bottom {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+    color: rgba(255,255,255,0.4);
+    font-size: 9pt;
+  }
+  .cover-platforms { display: flex; gap: 16px; }
+  .platform-badge {
+    background: rgba(255,255,255,0.07);
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 8.5pt;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* === MAIN CONTENT === */
+  .content {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 60px 50px;
+  }
+
+  /* Section header */
+  .section { margin-bottom: 52px; }
+
+  .section-label {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--black);
+  }
+
+  h3 {
+    font-size: 14pt;
+    font-weight: 600;
+    color: var(--dark);
+    margin: 28px 0 12px 0;
+  }
+
+  h4 {
+    font-size: 11.5pt;
+    font-weight: 600;
+    color: var(--accent2);
+    margin: 20px 0 8px 0;
+  }
+
+  p { margin-bottom: 12px; }
+
+  /* Phase blocks */
+  .phase-block {
+    border-left: 4px solid var(--accent);
+    padding: 24px 28px;
+    margin: 24px 0;
+    background: var(--light-gray);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .phase-block.blue { border-left-color: var(--accent2); }
+  .phase-block.green { border-left-color: #2d6a4f; }
+
+  .phase-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .phase-num {
+    font-size: 9pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  .phase-block.blue .phase-num { color: var(--accent2); }
+  .phase-block.green .phase-num { color: #2d6a4f; }
+
+  .phase-title {
+    font-size: 15pt;
+    font-weight: 700;
+  }
+
+  .phase-goal {
+    font-size: 10pt;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px 0;
+    font-size: 10.5pt;
+  }
+
+  th {
+    background: var(--black);
+    color: var(--white);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 9.5pt;
+  }
+
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--mid-gray);
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td { background: var(--light-gray); }
+
+  /* Feature grid */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0 24px 0;
+  }
+
+  .feature-card {
+    border: 1px solid var(--mid-gray);
+    border-radius: 8px;
+    padding: 16px 18px;
+    background: var(--white);
+  }
+
+  .feature-card-icon {
+    font-size: 16pt;
+    margin-bottom: 6px;
+  }
+
+  .feature-card-title {
+    font-size: 10.5pt;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--black);
+  }
+
+  .feature-card-desc {
+    font-size: 9.5pt;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* KPI cards */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .kpi-card {
+    border-radius: 8px;
+    padding: 18px;
+    text-align: center;
+    background: var(--black);
+    color: var(--white);
+  }
+
+  .kpi-card.alt { background: var(--light-gray); color: var(--black); }
+
+  .kpi-num {
+    font-size: 22pt;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .kpi-card.alt .kpi-num { color: var(--accent2); }
+
+  .kpi-label {
+    font-size: 8.5pt;
+    opacity: 0.7;
+    font-weight: 400;
+  }
+
+  .kpi-period {
+    font-size: 8pt;
+    opacity: 0.5;
+    margin-top: 4px;
+  }
+
+  /* Checklist */
+  .checklist { list-style: none; margin: 12px 0; }
+
+  .checklist li {
+    padding: 8px 0 8px 28px;
+    border-bottom: 1px solid var(--mid-gray);
+    position: relative;
+    font-size: 10.5pt;
+  }
+
+  .checklist li:last-child { border-bottom: none; }
+
+  .checklist li::before {
+    content: '□';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 13pt;
+    line-height: 1;
+    top: 9px;
+  }
+
+  /* Callout boxes */
+  .callout {
+    background: #fff3cd;
+    border-left: 4px solid #f0a500;
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 10.5pt;
+  }
+
+  .callout.red {
+    background: #fff5f5;
+    border-left-color: var(--accent);
+  }
+
+  .callout.blue {
+    background: #f0f7ff;
+    border-left-color: var(--accent2);
+  }
+
+  .callout strong { display: block; margin-bottom: 4px; }
+
+  /* Channel strategy */
+  .channel-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--mid-gray);
+    align-items: start;
+  }
+
+  .channel-name {
+    font-weight: 700;
+    font-size: 10pt;
+    color: var(--black);
+  }
+
+  .channel-stat {
+    font-size: 8.5pt;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* Footer */
+  .doc-footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--mid-gray);
+    text-align: center;
+    font-size: 8.5pt;
+    color: var(--text-muted);
+  }
+
+  /* Audience segment */
+  .segment-row {
+    display: grid;
+    grid-template-columns: 160px 1fr 1fr;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--mid-gray);
+    font-size: 10pt;
+    align-items: start;
+  }
+
+  .segment-name { font-weight: 600; }
+
+  ul { padding-left: 20px; margin: 8px 0 12px 0; }
+  ul li { margin-bottom: 4px; font-size: 10.5pt; }
+
+  .highlight-box {
+    background: var(--black);
+    color: var(--white);
+    padding: 20px 24px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-size: 11pt;
+    line-height: 1.6;
+  }
+
+  .highlight-box strong { color: var(--accent); }
+
+  .page-divider {
+    height: 1px;
+    background: var(--mid-gray);
+    margin: 48px 0;
+  }
+
+  /* Content copy box */
+  .copy-box {
+    background: var(--light-gray);
+    border: 1px solid var(--mid-gray);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 12px 0;
+    font-size: 10.5pt;
+    line-height: 1.65;
+    font-style: italic;
+  }
+
+  .copy-label {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 8px;
+    font-style: normal;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<div class="cover">
+  <div class="cover-top">
+    <div class="cover-brand">DJ LAB SIAM · Marketing Plan</div>
+    <div class="cover-title">Discord Server<br>Launch Strategy</div>
+    <div class="cover-subtitle">แผนการตลาดเปิดตัว Community Platform<br>และ AI Assistant ระดับ Professional</div>
+    <div class="cover-tags">
+      <span class="tag">Discord Community</span>
+      <span class="tag">LINE OA Bot</span>
+      <span class="tag">AI-Powered</span>
+      <span class="tag">3-Phase Plan</span>
+      <span class="tag">มิถุนายน 2026</span>
+    </div>
+  </div>
+  <div class="cover-bottom">
+    <div>จัดทำสำหรับ DJ LAB SIAM · Lido Connect, Siam Square · มิถุนายน 2026</div>
+    <div class="cover-platforms">
+      <span class="platform-badge">Facebook 44K+</span>
+      <span class="platform-badge">TikTok 9.9K</span>
+      <span class="platform-badge">LINE OA @djlabsiam</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="content">
+
+  <!-- 1. ภาพรวม -->
+  <div class="section">
+    <div class="section-label">Section 01</div>
+    <h2>ภาพรวมโปรเจกต์</h2>
+
+    <p>DJ LAB SIAM กำลังเปิดตัว <strong>Discord Server</strong> ซึ่งเป็น community platform แรกของแบรนด์ที่รวม community, AI assistant, และ gamification ไว้ในที่เดียว ควบคู่กับ <strong>LINE OA Bot</strong> ที่ตอบคำถาม DJ อัตโนมัติ 24/7 โดยทั้งสองระบบ deploy บน Railway และขับเคลื่อนด้วย Anthropic Claude</p>
+
+    <div class="highlight-box">
+      สิ่งที่ทำให้ Discord Server ของ DJ LAB SIAM แตกต่าง: <strong>ไม่มีใครในวงการ DJ ไทยทำสิ่งนี้มาก่อน</strong> — AI ที่รู้จัก Pioneer DJ, AlphaTheta, rekordbox, Serato อย่างลึกซึ้ง พร้อมตอบเป็นภาษาไทยได้ทันที 24 ชั่วโมง
+    </div>
+
+    <h3>Features ของ Discord Server</h3>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-card-icon">🤖</div>
+        <div class="feature-card-title">AI Q&A Bot</div>
+        <div class="feature-card-desc">ตอบคำถามเรื่อง Pioneer DJ, AlphaTheta, rekordbox, Serato อัตโนมัติ ภาษาไทย powered by Claude</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">🪪</div>
+        <div class="feature-card-title">Member Verification</div>
+        <div class="feature-card-desc">ลูกค้าร้านรับ role พิเศษ "ลูกค้า DJ LAB SIAM" ผ่าน <code>!verify</code> ด้วยรหัสเฉพาะ</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">⚔️</div>
+        <div class="feature-card-title">DJ Battle</div>
+        <div class="feature-card-desc">ทีมงานเปิด Battle ระหว่างสมาชิก พร้อม community voting แบบ real-time</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">💿</div>
+        <div class="feature-card-title">DJ Submissions + Leaderboard</div>
+        <div class="feature-card-desc">ส่ง SoundCloud/YouTube mix เข้า community โหวต มี Top 5 ตลอดกาล + รายเดือน</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">📻</div>
+        <div class="feature-card-title">Radio Streaming</div>
+        <div class="feature-card-desc">ทีมงาน stream เพลงให้สมาชิกฟังพร้อมกัน ผ่าน <code>!radio</code></div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-card-icon">🔗</div>
+        <div class="feature-card-title">Facebook Sync</div>
+        <div class="feature-card-desc">โพสต์ Facebook ของร้านแสดงใน Discord อัตโนมัติ — สมาชิกไม่พลาด content</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-divider"></div>
+
+  <!-- 2. การวิเคราะห์ -->
+  <div class="section">
+    <div class="section-label">Section 02</div>
+    <h2>การวิเคราะห์และกลุ่มเป้าหมาย</h2>
+
+    <h3>จุดแข็งที่มีอยู่แล้ว</h3>
+    <table>
+      <tr><th>Platform</th><th>ตัวเลข</th><th>บทบาทในแผน</th></tr>
+      <tr><td>Facebook</td><td>44,000+ likes</td><td>Main broadcast channel, audience ใหญ่ที่สุด</td></tr>
+      <tr><td>TikTok</td><td>9,950 followers · 74.4K likes</td><td>Demo video — โอกาส viral สูงที่สุด</td></tr>
+      <tr><td>Instagram</td><td>1,940 followers</td><td>Story series + visual content</td></tr>
+      <tr><td>LINE OA</td><td>@djlabsiam</td><td>Direct reach ลูกค้าจริง — funnel หลัก</td></tr>
+    </table>
+
+    <h3>กลุ่มเป้าหมาย</h3>
+    <div class="segment-row" style="border-top: 1px solid var(--mid-gray);">
+      <div><span class="segment-name">ลูกค้าปัจจุบัน</span></div>
+      <div>ซื้ออุปกรณ์แล้ว/เคยซื้อ — ต้องการ after-sale support</div>
+      <div>LINE OA, ใน store → Priority สูงสุด</div>
+    </div>
+    <div class="segment-row">
+      <div><span class="segment-name">นักเรียน DJ LAB</span></div>
+      <div>เรียนอยู่หรือเคยเรียน — ต้องการ community</div>
+      <div>LINE OA, in-person → Priority สูง</div>
+    </div>
+    <div class="segment-row">
+      <div><span class="segment-name">DJ มือใหม่</span></div>
+      <div>กำลังหาข้อมูลซื้ออุปกรณ์ — ถาม AI ได้ทันที</div>
+      <div>Facebook, TikTok → Growth channel</div>
+    </div>
+    <div class="segment-row">
+      <div><span class="segment-name">DJ มือโปร/กึ่งโปร</span></div>
+      <div>ต้องการ community คุยเรื่อง gear เชิงลึก</div>
+      <div>Facebook, Instagram → Credibility channel</div>
+    </div>
+
+    <h3 style="margin-top: 28px;">ความเสี่ยงที่ต้องบริหาร</h3>
+    <div class="callout red">
+      <strong>Discord ยังไม่แพร่หลายในกลุ่ม DJ ไทย</strong>
+      ต้องอธิบาย value proposition ชัดเจน — อย่าสมมติว่าคนรู้จัก Discord อยู่แล้ว ทุก content ต้องบอกว่า "ได้อะไร" ไม่ใช่แค่ "มีที่ใหม่"
+    </div>
+    <div class="callout">
+      <strong>Community เงียบในช่วงแรก = ไม่มีใครกลับมา</strong>
+      ต้องมีสมาชิก active 20+ คนก่อน public launch — ทีมงานและนักเรียนต้องสร้างบรรยากาศก่อน
+    </div>
+  </div>
+
+  <div class="page-divider"></div>
+
+  <!-- 3. Phase Plan -->
+  <div class="section">
+    <div class="section-label">Section 03</div>
+    <h2>แผนการตลาด 3 Phase</h2>
+
+    <!-- Phase 0 -->
+    <div class="phase-block no-break">
+      <div class="phase-header">
+        <span class="phase-num">Phase 0</span>
+        <span class="phase-title">เตรียมพร้อมก่อนเปิดตัว</span>
+      </div>
+      <div class="phase-goal">ระยะเวลา: 1–2 สัปดาห์ | เป้าหมาย: ระบบพร้อม 100% + สมาชิกแกนกลาง 20–30 คน</div>
+      <ul>
+        <li>ยืนยัน Bot deploy บน Railway ครบ — ทดสอบ <code>!verify</code> flow, AI Q&A, Battle, Submission ทั้งหมด</li>
+        <li>เตรียม codes.txt รหัสสมาชิกล่วงหน้า 50+ รหัสสำหรับลูกค้าชุดแรก</li>
+        <li>ชวนทีมงานและนักเรียนปัจจุบันเข้า server ก่อน (Soft pre-launch)</li>
+        <li>ให้ทีมงานโพสต์ใน channel ต่างๆ ให้ดู active ก่อน public launch</li>
+        <li><strong>อัดวิดีโอ demo Bot</strong> ทำงานจริง — นี่คือ content สำคัญที่สุดของการ launch</li>
+        <li>พิมพ์ QR Code ลิงก์ Discord วางที่เคาน์เตอร์และห้องเรียน Lido Connect</li>
+      </ul>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="phase-block blue no-break">
+      <div class="phase-header">
+        <span class="phase-num">Phase 1</span>
+        <span class="phase-title">Exclusive Launch — ลูกค้าและนักเรียน</span>
+      </div>
+      <div class="phase-goal">ระยะเวลา: สัปดาห์ที่ 1–2 | เป้าหมาย: สมาชิก 100 คน (Verified 40+)</div>
+
+      <h4>กลยุทธ์หลัก: Invite-Only + รู้สึก Exclusive</h4>
+      <p>Server เปิดแต่ยังไม่ประกาศ public กว้างๆ — เชิญเฉพาะลูกค้าและนักเรียนก่อน</p>
+
+      <h4>LINE OA — Broadcast ครั้งแรก (Priority สูงสุด)</h4>
+      <div class="copy-box">
+        <div class="copy-label">ตัวอย่าง message</div>
+        "DJ LAB SIAM เปิด Discord Server ใหม่แล้ว — Community ที่รวม AI ถาม-ตอบเรื่อง DJ, DJ Battle, และ Submission ไว้ในที่เดียว ลูกค้าร้านได้รับรหัสพิเศษสำหรับ role สมาชิก ทักมาขอรหัสได้เลย: [ลิงก์]"
+      </div>
+
+      <h4>In-Store / Lido Connect</h4>
+      <ul>
+        <li>QR Code บนเคาน์เตอร์และในห้องเรียน</li>
+        <li>ทีมงานแจ้งลูกค้าทุกคนที่มาที่ร้านด้วยปากเปล่า</li>
+        <li>ลูกค้าที่ซื้อสินค้าในช่วงนี้รับรหัส <code>!verify</code> ทันที</li>
+      </ul>
+
+      <h4>Facebook — Teaser โพสต์แรก</h4>
+      <div class="copy-box">
+        <div class="copy-label">ตัวอย่าง copy</div>
+        "DJ LAB SIAM กำลังเปิด community ใหม่ที่คุยเรื่อง DJ ได้ 24 ชั่วโมง มีอะไรบางอย่างที่คุณยังไม่เคยเห็นในวงการ DJ ไทย — เร็วๆ นี้"
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase-block no-break">
+      <div class="phase-header">
+        <span class="phase-num">Phase 2</span>
+        <span class="phase-title">Public Launch</span>
+      </div>
+      <div class="phase-goal">ระยะเวลา: สัปดาห์ที่ 3–4 | เป้าหมาย: สมาชิก 300 คน</div>
+
+      <h4>Facebook — โพสต์ Public Launch</h4>
+      <div class="copy-box">
+        <div class="copy-label">ตัวอย่าง copy</div>
+        "DJ LAB SIAM Discord Server เปิดแล้ว — Community สำหรับ DJ ทุกระดับ ไม่ว่าจะเพิ่งเริ่ม หรือเล่นมาหลายปี<br><br>สิ่งที่มีใน Server: AI ถาม-ตอบเรื่องอุปกรณ์ Pioneer DJ / software ตลอด 24 ชม. / ส่ง mix เข้าโหวต / DJ Battle / Radio stream<br><br>ลูกค้าร้านได้ role พิเศษ — เข้าร่วมได้เลย: [ลิงก์]<br><br>#djlabsiam #pioneerdj #djthailand"
+      </div>
+
+      <h4>TikTok — วิดีโอ Demo Bot (ศักยภาพ viral สูงที่สุด)</h4>
+      <p>Screen recording + voiceover ภาษาไทย เช่น "ถาม AI เรื่อง CDJ-3000 กับ XDJ-RX3 ต่างกันยังไง" → Bot ตอบละเอียด ถูกต้อง เป็นภาษาไทย</p>
+      <div class="copy-box">
+        <div class="copy-label">Caption ตัวอย่าง</div>
+        "มี AI ถาม-ตอบเรื่อง DJ ได้ฟรี 24 ชม. ใน Discord ของเรา — ลิงก์ใน bio 🎧 #djlabsiam #pioneerdj #djthailand"
+      </div>
+
+      <h4>Instagram — Story Series (3 Slide)</h4>
+      <ul>
+        <li>Slide 1: "DJ LAB SIAM มี Discord แล้ว" + hook</li>
+        <li>Slide 2: Feature ที่น่าสนใจที่สุด 3 อย่าง</li>
+        <li>Slide 3: CTA + ลิงก์ใน bio</li>
+      </ul>
+
+      <h4>กิจกรรมใน Server เพื่อสร้าง Buzz</h4>
+      <p><strong>DJ Battle ครั้งแรก (Week 3)</strong> — ประกาศบน Facebook พร้อม invite link ผลโหวตนำมาโพสต์ Facebook ด้วย สร้าง cross-platform loop</p>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase-block green no-break">
+      <div class="phase-header">
+        <span class="phase-num">Phase 3</span>
+        <span class="phase-title">Growth & Retention</span>
+      </div>
+      <div class="phase-goal">ระยะเวลา: เดือนที่ 2–3 | เป้าหมาย: สมาชิก 500+ · Active 40%+</div>
+
+      <h4>Track of the Month</h4>
+      <p>ทีมงาน pin "Track ประจำเดือน" ใน server และโพสต์ Facebook — เป็น ritual ที่ให้คนกลับมาทุกเดือน</p>
+
+      <h4>Monthly Leaderboard Announcement</h4>
+      <p>ประกาศ Top 5 DJ submissions รายเดือนบน Facebook/Instagram — ผู้ชนะได้รับ badge พิเศษ</p>
+
+      <h4>Content Series: "Bot ตอบแล้ว"</h4>
+      <p>ทุกสัปดาห์ เลือกคำถาม 1 ข้อที่ bot ตอบได้ดีที่สุด → โพสต์ใน Facebook/TikTok สร้าง flywheel: คนเห็น → อยากลองถาม → เข้า Discord</p>
+
+      <h4>LINE OA → Discord Funnel</h4>
+      <p>เพิ่ม response ใน LINE OA Bot สำหรับคำถามที่ถามบ่อย ให้ bot แนะนำ "มีรายละเอียดเพิ่มเติมใน Discord" พร้อมลิงก์ — ใช้ LINE OA เป็น funnel ส่งคนเข้า Discord แบบ organic</p>
+
+      <h4>Workshop Discord-Exclusive เดือนละครั้ง</h4>
+      <p>Live session ใน voice channel เช่น "Q&A กับทีมงาน CDJ-3000X" ประกาศบน Facebook → ต้องเข้า Discord เพื่อร่วม</p>
+    </div>
+  </div>
+
+  <div class="page-divider"></div>
+
+  <!-- 4. Content Calendar -->
+  <div class="section">
+    <div class="section-label">Section 04</div>
+    <h2>Content Calendar — เดือนแรก</h2>
+
+    <table>
+      <tr>
+        <th>สัปดาห์</th>
+        <th>Facebook</th>
+        <th>TikTok / IG</th>
+        <th>LINE OA</th>
+        <th>Discord</th>
+      </tr>
+      <tr>
+        <td><strong>W1</strong></td>
+        <td>Teaser "มีอะไรบางอย่าง..."</td>
+        <td>—</td>
+        <td>Broadcast ลูกค้าปัจจุบัน</td>
+        <td>Soft launch ทีม + นักเรียน</td>
+      </tr>
+      <tr>
+        <td><strong>W2</strong></td>
+        <td>—</td>
+        <td>Story teaser IG</td>
+        <td>Broadcast รอบ 2</td>
+        <td>เพิ่มสมาชิกต่อเนื่อง</td>
+      </tr>
+      <tr>
+        <td><strong>W3</strong></td>
+        <td>โพสต์ Public Launch</td>
+        <td>TikTok: Demo Bot</td>
+        <td>—</td>
+        <td>Battle ครั้งแรก</td>
+      </tr>
+      <tr>
+        <td><strong>W4</strong></td>
+        <td>ประกาศผล Battle</td>
+        <td>TikTok: "Bot ตอบแล้ว" EP.1</td>
+        <td>Broadcast อีกรอบ</td>
+        <td>Track of the Month แรก</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="page-divider"></div>
+
+  <!-- 5. KPIs -->
+  <div class="section">
+    <div class="section-label">Section 05</div>
+    <h2>เป้าหมายและการวัดผล</h2>
+
+    <h3>KPI หลัก — 30 วัน</h3>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-num">300</div>
+        <div class="kpi-label">Discord Members</div>
+        <div class="kpi-period">เดือนแรก</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num">100</div>
+        <div class="kpi-label">Verified Members (ลูกค้าจริง)</div>
+        <div class="kpi-period">เดือนแรก</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-num">500+</div>
+        <div class="kpi-label">Bot Interactions</div>
+        <div class="kpi-period">ต่อเดือน</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 24px;">KPI หลัก — 90 วัน</h3>
+    <div class="kpi-grid">
+      <div class="kpi-card alt">
+        <div class="kpi-num">500+</div>
+        <div class="kpi-label">Discord Members</div>
+        <div class="kpi-period">90 วัน</div>
+      </div>
+      <div class="kpi-card alt">
+        <div class="kpi-num">40%</div>
+        <div class="kpi-label">Monthly Active Rate</div>
+        <div class="kpi-period">ของสมาชิกทั้งหมด</div>
+      </div>
+      <div class="kpi-card alt">
+        <div class="kpi-num">1,500</div>
+        <div class="kpi-label">Bot Interactions</div>
+        <div class="kpi-period">ต่อเดือน</div>
+      </div>
+    </div>
+
+    <table style="margin-top: 24px;">
+      <tr><th>Metric</th><th>เป้าหมาย 30 วัน</th><th>เป้าหมาย 90 วัน</th></tr>
+      <tr><td>Facebook Reach (launch post)</td><td>10,000+</td><td>—</td></tr>
+      <tr><td>TikTok Views (demo video)</td><td>5,000+</td><td>—</td></tr>
+      <tr><td>Leaderboard Submissions/เดือน</td><td>10</td><td>30</td></tr>
+      <tr><td>LINE OA → Discord conversion</td><td>วัดจาก !verify codes</td><td>—</td></tr>
+    </table>
+  </div>
+
+  <div class="page-divider"></div>
+
+  <!-- 6. Checklist -->
+  <div class="section">
+    <div class="section-label">Section 06</div>
+    <h2>Checklist ก่อน Launch</h2>
+
+    <ul class="checklist">
+      <li><strong>Bot deploy บน Railway</strong> — ทดสอบ !verify flow, AI Q&A, Battle, Submission ทุก feature</li>
+      <li><strong>codes.txt</strong> — เตรียมรหัสสมาชิก 50+ รหัสสำหรับลูกค้าชุดแรก</li>
+      <li><strong>QR Code</strong> — พิมพ์และวางที่เคาน์เตอร์ร้านและห้องเรียน Lido Connect</li>
+      <li><strong>วิดีโอ demo Bot</strong> — อัดหน้าจอการใช้งาน AI Q&A จริง ภาษาไทย ความยาว 60–90 วินาที</li>
+      <li><strong>LINE OA Broadcast message</strong> — เตรียม copy ก่อน ไม่ improvise</li>
+      <li><strong>Server Rules</strong> — เขียนกฎเป็นภาษาไทยใน channel Rules</li>
+      <li><strong>ทีมงาน + นักเรียนเข้าก่อน</strong> — server ต้องดู active ก่อน public launch</li>
+      <li><strong>Facebook Webhook</strong> — ทดสอบ share-fb.js sync โพสต์ → Discord</li>
+    </ul>
+  </div>
+
+  <div class="page-divider"></div>
+
+  <!-- 7. Strategic Notes -->
+  <div class="section">
+    <div class="section-label">Section 07</div>
+    <h2>ข้อเสนอแนะเชิงกลยุทธ์</h2>
+
+    <div class="callout blue">
+      <strong>ใช้ LINE OA เป็น Main Funnel ก่อนเสมอ</strong>
+      LINE OA มีลูกค้าจริงอยู่แล้ว — conversion rate สูงกว่า Facebook มาก ทุก phase ควร push ผ่าน LINE OA ก่อน Facebook เสมอ
+    </div>
+
+    <div class="callout red">
+      <strong>อย่า Launch ก่อน Server พร้อม</strong>
+      Impression แรกสำคัญมาก ถ้าคนเข้ามาแล้ว bot error หรือ channel ว่างเปล่า โอกาสที่เขาจะกลับมาต่ำมาก ต้องมีสมาชิก active และ bot ทำงานได้ก่อน
+    </div>
+
+    <div class="callout">
+      <strong>AI Bot คือ Differentiator ที่ใหญ่ที่สุด — อย่าซ่อนมัน</strong>
+      ทุก content piece ต้องแสดงให้เห็นว่า bot ทำงานได้จริง คนไทยใน DJ community ไม่เคยมีประสบการณ์นี้มาก่อน — นี่คือ hook ที่ทำให้คนสมัครเข้า Discord
+    </div>
+
+    <div class="callout blue">
+      <strong>ใช้ Facebook Sync ให้เต็มที่</strong>
+      Bot มี feature sync โพสต์ Facebook → Discord อัตโนมัติ (share-fb.js) ทำให้ Discord กลายเป็น single destination ของ community และเพิ่ม retention โดยไม่ต้องทำงานเพิ่ม
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="doc-footer">
+    <p><strong>DJ LAB SIAM</strong> · Discord Server Launch Marketing Plan · มิถุนายน 2026</p>
+    <p>Lido Connect ชั้น 2, Siam Square Soi 3 · โทร. 02-252-5868 · LINE @djlabsiam</p>
+    <p style="margin-top: 8px; font-size: 7.5pt; color: #aaa;">เอกสารนี้จัดทำสำหรับใช้งานภายใน DJ LAB SIAM</p>
+  </div>
+
+</div>
+
+</body>
+</html>
