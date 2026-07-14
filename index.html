@@ -8,20 +8,192 @@
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://thaitablist.github.io/djlabsiam/">
+  <meta property="og:url" content="https://djlabsiam.com/">
   <meta property="og:title" content="DJ LAB SIAM — โรงเรียนสอน DJ & Authorized Pioneer DJ Dealer">
   <meta property="og:description" content="เรียน DJ จากมืออาชีพตัวจริง ตัวแทนจำหน่ายอุปกรณ์ Pioneer DJ และ AlphaTheta อย่างเป็นทางการ Lido Connect Siam Square">
-  <meta property="og:image" content="https://thaitablist.github.io/djlabsiam/og_image.png">
+  <meta property="og:image" content="https://djlabsiam.com/og_image.png">
   <meta property="og:locale" content="th_TH">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="DJ LAB SIAM — โรงเรียนสอน DJ & Authorized Pioneer DJ Dealer">
   <meta name="twitter:description" content="เรียน DJ จากมืออาชีพตัวจริง ตัวแทนจำหน่ายอุปกรณ์ Pioneer DJ และ AlphaTheta อย่างเป็นทางการ">
-  <meta name="twitter:image" content="og_image.jpg">
+  <meta name="twitter:image" content="https://djlabsiam.com/og_image.png">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://djlabsiam.com/">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://djlabsiam.com/#org",
+        "name": "DJ LAB SIAM",
+        "legalName": "DJ LAB SIAM CO., LTD.",
+        "url": "https://djlabsiam.com/",
+        "logo": "https://djlabsiam.com/logo_full.png",
+        "email": "djlabsiam@gmail.com",
+        "telephone": "+66-2-252-5868",
+        "sameAs": [
+          "https://www.facebook.com/PioneerDjLabSiam/",
+          "https://www.instagram.com/djlabsiam/",
+          "https://www.youtube.com/@DJLABSIAM",
+          "https://www.tiktok.com/@djlabsiam4",
+          "https://discord.gg/djlabsiam"
+        ]
+      },
+      {
+        "@type": ["MusicSchool", "Store"],
+        "@id": "https://djlabsiam.com/#local",
+        "name": "DJ LAB SIAM",
+        "description": "โรงเรียนสอน DJ ทุกระดับตั้งแต่ Beginner ถึง Professional และตัวแทนจำหน่ายอุปกรณ์ Pioneer DJ / AlphaTheta อย่างเป็นทางการ รวมถึงสายสัญญาณ NEO by OYAIDE",
+        "url": "https://djlabsiam.com/",
+        "image": "https://djlabsiam.com/logo_full.png",
+        "telephone": "+66-2-252-5868",
+        "email": "djlabsiam@gmail.com",
+        "parentOrganization": { "@id": "https://djlabsiam.com/#org" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Lido Connect ชั้น 2, Siam Square Soi 3",
+          "addressLocality": "ปทุมวัน",
+          "addressRegion": "กรุงเทพมหานคร",
+          "postalCode": "10330",
+          "addressCountry": "TH"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+          "opens": "12:00",
+          "closes": "20:00"
+        },
+        "priceRange": "฿฿",
+        "brand": [
+          { "@type": "Brand", "name": "Pioneer DJ" },
+          { "@type": "Brand", "name": "AlphaTheta" },
+          { "@type": "Brand", "name": "NEO by OYAIDE" }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://djlabsiam.com/#website",
+        "url": "https://djlabsiam.com/",
+        "name": "DJ LAB SIAM",
+        "inLanguage": "th",
+        "publisher": { "@id": "https://djlabsiam.com/#org" }
+      },
+      {
+        "@type": "Course",
+        "@id": "https://djlabsiam.com/#course-beginner",
+        "name": "คอร์สเรียน DJ ระดับ Beginner",
+        "description": "เริ่มต้นจาก Zero ไม่ต้องมีพื้นฐาน เรียนรู้ Beatmatch, Mix พื้นฐาน และ rekordbox ตั้งแต่เริ่มต้น เรียนบนอุปกรณ์ Pioneer DJ CDJ + DJM จริง",
+        "provider": { "@id": "https://djlabsiam.com/#org" },
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": "Onsite",
+          "location": { "@id": "https://djlabsiam.com/#local" }
+        }
+      },
+      {
+        "@type": "Course",
+        "@id": "https://djlabsiam.com/#course-intermediate",
+        "name": "คอร์สเรียน DJ ระดับ Intermediate",
+        "description": "ยกระดับทักษะ — Harmonic Mixing, EQ Technique, Phrasing และ Open Format สำหรับคนที่เล่นได้แล้วอยากดีขึ้น",
+        "provider": { "@id": "https://djlabsiam.com/#org" },
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": "Onsite",
+          "location": { "@id": "https://djlabsiam.com/#local" }
+        }
+      },
+      {
+        "@type": "Course",
+        "@id": "https://djlabsiam.com/#course-turntablism",
+        "name": "คอร์ส Scratch & Turntablism",
+        "description": "Baby Scratch, Flare, Chirp, Beat Juggling สอนโดย DJ สาย Turntablism โดยตรง เน้น Technique เข้มข้น",
+        "provider": { "@id": "https://djlabsiam.com/#org" },
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": "Onsite",
+          "location": { "@id": "https://djlabsiam.com/#local" }
+        }
+      },
+      {
+        "@type": "Course",
+        "@id": "https://djlabsiam.com/#course-professional",
+        "name": "คอร์สเรียน DJ ระดับ Professional",
+        "description": "Performance Workflow, Club Standard Setup, Career Guidance สำหรับคนที่จริงจังกับการเป็น DJ อาชีพ",
+        "provider": { "@id": "https://djlabsiam.com/#org" },
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": "Onsite",
+          "location": { "@id": "https://djlabsiam.com/#local" }
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- FAQ Structured Data (ต้องตรงกับ section #faq บนหน้าเสมอ) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://djlabsiam.com/#faqpage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "ไม่มีพื้นฐานเลย เรียน DJ ได้ไหม?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ได้ คอร์ส Beginner ออกแบบมาสำหรับผู้เริ่มต้นจาก Zero โดยเฉพาะ เรียนรู้ Beatmatch, Mix พื้นฐาน และ rekordbox ตั้งแต่ต้น โดยครูผู้สอนที่เป็น DJ มืออาชีพทุกคน"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ต้องมีอุปกรณ์เป็นของตัวเองก่อนไหม?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ไม่จำเป็น เรียนบนอุปกรณ์ Pioneer DJ ระดับ Club Standard ของโรงเรียนได้เลย ทั้ง CDJ Player และ DJM Mixer เมื่อพร้อมมีอุปกรณ์ของตัวเอง ทีมงานช่วยแนะนำรุ่นที่เหมาะกับระดับและงบประมาณได้"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "เรียนแบบตัวต่อตัวหรือแบบกลุ่ม?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "เลือกได้ทั้งแบบ 1:1 และแบบ Group จัดตารางเรียนตามเวลาที่สะดวกได้"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "DJ LAB SIAM อยู่ที่ไหน เปิดกี่โมง?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "อยู่ที่ Lido Connect ชั้น 2, Siam Square Soi 3 ปทุมวัน กรุงเทพฯ เปิดทุกวัน 12:00–20:00 น. ติดต่อ LINE @djlabsiam หรือโทร 02-252-5868"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ซื้ออุปกรณ์ Pioneer DJ / AlphaTheta ที่นี่ได้ไหม?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ได้ DJ LAB SIAM เป็นตัวแทนจำหน่าย Pioneer DJ และ AlphaTheta อย่างเป็นทางการ สินค้าพร้อมรับประกันจากผู้ผลิต รวมถึงสายสัญญาณ NEO by OYAIDE คุณภาพสูง"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "เริ่มเรียนต้องทำยังไง?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ทัก LINE @djlabsiam แจ้งระดับและเป้าหมาย ทีมงานจะแนะนำคอร์สที่เหมาะสม เลือกแบบ 1:1 หรือ Group แล้วนัดวันเรียนตามเวลาที่สะดวก"
+        }
+      }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2114,6 +2286,50 @@
       class="ai-3d-icon"
       loading="lazy"
     >
+  </section>
+
+  <!-- FAQ SECTION -->
+  <style>
+    .faq-section { padding: 100px 6% ; background: var(--bg); max-width: 1200px; margin: 0 auto; }
+    .faq-list { margin-top: 40px; display: flex; flex-direction: column; gap: 14px; }
+    .faq-item { background: var(--white); border: 1px solid var(--gray-light); border-radius: 14px; overflow: hidden; }
+    .faq-item summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 24px; font-family: var(--font); font-weight: 600; font-size: 17px; color: var(--black); }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-size: 24px; font-weight: 300; color: var(--red); flex-shrink: 0; transition: transform .25s ease; }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item[open] summary { color: var(--red); }
+    .faq-answer { padding: 0 24px 22px; color: var(--gray-dark); font-size: 15px; line-height: 1.8; }
+    @media (max-width: 640px) { .faq-section { padding: 64px 6%; } .faq-item summary { font-size: 15px; padding: 16px 18px; } .faq-answer { padding: 0 18px 18px; } }
+  </style>
+  <section class="faq-section" id="faq">
+    <div class="section-tag">คำถามที่พบบ่อย</div>
+    <h2 class="section-h2">FAQ<br>ก่อนเริ่มเรียน DJ</h2>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>ไม่มีพื้นฐานเลย เรียน DJ ได้ไหม?</summary>
+        <div class="faq-answer">ได้ คอร์ส Beginner ออกแบบมาสำหรับผู้เริ่มต้นจาก Zero โดยเฉพาะ เรียนรู้ Beatmatch, Mix พื้นฐาน และ rekordbox ตั้งแต่ต้น โดยครูผู้สอนที่เป็น DJ มืออาชีพทุกคน</div>
+      </details>
+      <details class="faq-item">
+        <summary>ต้องมีอุปกรณ์เป็นของตัวเองก่อนไหม?</summary>
+        <div class="faq-answer">ไม่จำเป็น เรียนบนอุปกรณ์ Pioneer DJ ระดับ Club Standard ของโรงเรียนได้เลย ทั้ง CDJ Player และ DJM Mixer เมื่อพร้อมมีอุปกรณ์ของตัวเอง ทีมงานช่วยแนะนำรุ่นที่เหมาะกับระดับและงบประมาณได้</div>
+      </details>
+      <details class="faq-item">
+        <summary>เรียนแบบตัวต่อตัวหรือแบบกลุ่ม?</summary>
+        <div class="faq-answer">เลือกได้ทั้งแบบ 1:1 และแบบ Group จัดตารางเรียนตามเวลาที่สะดวกได้</div>
+      </details>
+      <details class="faq-item">
+        <summary>DJ LAB SIAM อยู่ที่ไหน เปิดกี่โมง?</summary>
+        <div class="faq-answer">อยู่ที่ Lido Connect ชั้น 2, Siam Square Soi 3 ปทุมวัน กรุงเทพฯ เปิดทุกวัน 12:00–20:00 น. ติดต่อ LINE @djlabsiam หรือโทร 02-252-5868</div>
+      </details>
+      <details class="faq-item">
+        <summary>ซื้ออุปกรณ์ Pioneer DJ / AlphaTheta ที่นี่ได้ไหม?</summary>
+        <div class="faq-answer">ได้ DJ LAB SIAM เป็นตัวแทนจำหน่าย Pioneer DJ และ AlphaTheta อย่างเป็นทางการ สินค้าพร้อมรับประกันจากผู้ผลิต รวมถึงสายสัญญาณ NEO by OYAIDE คุณภาพสูง</div>
+      </details>
+      <details class="faq-item">
+        <summary>เริ่มเรียนต้องทำยังไง?</summary>
+        <div class="faq-answer">ทัก LINE @djlabsiam แจ้งระดับและเป้าหมาย ทีมงานจะแนะนำคอร์สที่เหมาะสม เลือกแบบ 1:1 หรือ Group แล้วนัดวันเรียนตามเวลาที่สะดวก</div>
+      </details>
+    </div>
   </section>
 
   <!-- FOOTER -->
