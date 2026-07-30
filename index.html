@@ -88,8 +88,8 @@
       {
         "@type": "Course",
         "@id": "https://djlabsiam.com/#course-beginner",
-        "name": "คอร์สเรียน DJ ระดับ Beginner",
-        "description": "เริ่มต้นจาก Zero ไม่ต้องมีพื้นฐาน เรียนรู้ Beatmatch, Mix พื้นฐาน และ rekordbox ตั้งแต่เริ่มต้น เรียนบนอุปกรณ์ Pioneer DJ CDJ + DJM จริง",
+        "name": "Basic DJ Class",
+        "description": "Basic mixing, แนะนำอุปกรณ์ และการใช้โปรแกรม Rekordbox / Serato ไม่ต้องมีพื้นฐานก็เริ่มได้ เรียนบนอุปกรณ์ Pioneer DJ CDJ + DJM จริง 12 ชม. (6 ครั้ง) + ห้องซ้อม 20 ชม.",
         "provider": { "@id": "https://djlabsiam.com/#org" },
         "hasCourseInstance": {
           "@type": "CourseInstance",
@@ -100,8 +100,8 @@
       {
         "@type": "Course",
         "@id": "https://djlabsiam.com/#course-intermediate",
-        "name": "คอร์สเรียน DJ ระดับ Intermediate",
-        "description": "ยกระดับทักษะ — Harmonic Mixing, EQ Technique, Phrasing และ Open Format สำหรับคนที่เล่นได้แล้วอยากดีขึ้น",
+        "name": "Advance DJ Class",
+        "description": "EFX, Trick Mixing, Basic Scratching และการใช้อุปกรณ์/โปรแกรมขั้นสูง สำหรับคนที่เล่นได้แล้วอยากดีขึ้น 12 ชม. (6 ครั้ง)",
         "provider": { "@id": "https://djlabsiam.com/#org" },
         "hasCourseInstance": {
           "@type": "CourseInstance",
@@ -112,8 +112,8 @@
       {
         "@type": "Course",
         "@id": "https://djlabsiam.com/#course-turntablism",
-        "name": "คอร์ส Scratch & Turntablism",
-        "description": "Baby Scratch, Flare, Chirp, Beat Juggling สอนโดย DJ สาย Turntablism โดยตรง เน้น Technique เข้มข้น",
+        "name": "Basic Scratch Class",
+        "description": "พื้นฐาน Scratch เลือกเรียนได้ 3 แบบ Controller / CDJ / Turntable สอนโดย DJ สาย Scratch โดยตรง 12 ชม. (6 ครั้ง)",
         "provider": { "@id": "https://djlabsiam.com/#org" },
         "hasCourseInstance": {
           "@type": "CourseInstance",
@@ -124,8 +124,8 @@
       {
         "@type": "Course",
         "@id": "https://djlabsiam.com/#course-professional",
-        "name": "คอร์สเรียน DJ ระดับ Professional",
-        "description": "Performance Workflow, Club Standard Setup, Career Guidance สำหรับคนที่จริงจังกับการเป็น DJ อาชีพ",
+        "name": "Advance Scratch Class",
+        "description": "Turntable only — Pattern & Combo, Orbit Style, Trick Mixing with Scratch เน้น Technique เข้มข้นระดับมืออาชีพ 12 ชม. (6 ครั้ง)",
         "provider": { "@id": "https://djlabsiam.com/#org" },
         "hasCourseInstance": {
           "@type": "CourseInstance",
@@ -620,6 +620,18 @@
     .course-card:hover { background: var(--black); transform: translateY(-4px); }
     .course-card.featured { background: var(--red); }
     .course-card.featured:hover { background: var(--red-dark); }
+
+    .course-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      margin-bottom: 24px;
+      filter: grayscale(1);
+      transition: filter 0.25s;
+    }
+
+    .course-card:hover .course-img,
+    .course-card.featured .course-img { filter: grayscale(0); }
 
     .course-num {
       font-size: 72px;
@@ -1917,31 +1929,35 @@
     </div>
     <div class="courses-grid">
       <div class="course-card">
+        <img class="course-img" src="Picture/Course/Basic Mixing.gif" alt="Basic DJ Class">
         <span class="course-num">01</span>
         <span class="course-level">Beginner</span>
-        <div class="course-name">เริ่มต้น<br>จาก Zero</div>
-        <div class="course-desc">ไม่ต้องมีพื้นฐาน เรียนรู้การ Beatmatch, Mix พื้นฐาน และ rekordbox ตั้งแต่เริ่มต้น</div>
+        <div class="course-name">Basic DJ<br>Class</div>
+        <div class="course-desc">Basic mixing, แนะนำอุปกรณ์ และการใช้โปรแกรม Rekordbox / Serato ไม่ต้องมีพื้นฐานก็เริ่มได้ • 12 ชม. (6 ครั้ง) + ห้องซ้อม 20 ชม. • 20,000 บาท</div>
         <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="course-link">สอบถาม →</a>
       </div>
       <div class="course-card featured">
+        <img class="course-img" src="Picture/Course/Advance Mixing.gif" alt="Advance DJ Class">
         <span class="course-num">02</span>
         <span class="course-level">Intermediate</span>
-        <div class="course-name">ยกระดับ<br>ทักษะ</div>
-        <div class="course-desc">Harmonic Mixing, EQ Technique, Phrasing และ Open Format สำหรับคนที่เล่นได้แล้วอยากดีขึ้น</div>
+        <div class="course-name">Advance DJ<br>Class</div>
+        <div class="course-desc">EFX, Trick Mixing, Basic Scratching และการใช้อุปกรณ์/โปรแกรมขั้นสูง สำหรับคนที่เล่นได้แล้วอยากดีขึ้น • 12 ชม. (6 ครั้ง) • 20,000 บาท</div>
         <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="course-link">สอบถาม →</a>
       </div>
       <div class="course-card">
+        <img class="course-img" src="Picture/Course/Basic Scratch.gif" alt="Basic Scratch Class">
         <span class="course-num">03</span>
         <span class="course-level">Turntablism</span>
-        <div class="course-name">Scratch &amp;<br>Turntablism</div>
-        <div class="course-desc">Baby Scratch, Flare, Chirp, Beat Juggling สอนโดย DJ สายนี้โดยตรง เน้น Technique เข้มข้น</div>
+        <div class="course-name">Basic Scratch<br>Class</div>
+        <div class="course-desc">พื้นฐาน Scratch เลือกเรียนได้ 3 แบบ Controller / CDJ / Turntable สอนโดย DJ สาย Scratch โดยตรง • 12 ชม. (6 ครั้ง) • 20,000 บาท</div>
         <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="course-link">สอบถาม →</a>
       </div>
       <div class="course-card">
+        <img class="course-img" src="Picture/Course/Advance Scratch.gif" alt="Advance Scratch Class">
         <span class="course-num">04</span>
         <span class="course-level">Professional</span>
-        <div class="course-name">ระดับ<br>Professional</div>
-        <div class="course-desc">Performance Workflow, Club Standard Setup, Career Guidance สำหรับคนที่จริงจังกับการเป็น DJ อาชีพ</div>
+        <div class="course-name">Advance Scratch<br>Class</div>
+        <div class="course-desc">Turntable only — Pattern & Combo, Orbit Style, Trick Mixing with Scratch เน้น Technique เข้มข้นระดับมืออาชีพ • 12 ชม. (6 ครั้ง) • 20,000 บาท</div>
         <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="course-link">สอบถาม →</a>
       </div>
     </div>
