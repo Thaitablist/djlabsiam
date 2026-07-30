@@ -2376,9 +2376,32 @@
 
   <!-- Scroll Motion (adapted from motion.dev/examples?category=scroll) -->
   <script type="module">
-    import { animate, inView, scroll, stagger } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
+    import { animate, scroll, stagger } from "https://cdn.jsdelivr.net/npm/motion@latest/+esm";
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Fires onReveal() once `el` is at least `amount` (0–1) visible in the viewport.
+    // Polls every frame via requestAnimationFrame (same mechanism Motion's own
+    // scroll() uses internally) instead of IntersectionObserver, plus a hard
+    // time limit — so content can never get stuck invisible.
+    function whenVisible(el, amount, onReveal) {
+      if (!el) return;
+      let done = false;
+      const start = performance.now();
+      function tick(now) {
+        if (done) return;
+        const rect = el.getBoundingClientRect();
+        const visibleH = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+        const ratio = rect.height > 0 ? Math.max(0, visibleH) / rect.height : 0;
+        if (ratio >= amount || now - start > 5000) {
+          done = true;
+          onReveal();
+          return;
+        }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
 
     // ─── Step 4 helper: fade + rise reveal for a group of items, staggered ───
     function revealGroup(containerSelector, itemSelector, opts = {}) {
@@ -2391,13 +2414,13 @@
           el.style.opacity = '0';
           el.style.transform = `translateY(${y}px)`;
         });
-        inView(container, () => {
+        whenVisible(container, amount, () => {
           animate(
             items,
             { opacity: [0, 1], y: [y, 0] },
             { duration, delay: stagger(staggerBy), ease: 'easeOut' }
           );
-        }, { amount });
+        });
       });
     }
 
@@ -2406,14 +2429,16 @@
       if (reduceMotion) return;
       const { duration = 1, amount = 0.3 } = opts;
       document.querySelectorAll(selector).forEach((img) => {
-        img.style.clipPath = 'inset(0 50% 0 50%)';
-        inView(img, () => {
+        // Closed state is only a gentle 8% inset (not a full hide) — the photo
+        // stays visible even in the worst case if the reveal never fires.
+        img.style.clipPath = 'inset(0 8% 0 8%)';
+        whenVisible(img, amount, () => {
           animate(
             img,
-            { clipPath: ['inset(0 50% 0 50%)', 'inset(0 0% 0 0%)'] },
+            { clipPath: ['inset(0 8% 0 8%)', 'inset(0 0% 0 0%)'] },
             { duration, ease: [0.16, 1, 0.3, 1] }
           );
-        }, { amount });
+        });
       });
     }
 
@@ -2494,9 +2519,9 @@
       // Fade the cards in once, then drive horizontal position from vertical scroll progress
       const cards = rail.querySelectorAll('.teacher-card');
       cards.forEach((el) => { el.style.opacity = '0'; });
-      inView(track, () => {
+      whenVisible(track, 0.1, () => {
         animate(cards, { opacity: [0, 1] }, { duration: 0.5, delay: stagger(0.05) });
-      }, { amount: 0.1 });
+      });
 
       scroll(
         (progress) => {
