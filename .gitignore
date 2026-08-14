@@ -1,11 +1,26 @@
 # Exclude planning & internal documents
 Discord_Launch_Marketing_Plan.md
+Discord_Launch_Marketing_Plan.html
 Marketing_Overview_Report.html
 Priority_Channel_Report.html
 Instagram_Audit_Report.html
 Solution_Development_Report.html
+Solution Report — DJ LAB SIAM.png
 CLAUDE.md
 brand.md
+
+# Exclude หน้าเว็บเวอร์ชันเก่า (ซ้ำกับ index.html → duplicate content)
+Landing_Page.html
+
+# Exclude คลังไฟล์ต้นฉบับ — ไม่มีอะไรใน index.html อ้างถึง
+# (มีไฟล์ .ai ต้นฉบับโลโก้ + PDF พาร์ตเนอร์ + รูปซ้ำกับ Picture/ ที่ root)
+djlabsiam DATA/
+
+# Exclude สคริปต์ deploy — ไม่ควรเสิร์ฟบนโดเมน
+DEPLOY_GITHUB.sh
+git_push.command
+setup.bat
+update_website.bat
 
 # Exclude DS_Store etc.
 .DS_Store
