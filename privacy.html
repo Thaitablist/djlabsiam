@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="th" data-surface="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>นโยบายความเป็นส่วนตัว — DJ LAB SIAM</title>
+<meta name="description" content="นโยบายความเป็นส่วนตัวของ DJ LAB SIAM — เก็บข้อมูลอะไร ใช้ทำอะไร แชร์กับใคร และสิทธิ์ของคุณตาม PDPA">
+<link rel="canonical" href="https://djlabsiam.com/privacy.html">
+<meta name="robots" content="index,follow">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://djlabsiam.com/privacy.html">
+<meta property="og:title" content="นโยบายความเป็นส่วนตัว — DJ LAB SIAM">
+<meta property="og:description" content="เก็บข้อมูลอะไร ใช้ทำอะไร แชร์กับใคร และสิทธิ์ของคุณตาม PDPA">
+<meta property="og:image" content="https://djlabsiam.com/og_image.png">
+<meta property="og:locale" content="th_TH">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#BE2329">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  /* โทเคนชุดเดียวกับ index.html — แดงเดียว #BE2329 · มุมเหลี่ยม ไม่มี border-radius */
+  :root{
+    --brand-base:#BE2329; --brand-hover:#981C21; --brand-on:#FFFFFF;
+    --surface-page:#0F0F0F; --surface-raised:#111111;
+    --text-primary:#FFFFFF; --text-secondary:#B8B6B2; --text-muted:#8A8884;
+    --border-hairline:#2A2A2A; --border-strong:#FFFFFF;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--surface-page); color:var(--text-primary);
+    font-family:'Noto Sans Thai','Prompt',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    /* ไทยกินความสูงมากกว่าที่คำนวณ — ตรึงไว้ ห้ามต่ำกว่า 1.25 */
+    font-size:16px; line-height:1.75;
+    -webkit-text-size-adjust:100%;
+  }
+  a{color:var(--brand-on); text-decoration:underline; text-underline-offset:3px}
+  a:hover{color:var(--brand-base)}
+
+  .bar{height:4px;background:var(--brand-base)}
+
+  header{border-bottom:1px solid var(--border-hairline)}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+  .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; height:72px}
+  .nav img{height:30px; width:auto; display:block}
+  .nav a.back{
+    font-family:'Prompt',sans-serif; font-size:14px; font-weight:600; line-height:1.4;
+    text-decoration:none; color:var(--text-secondary); border:1px solid var(--border-hairline);
+    padding:9px 16px; border-radius:0;
+  }
+  .nav a.back:hover{color:var(--text-primary); border-color:var(--border-strong)}
+
+  main{padding:48px 0 72px}
+  h1{
+    font-family:'Prompt',sans-serif; font-weight:700; font-size:32px; line-height:1.3;
+    margin:0 0 8px; letter-spacing:-0.01em;
+  }
+  .updated{color:var(--text-muted); font-size:14px; line-height:1.6; margin:0 0 12px}
+  .lede{color:var(--text-secondary); font-size:17px; line-height:1.75; margin:0 0 40px}
+
+  h2{
+    font-family:'Prompt',sans-serif; font-weight:600; font-size:22px; line-height:1.4;
+    margin:44px 0 14px; padding-top:22px; border-top:1px solid var(--border-hairline);
+  }
+  h3{font-family:'Prompt',sans-serif; font-weight:600; font-size:17px; line-height:1.45; margin:26px 0 8px}
+  p{margin:0 0 14px; color:var(--text-secondary)}
+  ul{margin:0 0 16px; padding-left:22px; color:var(--text-secondary)}
+  li{margin-bottom:8px}
+  strong{color:var(--text-primary); font-weight:600}
+
+  .tablewrap{overflow-x:auto; margin:0 0 20px; border:1px solid var(--border-hairline)}
+  table{border-collapse:collapse; width:100%; min-width:520px; font-size:15px; line-height:1.65}
+  th,td{text-align:left; padding:12px 14px; border-bottom:1px solid var(--border-hairline); vertical-align:top}
+  th{background:var(--surface-raised); font-family:'Prompt',sans-serif; font-weight:600; color:var(--text-primary); white-space:nowrap}
+  td{color:var(--text-secondary)}
+  tr:last-child td{border-bottom:none}
+
+  .note{border-left:4px solid var(--brand-base); background:var(--surface-raised); padding:16px 18px; margin:0 0 20px}
+  .note p:last-child{margin-bottom:0}
+
+  .contact{border:1px solid var(--border-hairline); padding:22px 24px; margin-top:12px}
+  .contact dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:8px 20px}
+  .contact dt{font-family:'Prompt',sans-serif; font-weight:600; color:var(--text-primary); white-space:nowrap}
+  .contact dd{margin:0; color:var(--text-secondary)}
+
+  footer{border-top:1px solid var(--border-hairline); padding:28px 0 40px; margin-top:56px}
+  footer p{color:var(--text-muted); font-size:13px; line-height:1.7; margin:0}
+
+  @media (max-width:600px){
+    h1{font-size:26px}
+    h2{font-size:20px}
+    .lede{font-size:16px}
+    .contact dl{grid-template-columns:1fr; gap:2px 0}
+    .contact dd{margin-bottom:10px}
+  }
+</style>
+</head>
+<body>
+<div class="bar"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="/"><img src="logo_full.png" alt="DJ LAB SIAM"></a>
+    <a class="back" href="/">กลับหน้าแรก</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>นโยบายความเป็นส่วนตัว</h1>
+  <p class="updated">ปรับปรุงล่าสุด 16 สิงหาคม 2569</p>
+  <p class="lede">
+    เอกสารนี้อธิบายว่า DJ LAB SIAM เก็บข้อมูลส่วนบุคคลอะไรบ้าง เก็บตอนไหน ใช้ทำอะไร
+    ส่งต่อให้ใคร และคุณมีสิทธิ์อะไรบ้างตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)
+  </p>
+
+  <h2>1. ผู้ควบคุมข้อมูลส่วนบุคคล</h2>
+  <div class="contact">
+    <dl>
+      <dt>ชื่อกิจการ</dt><dd>DJ LAB SIAM</dd>
+      <dt>ที่ตั้ง</dt><dd>Lido Connect ชั้น 2 · Siam Square Soi 3 · แขวงปทุมวัน เขตปทุมวัน กรุงเทพฯ</dd>
+      <dt>โทรศัพท์</dt><dd>02-252-5868 · 088-656-0464</dd>
+      <dt>อีเมล</dt><dd><a href="mailto:djlabsiam@gmail.com">djlabsiam@gmail.com</a></dd>
+      <dt>LINE</dt><dd>@djlabsiam</dd>
+      <dt>เว็บไซต์</dt><dd><a href="https://djlabsiam.com">djlabsiam.com</a></dd>
+    </dl>
+  </div>
+
+  <h2>2. ข้อมูลที่เราเก็บ และเก็บตอนไหน</h2>
+  <p>เราเก็บเท่าที่จำเป็นกับสิ่งที่คุณมาใช้บริการเท่านั้น ถ้าคุณแค่เข้ามาดูเว็บไซต์เฉยๆ เราไม่ได้ขอชื่อหรือเบอร์โทรจากคุณเลย</p>
+
+  <h3>2.1 เมื่อคุณเข้าชมเว็บไซต์นี้</h3>
+  <p>
+    เว็บไซต์นี้<strong>ไม่มีแบบฟอร์มให้กรอกข้อมูล</strong> และเราไม่ได้สร้างบัญชีผู้ใช้บนเว็บ
+    แต่เว็บมีสคริปต์จากผู้ให้บริการภายนอกทำงานอยู่ ซึ่งผู้ให้บริการเหล่านั้นจะได้รับข้อมูลทางเทคนิคของคุณ
+    เช่น หมายเลข IP ชนิดเบราว์เซอร์ อุปกรณ์ที่ใช้ และหน้าที่คุณเปิด
+  </p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>บริการ</th><th>ทำอะไร</th></tr></thead>
+      <tbody>
+        <tr><td>Meta (Facebook)</td><td>สคริปต์วัดผลของ Meta เพื่อดูภาพรวมการเข้าชมและใช้กับโฆษณาของเพจ</td></tr>
+        <tr><td>Google Fonts</td><td>โหลดฟอนต์ที่ใช้แสดงผลหน้าเว็บ</td></tr>
+        <tr><td>jsDelivr</td><td>โหลดไลบรารีสำหรับเอฟเฟกต์การเคลื่อนไหวบนหน้าเว็บ</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2.2 เมื่อคุณสมัครสมาชิกร้าน</h3>
+  <p>การสมัครสมาชิกทำที่หน้าร้าน เราบันทึก <strong>ชื่อ-นามสกุล เบอร์โทรศัพท์ และหมายเลขสมาชิก</strong> ที่ออกให้</p>
+
+  <h3>2.3 เมื่อคุณเชื่อมบัญชี LINE กับหมายเลขสมาชิก</h3>
+  <p>
+    ถ้าคุณเลือกผูกบัญชี LINE เข้ากับหมายเลขสมาชิก เราจะบันทึก
+    <strong>รหัสผู้ใช้ LINE (LINE User ID)</strong> ของคุณคู่กับหมายเลขสมาชิก
+    เพื่อให้ระบบรู้ว่าคนที่ทักเข้ามาคือสมาชิกคนไหน
+    <br>เราไม่ได้เข้าถึงรายชื่อเพื่อน ประวัติแชทกับคนอื่น หรือข้อมูลอื่นในบัญชี LINE ของคุณ
+  </p>
+
+  <h3>2.4 เมื่อคุณเข้าชุมชน Discord ของร้าน</h3>
+  <p>
+    เมื่อยืนยันตัวตนด้วยหมายเลขสมาชิกในเซิร์ฟเวอร์ Discord ของเรา
+    ระบบจะบันทึก <strong>รหัสผู้ใช้ Discord</strong> และหมายเลขสมาชิกที่ใช้ยืนยัน เพื่อมอบสิทธิ์เข้าห้องสำหรับสมาชิก
+  </p>
+
+  <h3>2.5 เมื่อคุณจองห้องซ้อมหรือลงคอร์สเรียน</h3>
+  <p>เราบันทึก <strong>ชื่อ เบอร์ติดต่อ วันเวลาที่จอง และรายการที่เลือก</strong> เพื่อจัดคิวและติดต่อกลับ</p>
+
+  <h3>2.6 ภาพถ่ายและวิดีโอในร้านหรือในคลาส</h3>
+  <p>
+    เราอาจถ่ายภาพหรือวิดีโอบรรยากาศในร้าน คลาสเรียน หรืออีเวนต์ เพื่อนำไปเผยแพร่บนช่องทางของร้าน
+    <strong>หากในภาพเห็นใบหน้าของคุณชัดเจน เราจะขออนุญาตก่อนเผยแพร่</strong>
+    และหากภายหลังคุณไม่ประสงค์ให้เผยแพร่ต่อ แจ้งเราได้ตลอดเวลา เราจะนำออกให้
+  </p>
+
+  <h2>3. เราใช้ข้อมูลทำอะไร</h2>
+  <ul>
+    <li>ให้บริการตามที่คุณติดต่อเข้ามา — ขายสินค้า สอน จองห้องซ้อม ซ่อมอุปกรณ์</li>
+    <li>ยืนยันสถานะสมาชิกและให้สิทธิประโยชน์ของสมาชิก</li>
+    <li>ติดต่อกลับเรื่องคำสั่งซื้อ ตารางเรียน การจอง หรือการรับประกัน</li>
+    <li>แจ้งข่าวสาร โปรโมชัน และกิจกรรมของร้าน ผ่านช่องทางที่คุณเลือกติดตาม</li>
+    <li>ดูภาพรวมการเข้าชมเว็บและประสิทธิภาพโฆษณา เพื่อปรับปรุงสิ่งที่เรานำเสนอ</li>
+    <li>ปฏิบัติตามหน้าที่ทางกฎหมาย เช่น เอกสารทางบัญชีและภาษี</li>
+  </ul>
+  <p><strong>เราไม่ขายข้อมูลส่วนบุคคลของคุณให้ใคร</strong> และไม่ส่งต่อให้บุคคลภายนอกเพื่อการตลาดของผู้อื่น</p>
+
+  <h2>4. ฐานทางกฎหมายที่เราใช้</h2>
+  <ul>
+    <li><strong>การปฏิบัติตามสัญญา</strong> — ข้อมูลที่จำเป็นต่อการขาย การสอน การจอง และการรับประกัน</li>
+    <li><strong>ความยินยอม</strong> — การส่งข่าวสารการตลาด และการเผยแพร่ภาพที่เห็นใบหน้าคุณชัดเจน ซึ่งคุณถอนได้ทุกเมื่อ</li>
+    <li><strong>ประโยชน์โดยชอบด้วยกฎหมาย</strong> — การดูภาพรวมการเข้าชมเว็บ และการดูแลความปลอดภัยของระบบ</li>
+    <li><strong>หน้าที่ตามกฎหมาย</strong> — การเก็บเอกสารทางบัญชีและภาษี</li>
+  </ul>
+
+  <h2>5. เราใช้บริการของใครบ้าง</h2>
+  <p>เราใช้ผู้ให้บริการภายนอกในการเก็บและประมวลผลข้อมูล ซึ่งแต่ละรายมีนโยบายความเป็นส่วนตัวของตัวเอง</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>ผู้ให้บริการ</th><th>ใช้ทำอะไร</th></tr></thead>
+      <tbody>
+        <tr><td>Meta Platforms</td><td>เพจ Facebook · บัญชี Instagram · สคริปต์วัดผลบนเว็บ · ระบบโฆษณา</td></tr>
+        <tr><td>LINE</td><td>บัญชีทางการของร้าน และการผูกบัญชีกับหมายเลขสมาชิก</td></tr>
+        <tr><td>Google</td><td>Google Workspace · ตารางข้อมูลสมาชิก · ปฏิทินคิวสอน · ฟอนต์บนเว็บ</td></tr>
+        <tr><td>Supabase</td><td>ฐานข้อมูลสมาชิก สินค้า และการจอง</td></tr>
+        <tr><td>Discord</td><td>ชุมชนออนไลน์ของร้านและระบบยืนยันสมาชิก</td></tr>
+        <tr><td>GitHub</td><td>ให้บริการหน้าเว็บไซต์นี้</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    ผู้ให้บริการบางรายมีเซิร์ฟเวอร์อยู่ต่างประเทศ ข้อมูลของคุณจึงอาจถูกส่งและเก็บไว้นอกราชอาณาจักร
+    เราเลือกใช้ผู้ให้บริการที่มีมาตรการคุ้มครองข้อมูลตามมาตรฐานสากล
+  </p>
+
+  <h2>6. เก็บข้อมูลไว้นานแค่ไหน</h2>
+  <ul>
+    <li><strong>ข้อมูลสมาชิก</strong> — เก็บตราบเท่าที่คุณยังเป็นสมาชิก และลบเมื่อคุณขอให้ลบ</li>
+    <li><strong>เอกสารการซื้อขายและใบรับประกัน</strong> — เก็บตามระยะเวลาที่กฎหมายบัญชีและภาษีกำหนด</li>
+    <li><strong>ข้อมูลการจอง</strong> — เก็บเท่าที่จำเป็นต่อการให้บริการและการตรวจสอบย้อนหลัง</li>
+    <li><strong>รหัสผู้ใช้ LINE และ Discord</strong> — ลบเมื่อคุณยกเลิกการเชื่อมบัญชีหรือออกจากชุมชน</li>
+  </ul>
+  <div class="note">
+    <p>
+      ถ้าคุณอยากรู้ว่าข้อมูลของคุณโดยเฉพาะถูกเก็บไว้นานเท่าไหร่ ติดต่อเราได้ตามช่องทางในข้อ 9
+      เราจะตอบให้ตรงกับกรณีของคุณ
+    </p>
+  </div>
+
+  <h2>7. สิทธิ์ของคุณ</h2>
+  <p>ตาม PDPA คุณมีสิทธิ์ต่อไปนี้ และใช้สิทธิ์ได้โดยไม่มีค่าใช้จ่าย</p>
+  <ul>
+    <li><strong>ขอเข้าถึง</strong> — ขอดูว่าเรามีข้อมูลอะไรของคุณบ้าง และขอสำเนาได้</li>
+    <li><strong>ขอแก้ไข</strong> — ให้ข้อมูลถูกต้องและเป็นปัจจุบัน</li>
+    <li><strong>ขอลบ</strong> — ให้ลบข้อมูลที่ไม่จำเป็นต้องเก็บต่อแล้ว</li>
+    <li><strong>ขอระงับการใช้</strong> — ให้หยุดใช้ข้อมูลชั่วคราว</li>
+    <li><strong>คัดค้าน</strong> — ไม่ให้ใช้ข้อมูลเพื่อการตลาดหรือเหตุผลอื่น</li>
+    <li><strong>ขอให้โอนข้อมูล</strong> — ขอรับข้อมูลในรูปแบบที่นำไปใช้ต่อได้</li>
+    <li><strong>ถอนความยินยอม</strong> — ถอนได้ทุกเมื่อ โดยไม่กระทบสิ่งที่ทำไปก่อนหน้าโดยชอบแล้ว</li>
+    <li><strong>ร้องเรียน</strong> — ร้องเรียนต่อสำนักงานคณะกรรมการคุ้มครองข้อมูลส่วนบุคคลได้ หากเห็นว่าเราทำไม่ถูกต้อง</li>
+  </ul>
+  <p>ติดต่อตามช่องทางในข้อ 9 เราจะดำเนินการภายในระยะเวลาที่กฎหมายกำหนด</p>
+
+  <h2>8. คุกกี้และการปิดการติดตาม</h2>
+  <p>
+    เว็บไซต์นี้ไม่ได้สร้างคุกกี้ของตัวเองเพื่อติดตามคุณ
+    แต่สคริปต์ของ Meta ที่ทำงานอยู่บนหน้าเว็บอาจตั้งคุกกี้ของ Meta เอง
+  </p>
+  <p>คุณปิดหรือจำกัดการติดตามได้ด้วยวิธีเหล่านี้</p>
+  <ul>
+    <li>ตั้งค่าบล็อกคุกกี้ของบุคคลที่สามในเบราว์เซอร์ที่คุณใช้</li>
+    <li>ปรับการตั้งค่าโฆษณาในบัญชี Facebook หรือ Instagram ของคุณเอง</li>
+    <li>ใช้ส่วนขยายเบราว์เซอร์ที่บล็อกสคริปต์ติดตาม</li>
+  </ul>
+
+  <h2>9. ความปลอดภัยของข้อมูล</h2>
+  <p>
+    เราจำกัดสิทธิ์การเข้าถึงข้อมูลสมาชิกไว้เฉพาะทีมงานที่จำเป็นต้องใช้
+    ระบบที่เก็บข้อมูลใช้การเชื่อมต่อแบบเข้ารหัสและมีการควบคุมสิทธิ์ในระดับฐานข้อมูล
+    อย่างไรก็ตาม ไม่มีระบบใดปลอดภัยร้อยเปอร์เซ็นต์ หากเกิดเหตุละเมิดข้อมูลที่มีความเสี่ยงต่อคุณ
+    เราจะแจ้งให้ทราบและดำเนินการตามที่กฎหมายกำหนด
+  </p>
+
+  <h2>10. ผู้เยาว์</h2>
+  <p>
+    บริการของเราเปิดกว้างสำหรับผู้สนใจดนตรีทุกวัย หากผู้ใช้บริการอายุต่ำกว่า 20 ปี
+    และเรื่องนั้นต้องขอความยินยอม เราอาจขอความยินยอมจากผู้ปกครองก่อน
+  </p>
+
+  <h2>11. การเปลี่ยนแปลงนโยบายนี้</h2>
+  <p>
+    เราอาจปรับปรุงนโยบายนี้เมื่อบริการหรือกฎหมายเปลี่ยนแปลง
+    ฉบับที่แสดงบนหน้านี้คือฉบับที่ใช้อยู่ในปัจจุบัน โดยดูวันที่ปรับปรุงล่าสุดได้ที่ด้านบนของหน้า
+  </p>
+
+  <h2>12. ติดต่อเรา</h2>
+  <p>เรื่องข้อมูลส่วนบุคคล หรือต้องการใช้สิทธิ์ตามข้อ 7 ติดต่อได้ที่</p>
+  <div class="contact">
+    <dl>
+      <dt>อีเมล</dt><dd><a href="mailto:djlabsiam@gmail.com">djlabsiam@gmail.com</a></dd>
+      <dt>โทรศัพท์</dt><dd>02-252-5868 · 088-656-0464</dd>
+      <dt>LINE</dt><dd>@djlabsiam</dd>
+      <dt>ที่ร้าน</dt><dd>Lido Connect ชั้น 2 · Siam Square Soi 3 · เปิด 12:00–20:00 น. ทุกวัน</dd>
+    </dl>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>
+      © DJ LAB SIAM · โรงเรียนสอน DJ และตัวแทนจำหน่ายอุปกรณ์ Pioneer DJ / AlphaTheta อย่างเป็นทางการ
+      <br><a href="/">กลับหน้าแรก</a>
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
