@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="th">
+<!-- data-surface="light" — เว็บนี้เป็นข้อยกเว้นพื้นสว่างที่ประกาศไว้ใน D2B ของ Design System -->
+<html lang="th" data-surface="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +29,7 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon-512.png" type="image/png" sizes="512x512">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta name="theme-color" content="#CC001A">
+  <meta name="theme-color" content="#BE2329">
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -204,23 +205,205 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Noto+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&family=Noto+Sans+Thai:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --red: #CC001A;
-      --red-dark: #A80014;
-      --black: #0F0F0F;
-      --gray-dark: #333333;
-      --gray: #888888;
-      --gray-light: #DDDDDD;
-      --bg: #F5F4F0;
-      --white: #FFFFFF;
-      --font: 'Prompt', sans-serif;
-      --font-body: 'Noto Sans Thai', 'Prompt', sans-serif;
-      --line-green: #06C755;
+      /* แดงเป็นตัวหนังสือบนพื้นมืดเท่านั้น · บน #0F0F0F = 4.61:1 ผ่าน AA · ขาวบนมัน = 4.15:1 ตก AA จึงห้ามใช้เป็นพื้น */
+      --color-red-400: #DD464C;
+      /* แดงแบรนด์ · สุ่มจากพิกเซลโลโก้จริง 420,123 px · ขาวบนมัน = 6.07:1 ผ่าน AA */
+      --color-red-500: #BE2329;
+      /* hover · ขาวบนมัน = 8.32:1 */
+      --color-red-600: #981C21;
+      /* pressed · ขาวบนมัน = 10.45:1 */
+      --color-red-700: #7D171B;
+      --color-n-0: #FFFFFF;
+      /* กระดาษอุ่น · พื้นสว่างของแบรนด์ */
+      --color-n-50: #F5F4F0;
+      --color-n-100: #F0F0F0;
+      /* เส้น hairline บนพื้นสว่าง */
+      --color-n-200: #E8E8E8;
+      --color-n-300: #DDDDDD;
+      --color-n-500: #888888;
+      --color-n-600: #666666;
+      --color-n-700: #333333;
+      --color-n-800: #2A2A2A;
+      --color-n-880: #1A1A1A;
+      --color-n-920: #111111;
+      /* ดำของแบรนด์ · พื้นตั้งต้นตาม D2B */
+      --color-n-950: #0F0F0F;
+      /* เส้น hairline บนพื้นมืด */
+      --color-alpha-w08: rgba(255,255,255,0.08);
+      --color-alpha-w18: rgba(255,255,255,0.18);
+      --color-alpha-w45: rgba(255,255,255,0.45);
+      --color-alpha-w65: rgba(255,255,255,0.65);
+      --color-alpha-w75: rgba(255,255,255,0.75);
+      --color-alpha-k55: rgba(0,0,0,0.55);
+      /* scrim ของ modal */
+      --color-alpha-k88: rgba(0,0,0,0.88);
+      /* ห้ามใช้ขาวทับเป็นข้อความ — ได้แค่ 2.26:1 · ใช้เป็นจุด/ไอคอนเท่านั้น (D2A) */
+      --color-ext-line: #06C755;
+      --color-ext-discord: #5865F2;
+      --color-ext-discord-hover: #4752C4;
+      --color-ext-youtube: #FF0000;
+      /* หัวเรื่อง ปุ่ม label ตัวเลข · น้ำหนัก >= 800 เป็นสิทธิ์ของฟอนต์นี้เท่านั้น (D3B) */
+      --font-family-display: Prompt, sans-serif;
+      /* เนื้อความ · น้ำหนัก 300-700 เท่านั้น */
+      --font-family-body: 'Noto Sans Thai', Prompt, sans-serif;
+      /* เล็กสุดที่อนุญาต (D3E) */
+      --font-size-11: 11px;
+      --font-size-12: 12px;
+      --font-size-13: 13px;
+      --font-size-14: 14px;
+      --font-size-15: 15px;
+      --font-size-16: 16px;
+      --font-size-17: 17px;
+      --font-size-18: 18px;
+      --font-size-22: 22px;
+      --font-size-24: 24px;
+      --font-size-30: 30px;
+      --font-size-42: 42px;
+      --font-size-48: 48px;
+      --font-size-52: 52px;
+      --font-size-72: 72px;
+      --font-size-80: 80px;
+      --font-size-fluid-hero: clamp(40px, 7vw, 80px);
+      --font-size-fluid-h2: clamp(30px, 4vw, 48px);
+      --font-size-fluid-num: clamp(30px, 3vw, 52px);
+      --font-weight-300: 300;
+      --font-weight-400: 400;
+      --font-weight-500: 500;
+      --font-weight-600: 600;
+      --font-weight-700: 700;
+      /* Prompt เท่านั้น */
+      --font-weight-800: 800;
+      /* Prompt เท่านั้น */
+      --font-weight-900: 900;
+      /* ขั้นต่ำของหัวเรื่องไทย (D3A) */
+      --font-line-height-thai-min: 1.25;
+      /* ใช้ได้เฉพาะบรรทัด Latin/ตัวเลขล้วน */
+      --font-line-height-latin: 1;
+      --font-line-height-heading: 1.3;
+      --font-line-height-body: 1.7;
+      --font-line-height-body-loose: 1.8;
+      /* Latin เท่านั้น (D3D) */
+      --font-tracking-latin-tight: -0.03em;
+      --font-tracking-thai: 0;
+      --font-tracking-wide: 0.12em;
+      --font-tracking-wider: 0.2em;
+      --space-4: 4px;
+      --space-8: 8px;
+      --space-12: 12px;
+      --space-16: 16px;
+      --space-20: 20px;
+      --space-24: 24px;
+      --space-32: 32px;
+      --space-40: 40px;
+      --space-48: 48px;
+      --space-64: 64px;
+      --space-80: 80px;
+      --space-100: 100px;
+      /* ร่องกริดของการ์ดที่ชนกัน — signature ของแบรนด์ */
+      --space-hairline: 2px;
+      /* ค่าตั้งต้นของทุกอย่าง · ปุ่ม การ์ด อินพุต แบดจ์ */
+      --radius-none: 0;
+      /* วงกลมแท้เท่านั้น · จุด pulse ปุ่มปิด แผ่นเสียง */
+      --radius-full: 50%;
+      --motion-duration-fast: 150ms;
+      --motion-duration-base: 300ms;
+      --motion-duration-slow: 600ms;
+      --motion-easing-base: cubic-bezier(0.25, 0.1, 0.25, 1);
+      /* พื้นตั้งต้นของ DS (D2B) */
+      --surface-page: #0F0F0F;
+      --surface-raised: #111111;
+      --surface-sunken: #1A1A1A;
+      /* พื้นสว่าง — เว็บ djlabsiam.com และแอปจองใช้ตัวนี้ (ข้อยกเว้นที่ประกาศไว้) */
+      --surface-inverse: #F5F4F0;
+      --surface-card: #111111;
+      --surface-card-inverse: #FFFFFF;
+      /* บนพื้นมืด */
+      --text-primary: #FFFFFF;
+      --text-secondary: rgba(255,255,255,0.75);
+      /* ห้ามลงต่ำกว่านี้บนพื้นมืด — w45 ตก AA */
+      --text-muted: rgba(255,255,255,0.65);
+      /* แดงเป็นตัวหนังสือบนพื้นมืด ต้องใช้ตัวนี้ ไม่ใช่ red.500 */
+      --text-brand: #DD464C;
+      --text-on-brand: #FFFFFF;
+      --border-hairline: rgba(255,255,255,0.08);
+      --border-strong: #FFFFFF;
+      --brand-base: #BE2329;
+      --brand-hover: #981C21;
+      --brand-press: #7D171B;
+      --brand-on: #FFFFFF;
+      --space-section-y: 100px;
+      --space-section-x: 64px;
+      --space-gutter-mobile: 24px;
+      --space-card-pad: 32px;
+      --space-stack-sm: 12px;
+      --space-stack-md: 24px;
+      --space-stack-lg: 48px;
+      --space-grid-gap: 2px;
+      /* D2A: แดงคือ primary ไม่ใช่เขียว LINE */
+      --button-primary-bg: #BE2329;
+      --button-primary-bg-hover: #981C21;
+      --button-primary-fg: #FFFFFF;
+      --button-pad-y: 15px;
+      --button-pad-x: 32px;
+      --button-font-size: 15px;
+      --button-font-weight: 600;
+      /* กฎแบรนด์ที่ตั้งใจ ไม่ใช่ค่าที่ลืมใส่ */
+      --button-radius: 0;
+      --button-secondary-border: 2px;
+      --chip-pad-y: 11px;
+      --chip-pad-x: 18px;
+      --chip-border: 1px;
+      --chip-dot-size: 9px;
+      --chip-dot-radius: 50%;
+      --nav-height: 72px;
+      --nav-cta-pad-y: 10px;
+      --nav-cta-pad-x: 22px;
+      --marquee-bg: #BE2329;
+      --marquee-speed: 22000ms;
+      --modal-scrim: rgba(0,0,0,0.88);
+      /* เดิมเป็น 6px — ขัดกฎรูปทรง */
+      --modal-radius: 0;
+      --modal-close-size: 34px;
+      --modal-close-radius: 50%;
+      /* เดิมเป็น 14px ที่บรรทัด 2348 — ขัดกฎรูปทรงชัดที่สุดในไฟล์ */
+      --faq-radius: 0;
+      --faq-summary-size: 17px;
     }
+
+    /* พื้นสว่าง — เว็บ djlabsiam.com และแอปจองห้องใช้ scope นี้ (ข้อยกเว้นที่ประกาศไว้ใน D2B) */
+    [data-surface="light"] {
+      --surface-page: var(--surface-inverse);
+      --surface-card: var(--surface-card-inverse);
+      --text-primary: #0F0F0F;
+      --text-secondary: #333333;
+      --text-muted: #666666;
+      --text-brand: #BE2329;
+      --border-hairline: #E8E8E8;
+      --border-strong: #0F0F0F;
+    }
+
+    /* ── ชั้นเชื่อมของเดิม ── ตัวแปร 13 ตัวที่เว็บใช้อยู่ ถูกนิยามใหม่ให้ชี้เข้า token ของ DS
+       แก้สีทั้งไฟล์ได้จากจุดเดียว และทำให้ค่าที่ตายไปตาม D1 ไม่มีทางกลับมา */
+    :root {
+      --red: var(--brand-base);
+      --red-dark: var(--brand-hover);
+      --red-on-dark: var(--color-red-400);   /* D1 ข้อ 1 — แดงเป็นตัวหนังสือบนพื้นมืดต้องใช้ตัวนี้ */
+      --black: var(--color-n-950);
+      --gray-dark: var(--color-n-700);
+      --gray: var(--color-n-500);
+      --gray-light: var(--color-n-300);
+      --bg: var(--color-n-50);
+      --white: var(--color-n-0);
+      --font: var(--font-family-display);
+      --font-body: var(--font-family-body);
+      --line-green: var(--color-ext-line);
+    }
+
 
     html { scroll-behavior: smooth; }
 
@@ -320,7 +503,7 @@
 
     .hero-label {
       display: inline-block;
-      font-size: 10px;
+      font-size: var(--font-size-11);
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -332,9 +515,9 @@
       font-size: clamp(56px, 7vw, 96px);
       font-weight: 900;
       font-family: var(--font);
-      line-height: 1;
+      line-height: var(--font-line-height-thai-min);
       color: var(--black);
-      letter-spacing: -0.03em;
+      letter-spacing: var(--font-tracking-thai);
       margin-bottom: 32px;
     }
 
@@ -402,7 +585,7 @@
     }
 
     .hero-partners-label {
-      font-size: 9px;
+      font-size: var(--font-size-11);
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -443,6 +626,7 @@
     .partner-logo-text {
       font-size: 13px;
       font-weight: 800;
+      font-family: var(--font);
       color: var(--black);
       letter-spacing: -0.01em;
       white-space: nowrap;
@@ -537,13 +721,14 @@
     .stat-num {
       font-size: 52px;
       font-weight: 900;
+      font-family: var(--font);
       color: var(--white);
       line-height: 1;
       display: block;
       letter-spacing: -0.03em;
     }
 
-    .stat-num span { color: var(--red); }
+    .stat-num span { color: var(--red-on-dark); }
 
     .stat-label {
       font-size: 15px;
@@ -565,7 +750,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 10px;
+      font-size: var(--font-size-11);
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -586,8 +771,8 @@
       font-weight: 900;
       font-family: var(--font);
       color: var(--black);
-      letter-spacing: -0.03em;
-      line-height: 1.15;
+      letter-spacing: var(--font-tracking-thai);
+      line-height: var(--font-line-height-thai-min);
     }
 
     /* ─── COURSES ─── */
@@ -643,6 +828,7 @@
     .course-num {
       font-size: 72px;
       font-weight: 900;
+      font-family: var(--font);
       color: var(--gray-light);
       line-height: 1;
       display: block;
@@ -656,7 +842,7 @@
 
     .course-level {
       display: inline-block;
-      font-size: 9px;
+      font-size: var(--font-size-11);
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -673,8 +859,9 @@
     .course-name {
       font-size: 22px;
       font-weight: 800;
+      font-family: var(--font);
       color: var(--black);
-      line-height: 1.2;
+      line-height: var(--font-line-height-thai-min);
       margin-bottom: 12px;
       transition: color 0.25s;
     }
@@ -746,9 +933,10 @@
     .store-h2 {
       font-size: 42px;
       font-weight: 900;
+      font-family: var(--font);
       color: var(--black);
-      letter-spacing: -0.03em;
-      line-height: 1.05;
+      letter-spacing: var(--font-tracking-thai);
+      line-height: var(--font-line-height-thai-min);
       margin: 0 0 40px;
     }
 
@@ -780,7 +968,7 @@
     .brand-row:hover .brand-row-name { color: var(--white); }
 
     .brand-row-badge {
-      font-size: 9px;
+      font-size: var(--font-size-11);
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -823,12 +1011,12 @@
 
     .event-tag {
       display: inline-block;
-      font-size: 10px;
+      font-size: var(--font-size-11);
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--red);
-      border-left: 3px solid var(--red);
+      color: var(--red-on-dark);
+      border-left: 3px solid var(--red-on-dark);
       padding-left: 12px;
       margin-bottom: 20px;
     }
@@ -838,8 +1026,8 @@
       font-weight: 800;
       font-family: var(--font);
       color: var(--white);
-      line-height: 1.2;
-      letter-spacing: -0.01em;
+      line-height: var(--font-line-height-thai-min);
+      letter-spacing: var(--font-tracking-thai);
       margin-bottom: 16px;
     }
 
@@ -871,6 +1059,7 @@
     .process-step-num {
       font-size: 80px;
       font-weight: 900;
+      font-family: var(--font);
       color: var(--gray-light);
       letter-spacing: -0.04em;
       line-height: 1;
@@ -1000,8 +1189,8 @@
     }
 
     .teacher-role {
-      font-size: 10px;
-      color: var(--red);
+      font-size: var(--font-size-11);
+      color: var(--red-on-dark);
       font-weight: 600;
       letter-spacing: 0.1em;
       display: block;
@@ -1042,10 +1231,10 @@
     }
 
     .location-info-label {
-      font-size: 10px;
+      font-size: var(--font-size-11);
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--red-on-dark);
       font-weight: 700;
       margin-bottom: 14px;
     }
@@ -1053,12 +1242,13 @@
     .location-info-title {
       font-size: 30px;
       font-weight: 900;
+      font-family: var(--font);
       color: var(--white);
-      letter-spacing: -0.02em;
-      line-height: 1.15;
+      letter-spacing: var(--font-tracking-thai);
+      line-height: var(--font-line-height-thai-min);
     }
 
-    .location-info-title span { color: var(--red); }
+    .location-info-title span { color: var(--red-on-dark); }
 
     .location-info-text {
       font-size: 16px;
@@ -1144,11 +1334,11 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 10px;
+      font-size: var(--font-size-11);
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--red);
+      color: var(--red-on-dark);
       margin-bottom: 22px;
     }
 
@@ -1169,13 +1359,14 @@
     .ai-h2 {
       font-size: clamp(30px, 3vw, 52px);
       font-weight: 900;
+      font-family: var(--font);
       color: var(--white);
-      letter-spacing: -0.03em;
-      line-height: 1.1;
+      letter-spacing: var(--font-tracking-thai);
+      line-height: var(--font-line-height-thai-min);
       margin-bottom: 20px;
     }
 
-    .ai-h2 span { color: var(--red); }
+    .ai-h2 span { color: var(--red-on-dark); }
 
     .ai-desc {
       font-size: 17px;
@@ -1243,7 +1434,8 @@
     .ai-stat-num {
       font-size: 24px;
       font-weight: 900;
-      color: var(--red);
+      font-family: var(--font);
+      color: var(--red-on-dark);
       letter-spacing: -0.02em;
       line-height: 1;
     }
@@ -1449,8 +1641,8 @@
     .yt-play-btn {
       width: 56px;
       height: 56px;
-      background: #FF0000;
-      border-radius: 12px;
+      background: var(--color-ext-youtube);
+      border-radius: var(--radius-none);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1468,7 +1660,7 @@
       font-size: 12px;
       font-weight: 500;
       padding: 2px 6px;
-      border-radius: 3px;
+      border-radius: var(--radius-none);
       letter-spacing: 0.02em;
     }
 
@@ -1503,7 +1695,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 10px;
+      font-size: var(--font-size-11);
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -1538,10 +1730,11 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #E8001D;
-      color: white;
-      font-size: 10px;
+      background: var(--red);
+      color: var(--white);
+      font-size: var(--font-size-11);
       font-weight: 800;
+      font-family: var(--font);
       letter-spacing: 0.2em;
       text-transform: uppercase;
       padding: 6px 14px;
@@ -1565,15 +1758,16 @@
     .sunday-h2 {
       font-size: 48px;
       font-weight: 900;
+      font-family: var(--font);
       color: var(--white);
-      letter-spacing: -0.03em;
-      line-height: 1.05;
+      letter-spacing: var(--font-tracking-thai);
+      line-height: var(--font-line-height-thai-min);
       margin-bottom: 20px;
     }
 
     .sunday-time {
       font-size: 16px;
-      color: var(--red);
+      color: var(--red-on-dark);
       font-weight: 700;
       letter-spacing: 0.05em;
       margin-bottom: 16px;
@@ -1750,7 +1944,7 @@
       .ai-dis-icon { display: none; }
       .ai-3d-icon-mobile { display: block; width: auto; height: 198px; object-fit: contain; flex-shrink: 0; }
       .yt-3d-icon { top: -50px; right: 20px; }
-      .ai-dis-icon-btn { display: block; width: 44px; height: 44px; border-radius: 12px; object-fit: cover; flex-shrink: 0; }
+      .ai-dis-icon-btn { display: block; width: 44px; height: 44px; border-radius: var(--radius-none); object-fit: cover; flex-shrink: 0; }
     }
     /* Press Kit Modal */
     .pk-modal {
@@ -1774,7 +1968,7 @@
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 6px;
+      border-radius: var(--radius-none);
     }
     .pk-close {
       position: absolute;
@@ -1794,7 +1988,7 @@
       line-height: 1;
       z-index: 1;
     }
-    .pk-close:hover { background: #a8001a; }
+    .pk-close:hover { background: var(--red-dark); }
     @keyframes pkFadeIn {
       from { opacity: 0; transform: scale(0.92); }
       to   { opacity: 1; transform: scale(1); }
@@ -2298,7 +2492,7 @@
           เรื่อง <span>DJ</span><br>
           ไม่เหมือนที่ไหน
         </h2>
-        <img src="Picture/AI/Dis%20Icon.PNG" alt="" class="ai-dis-icon" style="width:90px;flex-shrink:0;border-radius:20px;" loading="lazy">
+        <img src="Picture/AI/Dis%20Icon.PNG" alt="" class="ai-dis-icon" style="width:90px;flex-shrink:0;border-radius:0;" loading="lazy">
         <img src="Picture/AI/AI%20DIS%203D%20ICON.png" alt="" class="ai-3d-icon-mobile" loading="lazy">
       </div>
       <p class="ai-desc">
@@ -2345,7 +2539,7 @@
   <style>
     .faq-section { padding: 100px 6% ; background: var(--bg); max-width: 1200px; margin: 0 auto; }
     .faq-list { margin-top: 40px; display: flex; flex-direction: column; gap: 14px; }
-    .faq-item { background: var(--white); border: 1px solid var(--gray-light); border-radius: 14px; overflow: hidden; }
+    .faq-item { background: var(--white); border: 1px solid var(--gray-light); border-radius: var(--radius-none); overflow: hidden; }
     .faq-item summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 24px; font-family: var(--font); font-weight: 600; font-size: 17px; color: var(--black); }
     .faq-item summary::-webkit-details-marker { display: none; }
     .faq-item summary::after { content: '+'; font-size: 24px; font-weight: 300; color: var(--red); flex-shrink: 0; transition: transform .25s ease; }
