@@ -169,14 +169,6 @@
       },
       {
         "@type": "Question",
-        "name": "เรียนแบบตัวต่อตัวหรือแบบกลุ่ม?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "เลือกได้ทั้งแบบ 1:1 และแบบ Group จัดตารางเรียนตามเวลาที่สะดวกได้"
-        }
-      },
-      {
-        "@type": "Question",
         "name": "DJ LAB SIAM อยู่ที่ไหน เปิดกี่โมง?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -196,7 +188,7 @@
         "name": "เริ่มเรียนต้องทำยังไง?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ทัก LINE @djlabsiam แจ้งระดับและเป้าหมาย ทีมงานจะแนะนำคอร์สที่เหมาะสม เลือกแบบ 1:1 หรือ Group แล้วนัดวันเรียนตามเวลาที่สะดวก"
+          "text": "ทัก LINE @djlabsiam แจ้งระดับและเป้าหมาย ทีมงานจะแนะนำคอร์สที่เหมาะสม แล้วนัดวันเรียนตามเวลาที่สะดวก"
         }
       }
     ]
@@ -395,7 +387,7 @@
       --red-on-dark: var(--color-red-400);   /* D1 ข้อ 1 — แดงเป็นตัวหนังสือบนพื้นมืดต้องใช้ตัวนี้ */
       --black: var(--color-n-950);
       --gray-dark: var(--color-n-700);
-      --gray: var(--color-n-500);
+      --gray: var(--color-n-600);   /* n-500 #888 ตก AA บนกระดาษ (3.54:1) */
       --gray-light: var(--color-n-300);
       --bg: var(--color-n-50);
       --white: var(--color-n-0);
@@ -501,16 +493,6 @@
       background: var(--bg);
     }
 
-    .hero-label {
-      display: inline-block;
-      font-size: var(--font-size-11);
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gray);
-      margin-bottom: 28px;
-    }
-
     .hero-h1 {
       font-size: clamp(56px, 7vw, 96px);
       font-weight: 900;
@@ -521,16 +503,32 @@
       margin-bottom: 32px;
     }
 
+    /* ที่จอ 320px ค่า 7vw ต่ำกว่าขั้นต่ำของ clamp หัวเรื่องจึงค้างที่ 56px
+       แล้วเบราว์เซอร์ตัดคำว่า "มืออาชีพ" กลางคำ เพราะไทยไม่มีช่องว่างให้ตัด */
+    @media (max-width: 360px) {
+      .hero-h1 { font-size: 42px; }
+    }
+
     .hero-h1 .accent-line {
       display: block;
       color: var(--red);
     }
 
+    /* D3C — เอฟเฟกต์ตัวกลวงใช้กับอักษร Latin เท่านั้น
+       stroke 2px หนากว่าช่องว่างในหัวอักษรไทย ห่วงของ ต ร อ จะตันหมด
+       จึงเป็น inline เพราะไปเกาะคำอังกฤษที่อยู่กลางบรรทัดผสม */
     .hero-h1 .outline-text {
-      display: block;
+      display: inline;
       -webkit-text-stroke: 2px var(--black);
-      color: transparent;
     }
+
+    /* ทำให้โปร่งเฉพาะเมื่อเบราว์เซอร์วาดเส้นขอบได้จริง
+       ไม่งั้นคำจะหายไปทั้งคำบนเบราว์เซอร์ที่ไม่รองรับ */
+    @supports (-webkit-text-stroke: 2px currentColor) {
+      .hero-h1 .outline-text { color: transparent; }
+    }
+
+    .hero-h1 .plain-line { display: block; }
 
     .hero-desc {
       font-size: 18px;
@@ -563,6 +561,17 @@
 
     .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
 
+    /* D2A — เขียว LINE กลับมาในฐานะสัญลักษณ์ ไม่ใช่พื้น จุดล้วนจึงไม่มีตัวหนังสือทับ */
+    .btn-line::before {
+      content: '';
+      width: var(--chip-dot-size);
+      height: var(--chip-dot-size);
+      border-radius: var(--chip-dot-radius);
+      background: var(--line-green);
+      flex: none;
+      margin-right: 10px;
+    }
+
     .btn-secondary {
       display: inline-flex;
       align-items: center;
@@ -578,6 +587,15 @@
     }
 
     .btn-secondary:hover { background: var(--black); color: var(--white); }
+
+    /* ปุ่มโครงบนโซนพื้นมืด — .btn-secondary ตั้งต้นเป็นดำบนดำ วัดได้ 1.00:1 คือมองไม่เห็นเลย
+       บนเดสก์ท็อปมันโผล่ตอน hover เท่านั้น ส่วนมือถือที่ไม่มี hover คือหายถาวร */
+    .btn-on-dark {
+      color: var(--white);
+      box-shadow: inset 0 0 0 2px var(--white);
+      border-color: transparent;
+    }
+    .btn-on-dark:hover { background: var(--white); color: var(--black); }
 
     .hero-partners {
       padding-top: 28px;
@@ -695,8 +713,12 @@
       padding: 0 32px;
     }
 
+    /* พื้นตรงนี้เป็นแดงแบรนด์ ไม่ใช่โซนพื้นมืด — token กลุ่ม alpha การันตีคอนทราสต์ไว้บน #0F0F0F เท่านั้น
+       การหยิบมาใช้บนแดงจะดูเหมือนผ่านกฎทั้งที่สัญญาของ token ไม่ครอบพื้นนี้
+       จึงใช้สี on-brand แล้วหรี่ด้วย opacity แทน */
     .marquee-sep {
-      color: rgba(255,255,255,0.4);
+      color: var(--brand-on);
+      opacity: 0.7;
     }
 
     @keyframes marquee {
@@ -853,8 +875,8 @@
       transition: color 0.25s, background 0.25s;
     }
 
-    .course-card:hover .course-level { background: #2A2A2A; color: var(--gray); }
-    .course-card.featured .course-level { background: rgba(255,255,255,0.25); color: var(--white); }
+    .course-card:hover .course-level { background: #2A2A2A; color: var(--color-alpha-w75); }
+    .course-card.featured .course-level { background: var(--brand-on); color: var(--red); }
 
     .course-name {
       font-size: 22px;
@@ -878,7 +900,7 @@
     }
 
     .course-card:hover .course-desc { color: #999; }
-    .course-card.featured .course-desc { color: rgba(255,255,255,0.8); }
+    .course-card.featured .course-desc { color: var(--brand-on); }
 
     .course-link {
       display: inline-flex;
@@ -1038,11 +1060,6 @@
     }
 
     /* ─── PROCESS ─── */
-    .process-section {
-      padding: 100px 64px;
-      background: var(--bg);
-    }
-
     .process-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -1157,23 +1174,6 @@
       filter: grayscale(0%) brightness(0.9);
       transform: scale(calc(var(--scale, 1) * 1.04));
     }
-
-    /* Light bg variant for teachers with light-background photos */
-    .teacher-card.light {
-      background: #F0F0F0;
-    }
-
-    .teacher-card.light .teacher-img {
-      filter: none;
-    }
-
-    .teacher-card.light:hover .teacher-img {
-      filter: none;
-      transform: scale(calc(var(--scale, 1) * 1.04));
-    }
-
-    .teacher-card.light .teacher-name { color: var(--black); }
-    .teacher-card.light .teacher-role { color: var(--red); }
 
     .teacher-name-wrap {
       position: absolute;
@@ -1347,11 +1347,11 @@
       height: 6px;
       background: var(--red);
       border-radius: 50%;
-      animation: pulse-dot 2s infinite;
+      animation: pulse-dot-ai 2s infinite;
       flex-shrink: 0;
     }
 
-    @keyframes pulse-dot {
+    @keyframes pulse-dot-ai {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.35; transform: scale(0.75); }
     }
@@ -1368,9 +1368,11 @@
 
     .ai-h2 span { color: var(--red-on-dark); }
 
+    /* บนพื้นมืดห้ามใช้ --text-* ของ DS เพราะหน้านี้ประกาศ data-surface="light" ทั้งเอกสาร
+       token กลุ่ม alpha ไม่ถูก override จึงเป็นตัวที่ใช้ได้ในโซนมืด */
     .ai-desc {
       font-size: 17px;
-      color: rgba(255,255,255,0.55);
+      color: var(--color-alpha-w75);
       line-height: 1.85;
       margin-bottom: 36px;
       max-width: 440px;
@@ -1442,7 +1444,7 @@
 
     .ai-stat-label {
       font-size: 13px;
-      color: rgba(255,255,255,0.35);
+      color: var(--color-alpha-w65);
       margin-top: 5px;
       letter-spacing: 0.05em;
     }
@@ -1471,7 +1473,7 @@
 
     .footer-brand-desc {
       font-size: 15px;
-      color: #666;
+      color: var(--color-alpha-w75);
       line-height: 1.7;
     }
 
@@ -1480,7 +1482,7 @@
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #555;
+      color: var(--color-alpha-w65);
       margin-bottom: 20px;
     }
 
@@ -1493,7 +1495,7 @@
 
     .footer-links a {
       font-size: 16px;
-      color: #888;
+      color: var(--color-alpha-w75);
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -1507,7 +1509,7 @@
       padding-top: 32px;
     }
 
-    .footer-copy { font-size: 14px; color: #555; }
+    .footer-copy { font-size: 14px; color: var(--color-alpha-w65); }
 
     .footer-social { display: flex; gap: 20px; }
 
@@ -1515,13 +1517,13 @@
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.08em;
-      color: #555;
+      color: var(--color-alpha-w75);
       text-decoration: none;
       text-transform: uppercase;
       transition: color 0.2s;
     }
 
-    .footer-social a:hover { color: var(--red); }
+    .footer-social a:hover { color: var(--red-on-dark); }
 
     /* ─── SCROLL OFFSET (fixed nav compensation) ─── */
     #courses, #equipment, #process, #location {
@@ -1608,7 +1610,7 @@
       transition: color 0.2s, border-color 0.2s;
     }
 
-    .youtube-cta-link:hover { color: #FF0000; border-color: #FF0000; }
+    .youtube-cta-link:hover { color: var(--red); border-color: var(--color-ext-youtube); }   /* แดง YouTube บนขาว 4.00:1 ตก AA ที่ 13px · สีแพลตฟอร์มเหลือไว้ที่เส้น ไม่ใช่ตัวหนังสือ */
 
     .yt-strip {
       display: grid;
@@ -1699,7 +1701,7 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #FF0000;
+      color: var(--color-n-700);
       margin-bottom: 14px;
     }
 
@@ -1852,7 +1854,7 @@
       text-decoration: none;
       padding: 16px 0;
       border-bottom: 1px solid var(--gray-light);
-      letter-spacing: -0.01em;
+      letter-spacing: var(--font-tracking-thai);
       transition: color 0.2s;
     }
 
@@ -1921,7 +1923,10 @@
       .hero-left { padding: 48px 24px; }
       .courses-grid { grid-template-columns: 1fr; }
       .process-grid { grid-template-columns: 1fr; }
-      .courses-section, .process-section { padding: 64px 24px; }
+      /* เดิมเขียน .process-section ซึ่งไม่มี element ไหนใช้เลย ของจริงคือ .process-subsection
+         ผลคือ padding 64px ของเดสก์ท็อปไม่เคยถูกลดบนมือถือ และเพราะมันซ้อนใน .courses-section
+         padding เลยบวกกัน การ์ดขั้นตอนจึงเหลือกว้าง 135px บนจอ 375px */
+      .courses-section, .process-subsection { padding: 64px 24px; }
       .ai-content { padding: 48px 24px; margin-left: 0; margin-top: 0; }
       .teachers-section { padding: 64px 0 0; }
       .teachers-header { padding: 0 24px 36px; }
@@ -1930,7 +1935,6 @@
       .store-content { padding: 56px 32px; }
       .location-info-bar { grid-template-columns: 1fr; }
       .location-info-col, .location-info-cta { padding: 28px 24px; border-right: none; }
-      .cta-actions { flex-direction: column; }
       .yt-strip { grid-template-columns: 1fr; }
       .gallery-section, .youtube-section { padding: 56px 24px; }
       .sunday-content { padding: 48px 28px; }
@@ -2046,9 +2050,9 @@
   <section class="hero">
     <div class="hero-left">
       <h1 class="hero-h1">
-        เรียน DJ<br>
+        เรียน <span class="outline-text">DJ</span><br>
         <span class="accent-line">จากมืออาชีพ</span>
-        <span class="outline-text">ตัวจริง</span>
+        <span class="plain-line">ตัวจริง</span>
       </h1>
       <p class="hero-desc">
         โรงเรียนสอน DJ ที่ทีมงานทุกคนเป็น DJ มืออาชีพ
@@ -2056,7 +2060,9 @@
         ตัวแทนจำหน่าย Pioneer DJ และ AlphaTheta อย่างเป็นทางการ
       </p>
       <div class="hero-actions">
-        <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="btn-primary" style="background:var(--line-green);border-color:var(--line-green);">ทักหา LINE @djlabsiam</a>
+        <!-- D2A — แดงเป็น primary · เขียว LINE ถูกถอดออกจากพื้นปุ่ม
+             ขาวบนเขียว LINE ได้แค่ 2.26:1 ตก WCAG AA · ขาวบนแดงแบรนด์ได้ 6.07:1 -->
+        <a href="https://line.me/ti/p/@djlabsiam" target="_blank" class="btn-primary btn-line">ทักหา LINE @djlabsiam</a>
         <a href="#courses" class="btn-secondary">ดูคอร์สทั้งหมด</a>
       </div>
       <div class="hero-partners">
@@ -2204,7 +2210,7 @@
       <div class="process-step">
         <span class="process-step-num">02</span>
         <div class="process-step-title">เลือกคอร์ส</div>
-        <div class="process-step-desc">เลือก Package ที่ตรงกับระดับและเวลาที่มี แบบ 1:1 หรือ Group ก็ได้</div>
+        <div class="process-step-desc">เลือก Package ที่ตรงกับระดับและเวลาที่มี</div>
         <span class="process-step-arrow">→</span>
       </div>
       <div class="process-step">
@@ -2361,7 +2367,7 @@
       </div>
       <div class="location-info-cta" style="display:flex;flex-direction:column;gap:10px;">
         <a href="https://www.google.com/maps/search/Lido+Connect+Siam+Square+Bangkok" target="_blank" class="btn-primary" style="white-space:nowrap;text-align:center;">แผนที่</a>
-        <a href="Picture/Location/lido2ndfloorplan.svg" target="_blank" class="btn-secondary" style="white-space:nowrap;font-size:13px;padding:10px 20px;text-align:center;">Lido Map</a>
+        <a href="Picture/Location/lido2ndfloorplan.svg" target="_blank" class="btn-secondary btn-on-dark" style="white-space:nowrap;font-size:13px;padding:10px 20px;text-align:center;">Lido Map</a>
       </div>
     </div>
   </section>
@@ -2561,10 +2567,6 @@
         <div class="faq-answer">ไม่จำเป็น เรียนบนอุปกรณ์ Pioneer DJ ระดับ Club Standard ของโรงเรียนได้เลย ทั้ง CDJ Player และ DJM Mixer เมื่อพร้อมมีอุปกรณ์ของตัวเอง ทีมงานช่วยแนะนำรุ่นที่เหมาะกับระดับและงบประมาณได้</div>
       </details>
       <details class="faq-item">
-        <summary>เรียนแบบตัวต่อตัวหรือแบบกลุ่ม?</summary>
-        <div class="faq-answer">เลือกได้ทั้งแบบ 1:1 และแบบ Group จัดตารางเรียนตามเวลาที่สะดวกได้</div>
-      </details>
-      <details class="faq-item">
         <summary>DJ LAB SIAM อยู่ที่ไหน เปิดกี่โมง?</summary>
         <div class="faq-answer">อยู่ที่ Lido Connect ชั้น 2, Siam Square Soi 3 ปทุมวัน กรุงเทพฯ เปิดทุกวัน 12:00–20:00 น. ติดต่อ LINE @djlabsiam หรือโทร 02-252-5868</div>
       </details>
@@ -2574,7 +2576,7 @@
       </details>
       <details class="faq-item">
         <summary>เริ่มเรียนต้องทำยังไง?</summary>
-        <div class="faq-answer">ทัก LINE @djlabsiam แจ้งระดับและเป้าหมาย ทีมงานจะแนะนำคอร์สที่เหมาะสม เลือกแบบ 1:1 หรือ Group แล้วนัดวันเรียนตามเวลาที่สะดวก</div>
+        <div class="faq-answer">ทัก LINE @djlabsiam แจ้งระดับและเป้าหมาย ทีมงานจะแนะนำคอร์สที่เหมาะสม แล้วนัดวันเรียนตามเวลาที่สะดวก</div>
       </details>
     </div>
   </section>
