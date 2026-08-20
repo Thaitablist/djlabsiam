@@ -2883,5 +2883,75 @@
       );
     })();
   </script>
+
+  <!-- ─── เฟส 0 · วัดว่ามีคนทักจริงไหม ───
+       Pixel เดิมยิงแค่ PageView จึงรู้แค่ว่ามีคนมาถึงหน้า ไม่รู้ว่าใครกดติดต่อ
+       บล็อกนี้ยิง Contact ทุกครั้งที่กดช่องทางติดต่อ พร้อมบอกว่ากดจากตำแหน่งไหน
+       ตำแหน่งอ่านจาก DOM เอง ไม่ได้แปะป้ายไว้ทีละปุ่ม → ปุ่มที่เพิ่มทีหลังถูกนับเองอัตโนมัติ -->
+  <script>
+  (function () {
+    var sentDepth = {};
+
+    function txt(el) {
+      return el ? el.innerHTML.replace(/<br\s*\/?>/gi, ' ').replace(/<[^>]*>/g, '')
+                    .replace(/\s+/g, ' ').trim() : '';
+    }
+    function slug(s) {
+      return String(s).toLowerCase().replace(/[^a-z0-9]+/g, '_')
+                      .replace(/^_+|_+$/g, '') || 'unknown';
+    }
+
+    /* ตำแหน่งที่กด เรียงจากเจาะจงที่สุดไปทั่วไปที่สุด */
+    function spot(a) {
+      if (a.closest('#mobileNav')) return 'mobile_menu';
+      if (a.classList.contains('nav-cta')) return 'nav';
+      var card = a.closest('.course-card');
+      if (card) return 'course_' + slug(txt(card.querySelector('.course-name')));
+      if (a.closest('footer')) return 'footer';
+      var sec = a.closest('section');
+      if (sec && sec.className) {
+        return slug(String(sec.className).split(/\s+/)[0].replace(/-section$/, ''));
+      }
+      return 'other';
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target;
+      var a = t && t.closest ? t.closest('a[href]') : null;
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      var ch = href.indexOf('line.me') > -1 ? 'line'
+             : href.indexOf('tel:') === 0 ? 'phone' : '';
+      if (!ch) return;
+      if (typeof fbq !== 'function') return;   /* โดนบล็อก หรือสคริปต์ยังมาไม่ถึง */
+      var where = spot(a);
+      /* เบอร์โทรมีสองเบอร์อยู่ที่เดียวกัน ถ้าไม่ต่อเลขไว้จะแยกไม่ออกว่ากดเบอร์ไหน */
+      if (ch === 'phone') where += '_' + href.replace(/^tel:/, '').replace(/[^0-9]/g, '');
+      fbq('track', 'Contact', {
+        content_category: ch,
+        content_name: ch + ':' + where
+      });
+    }, true);
+
+    /* อ่านถึงไหนก่อนหาย ยิงครั้งเดียวต่อระดับ */
+    var MARKS = [50, 90], queued = false;
+    function check() {
+      queued = false;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      if (max <= 0) return;
+      var pct = (window.scrollY / max) * 100;
+      for (var i = 0; i < MARKS.length; i++) {
+        var m = MARKS[i];
+        if (pct >= m && !sentDepth[m]) {
+          sentDepth[m] = true;
+          if (typeof fbq === 'function') fbq('trackCustom', 'ScrollDepth', { percent: m });
+        }
+      }
+    }
+    window.addEventListener('scroll', function () {
+      if (!queued) { queued = true; requestAnimationFrame(check); }
+    }, { passive: true });
+  })();
+  </script>
 </body>
 </html>
