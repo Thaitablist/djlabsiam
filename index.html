@@ -507,6 +507,10 @@
        แล้วเบราว์เซอร์ตัดคำว่า "มืออาชีพ" กลางคำ เพราะไทยไม่มีช่องว่างให้ตัด */
     @media (max-width: 360px) {
       .hero-h1 { font-size: 42px; }
+
+      /* ที่ 320px ปุ่ม CTA ทับตัวสุดท้ายของ wordmark (เจ้าของเลือกตัวเลือก ข 20 ส.ค. 69)
+         CTA ไม่หายจากหน้า ยังอยู่เป็น .mobile-nav-cta ในเมนูแฮมเบอร์เกอร์ */
+      .nav-cta { display: none; }
     }
 
     .hero-h1 .accent-line {
@@ -860,7 +864,7 @@
     }
 
     .course-card:hover .course-num { color: #333; }
-    .course-card.featured .course-num { color: rgba(255,255,255,0.25); }
+    .course-card.featured .course-num { color: rgba(255,255,255,0.55); }
 
     .course-level {
       display: inline-block;
