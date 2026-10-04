@@ -3,9 +3,16 @@
 
   <url>
     <loc>https://djlabsiam.com/</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://djlabsiam.com/privacy.html</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 
   <!-- หน้าอนาคตตามแผน SEO — เมื่อหน้า online จริงแล้วค่อยลบ comment ทีละ URL
