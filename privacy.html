@@ -6,6 +6,8 @@
 <title>นโยบายความเป็นส่วนตัว — DJ LAB SIAM</title>
 <meta name="description" content="นโยบายความเป็นส่วนตัวของ DJ LAB SIAM — เก็บข้อมูลอะไร ใช้ทำอะไร แชร์กับใคร และสิทธิ์ของคุณตาม PDPA">
 <link rel="canonical" href="https://djlabsiam.com/privacy.html">
+<link rel="alternate" hreflang="th" href="https://djlabsiam.com/privacy.html">
+<link rel="alternate" hreflang="en" href="https://djlabsiam.com/privacy-en.html">
 <meta name="robots" content="index,follow">
 
 <meta property="og:type" content="website">
@@ -49,12 +51,13 @@
 
   header{border-bottom:1px solid var(--border-hairline)}
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
-  .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; height:72px}
+  .nav{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px 16px; min-height:72px; padding-top:10px; padding-bottom:10px}
+  .nav .links{display:flex; gap:8px}
   .nav img{height:30px; width:auto; display:block}
   .nav a.back{
     font-family:'Prompt',sans-serif; font-size:14px; font-weight:600; line-height:1.4;
     text-decoration:none; color:var(--text-secondary); border:1px solid var(--border-hairline);
-    padding:9px 16px; border-radius:0;
+    padding:9px 16px; border-radius:0; min-height:44px; display:inline-flex; align-items:center; white-space:nowrap;
   }
   .nav a.back:hover{color:var(--text-primary); border-color:var(--border-strong)}
 
@@ -109,13 +112,16 @@
 <header>
   <div class="wrap nav">
     <a href="/"><img src="logo_full.png" alt="DJ LAB SIAM"></a>
-    <a class="back" href="/">กลับหน้าแรก</a>
+    <div class="links">
+      <a class="back" href="/privacy-en.html" hreflang="en" lang="en">English</a>
+      <a class="back" href="/">กลับหน้าแรก</a>
+    </div>
   </div>
 </header>
 
 <main class="wrap">
   <h1>นโยบายความเป็นส่วนตัว</h1>
-  <p class="updated">ปรับปรุงล่าสุด 5 ตุลาคม 2569</p>
+  <p class="updated">ปรับปรุงล่าสุด 6 ตุลาคม 2569</p>
   <p class="lede">
     เอกสารนี้อธิบายว่า DJ LAB SIAM เก็บข้อมูลส่วนบุคคลอะไรบ้าง เก็บตอนไหน ใช้ทำอะไร
     ส่งต่อให้ใคร และคุณมีสิทธิ์อะไรบ้างตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)
@@ -138,8 +144,9 @@
 
   <h3>2.1 เมื่อคุณเข้าชมเว็บไซต์นี้</h3>
   <p>
-    เว็บไซต์นี้<strong>ไม่มีแบบฟอร์มให้กรอกข้อมูล</strong> และเราไม่ได้สร้างบัญชีผู้ใช้บนเว็บ
-    แต่เว็บมีสคริปต์จากผู้ให้บริการภายนอกทำงานอยู่ ซึ่งผู้ให้บริการเหล่านั้นจะได้รับข้อมูลทางเทคนิคของคุณ
+    หน้าทั่วไปของเว็บไซต์นี้<strong>ไม่มีแบบฟอร์มให้กรอกข้อมูล</strong> และเราไม่ได้สร้างบัญชีผู้ใช้บนเว็บ
+    ยกเว้นหน้า<strong>จองห้องซ้อม (djlabsiam.com/book)</strong> ที่มีแบบฟอร์ม ดูข้อ 2.5
+    เว็บมีสคริปต์จากผู้ให้บริการภายนอกทำงานอยู่ ซึ่งผู้ให้บริการเหล่านั้นจะได้รับข้อมูลทางเทคนิคของคุณ
     เช่น หมายเลข IP ชนิดเบราว์เซอร์ อุปกรณ์ที่ใช้ และหน้าที่คุณเปิด
   </p>
   <div class="tablewrap">
@@ -149,6 +156,8 @@
         <tr><td>Meta (Facebook)</td><td>วิดีโอจาก Facebook ที่ฝังอยู่ในหน้าเว็บ — เมื่อหน้าเว็บโหลดวิดีโอนี้ Meta จะได้รับข้อมูลทางเทคนิคของคุณและอาจตั้งคุกกี้ของ Meta</td></tr>
         <tr><td>Google Fonts</td><td>โหลดฟอนต์ที่ใช้แสดงผลหน้าเว็บ</td></tr>
         <tr><td>jsDelivr</td><td>โหลดไลบรารีสำหรับเอฟเฟกต์การเคลื่อนไหวบนหน้าเว็บ</td></tr>
+        <tr><td>LINE</td><td>หน้าจองห้องซ้อมโหลดชุดคำสั่งของ LINE เพื่อให้เปิดใช้ในแอป LINE ได้ (โหลดเฉพาะเมื่อคุณเปิดหน้าจองในแอป LINE)</td></tr>
+        <tr><td>Supabase</td><td>หน้าจองห้องซ้อมเรียกฐานข้อมูลของร้านบน Supabase เพื่อดูเวลาว่างและส่งการจอง — Supabase จะได้รับข้อมูลทางเทคนิคของคุณ</td></tr>
       </tbody>
     </table>
   </div>
@@ -172,6 +181,15 @@
 
   <h3>2.5 เมื่อคุณจองห้องซ้อมหรือลงคอร์สเรียน</h3>
   <p>เราบันทึก <strong>ชื่อ เบอร์ติดต่อ วันเวลาที่จอง และรายการที่เลือก</strong> เพื่อจัดคิวและติดต่อกลับ</p>
+  <p>
+    <strong>ถ้าคุณจองห้องซ้อมผ่านหน้าเว็บ</strong> เราบันทึก
+    <strong>ชื่อ ช่องทางติดต่อ (เบอร์โทรศัพท์และ/หรืออีเมล) วันและเวลาที่จอง ชุดอุปกรณ์ที่เลือก หมายเหตุที่คุณพิมพ์ ภาษาที่ใช้ และช่องทางที่พาคุณมาถึงหน้าจอง (เช่น Instagram หรือ Google Maps)</strong>
+    รวมถึงเวลาที่คุณติ๊กยินยอม เพื่อยืนยันการจอง ติดต่อกลับ และให้คุณตรวจสถานะการจองด้วยรหัสอ้างอิง
+  </p>
+  <p>
+    <strong>ถ้าคุณเปิดหน้าจองในแอป LINE</strong> เราบันทึก<strong>รหัสผู้ใช้ LINE</strong>ของคุณด้วย
+    เพื่อส่งข้อความยืนยันกลับไปทาง LINE (ส่งได้เมื่อคุณเป็นเพื่อนกับบัญชี LINE ของร้านแล้วเท่านั้น)
+  </p>
 
   <h3>2.6 ภาพถ่ายและวิดีโอในร้านหรือในคลาส</h3>
   <p>
@@ -206,7 +224,7 @@
       <thead><tr><th>ผู้ให้บริการ</th><th>ใช้ทำอะไร</th></tr></thead>
       <tbody>
         <tr><td>Meta Platforms</td><td>เพจ Facebook · บัญชี Instagram · วิดีโอ Facebook ที่ฝังในหน้าเว็บ · ระบบโฆษณา</td></tr>
-        <tr><td>LINE</td><td>บัญชีทางการของร้าน และการผูกบัญชีกับหมายเลขสมาชิก</td></tr>
+        <tr><td>LINE</td><td>บัญชีทางการของร้าน · การผูกบัญชีกับหมายเลขสมาชิก · การส่งข้อความยืนยันการจองห้องซ้อม</td></tr>
         <tr><td>Google</td><td>Google Workspace · ตารางข้อมูลสมาชิก · ปฏิทินคิวสอน · ฟอนต์บนเว็บ</td></tr>
         <tr><td>Supabase</td><td>ฐานข้อมูลสมาชิก สินค้า และการจอง</td></tr>
         <tr><td>Discord</td><td>ชุมชนออนไลน์ของร้านและระบบยืนยันสมาชิก</td></tr>
@@ -223,7 +241,8 @@
   <ul>
     <li><strong>ข้อมูลสมาชิก</strong> — เก็บตราบเท่าที่คุณยังเป็นสมาชิก และลบเมื่อคุณขอให้ลบ</li>
     <li><strong>เอกสารการซื้อขายและใบรับประกัน</strong> — เก็บตามระยะเวลาที่กฎหมายบัญชีและภาษีกำหนด</li>
-    <li><strong>ข้อมูลการจอง</strong> — เก็บเท่าที่จำเป็นต่อการให้บริการและการตรวจสอบย้อนหลัง</li>
+    <li><strong>ข้อมูลการจองห้องซ้อมที่ทำผ่านเว็บหรือ LINE</strong> — เก็บ 12 เดือนหลังวันที่จอง จากนั้นลบข้อมูลที่ระบุตัวตนได้ (ชื่อ ช่องทางติดต่อ รหัสผู้ใช้ LINE) ส่วนวัน เวลา และจำนวนเงินเก็บต่อเพื่อทำบัญชี</li>
+    <li><strong>ข้อมูลการจองอื่น</strong> — เก็บเท่าที่จำเป็นต่อการให้บริการและการตรวจสอบย้อนหลัง</li>
     <li><strong>รหัสผู้ใช้ LINE และ Discord</strong> — ลบเมื่อคุณยกเลิกการเชื่อมบัญชีหรือออกจากชุมชน</li>
   </ul>
   <div class="note">
