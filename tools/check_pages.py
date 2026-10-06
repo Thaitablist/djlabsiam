@@ -163,6 +163,15 @@ if faq_ld:
     ok(len(vis_faq) == len(json.loads(read(os.path.join(SITE, "data", "faq.json")))["items"]), "courses: FAQ count differs from data/faq.json")
 for q, a in vis_faq:
     ok("{" not in a and "}" not in a, f"courses: unfilled placeholder in FAQ answer: {a[:50]}")
+    if "เลื่อน" in q:
+        ok("อย่างน้อย 3 วัน" in a and not re.search(r"(?<!\d)[12](?!\d)\s*(?:[–-]\s*[12]\s*)?วัน", a), f"courses: the reschedule answer must say 'at least 3 days' and never a 1–2 day case: {a[:60]}")
+
+# ---- course pictures: shown exactly for the courses listed in data/course-images.json ----
+cimg = json.loads(read(os.path.join(SITE, "data", "course-images.json")))
+for c in COURSES:
+    block = re.search(rf'<article class="course" id="{slug(c["title"].replace(" Class", ""))}">(.*?)</article>', SRC.get("courses", ""), re.S)
+    has = bool(block) and "<figure" in block.group(1)
+    ok(has == bool(cimg.get(c["title"])), f"courses: picture of {c['title']} is {'shown' if has else 'hidden'} but data/course-images.json says otherwise")
 
 # ---- YouTube ↔ privacy policy ----
 if any("youtube-nocookie" in s for s in SRC.values()):

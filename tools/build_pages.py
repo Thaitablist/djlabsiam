@@ -78,8 +78,11 @@ for t, im in CIMG.items():
         continue
     if t not in [c["title"] for c in COURSES]:
         die(f"course-images.json: {t!r} is not a course in courses.json")
-    if not all(im.get(k) for k in ("file", "w", "h", "alt")) or not os.path.exists(os.path.join(SITE, "assets", "img", im["file"])):
-        die(f"course-images.json: {t!r} needs file (existing in assets/img), w, h and alt")
+    if not all(im.get(k) for k in ("base", "widths", "w", "h", "alt")):
+        die(f"course-images.json: {t!r} needs base, widths, w, h and alt")
+    for w in im["widths"]:
+        if not os.path.exists(os.path.join(SITE, "assets", "img", f"{im['base']}-{w}.webp")):
+            die(f"course-images.json: assets/img/{im['base']}-{w}.webp does not exist")
 for n, p in PROFILES.items():
     if n.startswith("_"):
         continue
@@ -433,7 +436,10 @@ def cimg(c):
     im = CIMG.get(c["title"])
     if not im:
         return ""
-    return f'<figure class="cimg"><img src="/assets/img/{E(im["file"])}" width="{int(im["w"])}" height="{int(im["h"])}" alt="{E(im["alt"])}" loading="lazy" decoding="async"></figure>'
+    ws = sorted(int(w) for w in im["widths"])
+    srcset = ", ".join(f"/assets/img/{im['base']}-{w}.webp {w}w" for w in ws)
+    return (f'<figure class="cimg"><img src="/assets/img/{im["base"]}-{int(im["w"])}.webp" srcset="{srcset}" sizes="(min-width:960px) 424px, 92vw" '
+            f'width="{int(im["w"])}" height="{int(im["h"])}" alt="{E(im["alt"])}" loading="lazy" decoding="async"></figure>')
 
 
 def course_row(c, i):

@@ -1,7 +1,44 @@
 {
-  "_about": "ภาพประกอบของแต่ละคอร์สบน /courses/ — ใส่เป็น {file (ไฟล์ใน assets/img/), w, h, alt} ได้เมื่อเจ้าของทำภาพชุดใหม่ที่ชื่อตรง courses.json แล้ว · null = ไม่แสดงภาพและไม่เว้นช่องว่าง · ห้ามใช้ภาพเดิม course-*.webp (เขียนชื่อเก่า BASIC/ADVNC MIXING) · ห้ามใช้ชื่อไฟล์ตามธรรมเนียมอัตโนมัติ ต้องระบุในไฟล์นี้เท่านั้น",
-  "Basic DJ Class": null,
-  "Advance DJ Class": null,
-  "Basic Scratch Class": null,
-  "Advance Scratch Class": null
+  "_about": "ภาพประกอบของแต่ละคอร์สบน /courses/ — สร้างโดย tools/make_course_photos.py จากรูปที่เจ้าของให้ 6 ต.ค. 2569 (ครอป 3:2 หลายขนาด ไม่แต่งภาพ) · base = ชื่อไฟล์ใน assets/img/ (ต่อท้าย -<กว้าง>.webp) · null = ไม่แสดงภาพและไม่เว้นช่องว่าง · ห้ามใช้ภาพเดิม course-*.webp (เขียนชื่อเก่า BASIC/ADVNC MIXING)",
+  "Basic DJ Class": {
+    "base": "course-photo-basic-dj",
+    "widths": [
+      480
+    ],
+    "w": 480,
+    "h": 320,
+    "alt": "มือกำลังเล่นแพดบนคอนโทรลเลอร์ DJ"
+  },
+  "Advance DJ Class": {
+    "base": "course-photo-advance-dj",
+    "widths": [
+      480,
+      800
+    ],
+    "w": 800,
+    "h": 533,
+    "alt": "มือกำลังเล่นแพดและปุ่มบนคอนโทรลเลอร์ DJ"
+  },
+  "Basic Scratch Class": {
+    "base": "course-photo-basic-scratch",
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "w": 800,
+    "h": 533,
+    "alt": "มือวางบนจานเสียงสีน้ำเงินของเครื่อง DJ"
+  },
+  "Advance Scratch Class": {
+    "base": "course-photo-advance-scratch",
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "w": 800,
+    "h": 533,
+    "alt": "DJ ยืนหลังเทิร์นเทเบิลสองเครื่องและมิกเซอร์"
+  }
 }
