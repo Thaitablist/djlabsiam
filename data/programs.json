@@ -1,0 +1,18 @@
+{
+  "_about": "รายการประจำของหน้า /content/ — ข้อความ Sunday Live คัดจากหน้าแรกปัจจุบัน (index.html) · DJ LAB Podcast: ออกอากาศ VDO เต็มทางช่อง YouTube หลักทุกวันพุธ 18:00 (เจ้าของแจ้งผ่านผู้จัดการข้อมูล 6 ต.ค.) ยังไม่มีลิงก์ตอน → ลิงก์ไปช่อง @DJLABSIAM · คำอธิบายรายการยังไม่มี ห้ามแต่งเอง",
+  "items": [
+    {
+      "name": "Sunday Live",
+      "when": "ทุกวันอาทิตย์ · 18:30 น. ทาง Facebook Page",
+      "desc": "รายการ Live สด พูดคุยเรื่องดีเจทุกมิติ — เทคนิค อุปกรณ์ วงการ Q&A กับทีม DJ LAB SIAM",
+      "link": "https://www.facebook.com/PioneerDjLabSiam",
+      "link_label": "ติดตาม Facebook Page"
+    },
+    {
+      "name": "DJ LAB Podcast",
+      "when": "ทุกวันพุธ · 18:00 น. ออกอากาศ VDO เต็มทางช่อง YouTube หลัก",
+      "link": "https://www.youtube.com/@DJLABSIAM",
+      "link_label": "ดูที่ช่อง YouTube"
+    }
+  ]
+}

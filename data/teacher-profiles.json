@@ -1,0 +1,28 @@
+{
+ "_about": "ข้อมูลเฉพาะของหน้าอาจารย์ที่ไม่อยู่ใน courses.json — คีย์ต้องตรงกับชื่อครูใน bots/bot/shared/courses.json ทุกตัว (สคริปต์ tools/build_pages.py จะไม่ยอมสร้างหน้าถ้าไม่ตรง). highlights = รายการผลงาน/รางวัลสั้นๆ ที่เจ้าของให้ข้อมูล (แสดงเป็นหัวข้อ 'ผลงาน'). กติกา C2 (เจ้าของยืนยัน 6 ต.ค.): '3rd Place DMC Thailand (Classic)' ของ Zlex เป็นผลงานใหม่ ใส่ได้ · ห้ามใส่ผลงานเก่าที่เจ้าของไม่อยากอ้างอิง (ตามข้อกำหนดเว็บใหม่ข้อ C2) ทั้งใน highlights, bio และข้อความที่ถอดจาก press kit — ถ้าเจอข้อความแบบนั้นให้ตัดออกและแจ้งผู้จัดการข้อมูล. ช่องที่ว่าง = หน้าไม่แสดงส่วนนั้นเลย (ไม่มีข้อความ 'เร็วๆ นี้'). bio = ประวัติสั้น 2-3 ประโยค (Zlex/Leonie/Maniac/Alldayz ย่อจาก press kit ตามคำสั่งเจ้าของ 6 ต.ค. — ข้อความถอดเต็มเก็บนอก repo (ไม่เสิร์ฟสาธารณะ) ที่ design-system/courses/teacher-presskit.json; Nutty/Tibass ไม่มี press kit จึงยังไม่มี). video_id = รหัสคลิป YouTube 11 ตัว + poster = ชื่อไฟล์ภาพปกใน assets/img/ (ต้องเก็บในโดเมนร้านเอง) — ใส่คู่กันเสมอ และต้องเติมประโยคนโยบายเรื่อง YouTube ใน privacy.html/privacy-en.html ก่อนขึ้นหน้าที่มีวิดีโอ (tools/check_pages.py เช็กให้) · ผลงานของ Maniac ที่มีชื่อศิลปิน (เจ้าของอนุมัติ 6 ต.ค.): ใช้ได้เฉพาะในรายการ 'ผลงาน' ของหน้า Maniac เท่านั้น ห้ามใช้ชื่อศิลปินในหัวข้อ/title/meta/og/โฆษณา · ห้ามมีรูปหรือโลโก้ศิลปิน · ใช้ถ้อยคำตามต้นฉบับ press kit (tools/check_pages.py เช็กให้)",
+ "Zlex": {
+  "highlights": [
+   "3rd Place DMC Thailand (Classic)"
+  ],
+  "bio": "เริ่มเล่นดีเจตั้งแต่ปลายปี 2010 จากรากฐานแนวเพลงฮิปฮอปและโซล&ฟังก์ มีประสบการณ์ในงานฮิปฮอปและวัฒนธรรมการเต้น (บีบอยและโอเพ่นสไตล์) ทั้งในไทยและต่างประเทศ (ลาว สิงคโปร์ ไต้หวัน มาเลเซีย อินเดีย เนปาล มาเก๊า) นำศิลปะ Turntablism ไปผสมผสานกับศิลปะหรือสื่ออื่น ๆ เพื่อสร้างมุมมองใหม่จากทักษะ DJ เป็นผู้ก่อตั้ง Thaitablist ชุมชน Social Turntablism สำหรับคนไทย"
+ },
+ "Leonie": {
+  "bio": "DJ และโปรดิวเซอร์ชาวไทย เริ่มอาชีพ DJ ในปี 2007 และในปี 2008 ได้ 2nd Runner จากการประกวด T3 Lady DJ Search โดย Pioneer Pro DJ (Thailand) เล่นสาย EDM, Hip-hop, Trap, Twerk และเพลงคอมเมอร์เชียล เคยเล่นในเทศกาลดนตรี เช่น Pattaya Music Festival 2011 และ Overcoat Music Festival 2014–2017 รวมทั้งเล่นที่กัมพูชา ลาว เวียดนาม มาเลเซีย ไต้หวัน เมียนมา เนปาล และอินโดนีเซีย"
+ },
+ "Nutty": {
+  "highlights": [
+   "Red Bull 3Style Thailand Champion"
+  ]
+ },
+ "Tibass": {},
+ "Maniac": {
+  "bio": "DJ Instructor ที่ DJ LAB SIAM เล่นแนว Hip-hop, Pop, K-pop, Rock และ Open Format เป็น Resident DJ ที่ What's happened?, Tictactoe, Ratch hour, The Shed, Horsamut และอีกหลายร้าน มีประสบการณ์เล่นที่ Onyx, Dope&Dirty, Echelon, Rhodes, Yolo Ekkamai, Roaring room และ Joe's whisper",
+  "highlights": [
+   "เคยเปิดเพลงในงานปาร์ตี้ส่วนตัวของ Lisa, Jennie และทีม Blackpink ที่ What's happened?",
+   "เป็น Artist DJ ให้ Dajim, Zentyarb และ K.aglet"
+  ]
+ },
+ "Alldayz": {
+  "bio": "Open Format DJ และ Turntablist ในประเทศไทย เล่นแนว Hip-Hop, R&B, House, Throwback Classics และเพลงคอมเมอร์เชียล ด้วยทักษะ turntablism การมิกซ์ที่ลื่นไหล และการอ่านบรรยากาศผู้ฟัง ได้รางวัล 3rd Runner Up Pioneer Rookie 2017"
+ }
+}

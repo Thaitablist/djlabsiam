@@ -1,0 +1,7 @@
+{
+  "_about": "ภาพประกอบของแต่ละคอร์สบน /courses/ — ใส่เป็น {file (ไฟล์ใน assets/img/), w, h, alt} ได้เมื่อเจ้าของทำภาพชุดใหม่ที่ชื่อตรง courses.json แล้ว · null = ไม่แสดงภาพและไม่เว้นช่องว่าง · ห้ามใช้ภาพเดิม course-*.webp (เขียนชื่อเก่า BASIC/ADVNC MIXING) · ห้ามใช้ชื่อไฟล์ตามธรรมเนียมอัตโนมัติ ต้องระบุในไฟล์นี้เท่านั้น",
+  "Basic DJ Class": null,
+  "Advance DJ Class": null,
+  "Basic Scratch Class": null,
+  "Advance Scratch Class": null
+}
