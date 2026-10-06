@@ -152,7 +152,7 @@
     <table>
       <thead><tr><th>Service</th><th>What it does</th></tr></thead>
       <tbody>
-        <tr><td>Meta (Facebook)</td><td>A Facebook video embedded in the page — when the page loads this video, Meta receives your technical data and may set Meta cookies.</td></tr>
+        <tr><td>Meta (Facebook)</td><td><strong>Meta Pixel</strong> — measures the shop's advertising; it starts as soon as a page opens (except the practice room booking page) and sets Meta cookies; you can turn it off, see section 8.<br>A Facebook video embedded in the page — when the page loads this video, Meta receives your technical data and may set Meta cookies.</td></tr>
         <tr><td>Google Fonts</td><td>Loads the fonts used to display the page.</td></tr>
         <tr><td>jsDelivr</td><td>Loads a library for the motion effects on the page.</td></tr>
         <tr><td>LINE</td><td>The practice room booking page loads LINE's script so that it can be used inside the LINE app (loaded only when you open the booking page inside the LINE app).</td></tr>
@@ -225,7 +225,7 @@
     <table>
       <thead><tr><th>Provider</th><th>What it is used for</th></tr></thead>
       <tbody>
-        <tr><td>Meta Platforms</td><td>Facebook page · Instagram account · Facebook video embedded in the website · advertising system</td></tr>
+        <tr><td>Meta Platforms</td><td>Facebook page · Instagram account · Facebook video embedded in the website · advertising system · Meta Pixel (ad measurement on this website)</td></tr>
         <tr><td>LINE</td><td>The shop's official account · linking accounts to membership numbers · sending practice room booking confirmations</td></tr>
         <tr><td>Google</td><td>Google Workspace · membership data sheets · teaching schedule calendar · web fonts</td></tr>
         <tr><td>Supabase</td><td>Database of members, products, and bookings</td></tr>
@@ -268,17 +268,31 @@
   </ul>
   <p>Contact us through the channels in section 12. We will act within the time the law requires.</p>
 
-  <h2>8. Cookies and turning off tracking</h2>
+  <h2>8. Cookies, Meta Pixel and turning off tracking</h2>
   <p>
-    This website does not create cookies of its own, and no shop analytics or tracking scripts run on the page.
-    However, the Facebook video embedded in the page may set Meta's own cookies.
+    This website does not create cookies of its own, but it uses the <strong>Meta Pixel</strong> from Meta Platforms
+    to measure the shop's advertising on Facebook and Instagram — how many people the ads bring to look at the courses or contact the shop.
+    The Meta Pixel starts as soon as you open a page, and sets Meta cookies named _fbp
+    (and _fbc, if you arrived from a Facebook or Instagram ad) in your browser. These cookies last about 3 months.
+    <strong>The practice room booking page (djlabsiam.com/book) does not use the Meta Pixel.</strong>
   </p>
-  <p>You can turn off or limit tracking in these ways.</p>
+
+  <h3>8.1 What the Meta Pixel sends to Meta</h3>
   <ul>
-    <li>Set your browser to block third-party cookies</li>
-    <li>Adjust the ad settings in your own Facebook or Instagram account</li>
-    <li>Use a browser extension that blocks tracking scripts</li>
+    <li><strong>Sent</strong> — which page of the website you open (that page's address and the page you came from), whether you open the courses page or a teacher's profile, and whether you press the shop's LINE link or phone number (only that it was LINE or phone — the number and any message are not sent), together with technical data such as your IP address, browser type, the device you use, and the ID in the _fbp cookie</li>
+    <li><strong>Not sent</strong> — your name, phone number, email, anything you type, or booking details; and we have turned off the Meta Pixel's advanced matching</li>
+    <li>If you are logged in to Facebook or Instagram in the same browser, Meta may link this visit to your account, in line with Meta's policy</li>
+    <li>Meta stores and uses the data it receives under Meta's own privacy policy, and the data may be sent and stored outside Thailand, as described in section 5</li>
   </ul>
+
+  <h3>8.2 How to turn it off</h3>
+  <ul>
+    <li>Press <strong>"Turn off ad measurement"</strong> at the bottom of this page, or of any other page of the website that uses the Meta Pixel — the website will no longer load the Meta Pixel in this browser, and deletes the _fbp / _fbc cookies it set. Your choice is remembered in your browser (if you clear your browser's site data you will need to press it again), and you can press the same button again to turn it back on.</li>
+    <li>If your browser has Do Not Track or Global Privacy Control (GPC) switched on, we treat that as already off and do not load the Meta Pixel</li>
+    <li>Set your browser to block third-party cookies, or use a browser extension that blocks tracking scripts</li>
+    <li>Adjust the ad settings in your own Facebook or Instagram account</li>
+  </ul>
+  <p>The Facebook video embedded in the page may set Meta's own cookies; the button above does not cover that. Use the browser setting or extension described above.</p>
 
   <h2>9. Data security</h2>
   <p>
