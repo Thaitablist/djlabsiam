@@ -5,7 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>จองห้องซ้อม — DJ LAB SIAM</title>
 <meta name="description" content="จองห้องซ้อม DJ ที่ DJ LAB SIAM สยามสแควร์ เลือกวันและเวลา แล้วส่งคำขอได้เลย">
-<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://djlabsiam.com/book/">
+<meta property="og:title" content="จองห้องซ้อม — DJ LAB SIAM">
+<meta property="og:description" content="จองห้องซ้อม DJ ที่ DJ LAB SIAM สยามสแควร์ เลือกวันและเวลา แล้วส่งคำขอได้เลย">
+<meta property="og:image" content="https://djlabsiam.com/og_image.png">
+<meta property="og:locale" content="th_TH">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="จองห้องซ้อม — DJ LAB SIAM">
+<meta name="twitter:description" content="จองห้องซ้อม DJ ที่ DJ LAB SIAM สยามสแควร์ เลือกวันและเวลา แล้วส่งคำขอได้เลย">
+<meta name="twitter:image" content="https://djlabsiam.com/og_image.png">
 <link rel="canonical" href="https://djlabsiam.com/book/">
 <meta name="theme-color" content="#0F0F0F">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -637,6 +646,8 @@ const DIAL=[['TH',66],['US',1],['CA',1],['GB',44],['AU',61],['NZ',64],['SG',65],
 
 /* ═════════ state ═════════ */
 const qs=new URLSearchParams(location.search);
+/* the page itself is public; a link that carries a booking code (?s=) is a customer's own status page and is never indexed */
+if(qs.has('s')){const m=document.createElement('meta');m.name='robots';m.content='noindex,nofollow';document.head.appendChild(m)}
 const pickLang=()=>{const q=qs.get('lang');if(q==='en'||q==='th')return q;const l=((navigator.languages&&navigator.languages[0])||navigator.language||'th').toLowerCase();return l.startsWith('th')?'th':'en'};
 const normRef=v=>{v=(v||'').toLowerCase().trim();if(!v||v==='direct')return '';if(/^google[_-]?maps$/.test(v))v='maps';return v.slice(0,32)};
 const S={lang:pickLang(),view:'loading',cfg:null,busy:{},stale:false,step:1,sel:null,start:null,hrs:1,setup:0,note:'',name:'',cmode:null,cc:'TH',phone:'',email:'',consent:false,
