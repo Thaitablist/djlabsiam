@@ -174,8 +174,8 @@ def ic(n, s=20):
 
 def photo(name, w, size_attr, cls=""):
     s = slug(name)
-    return (f'<img{(" class=" + chr(34) + cls + chr(34)) if cls else ""} src="/assets/img/teacher-{s}-640.webp" '
-            f'srcset="/assets/img/teacher-{s}-320.webp 320w, /assets/img/teacher-{s}-640.webp 640w" sizes="{size_attr}" '
+    return (f'<img{(" class=" + chr(34) + cls + chr(34)) if cls else ""} src="/assets/img/teacher-{s}-cut-640.webp" '
+            f'srcset="/assets/img/teacher-{s}-cut-320.webp 320w, /assets/img/teacher-{s}-cut-640.webp 640w" sizes="{size_attr}" '
             f'width="640" height="800" alt="" loading="lazy" decoding="async">')
 
 
@@ -302,8 +302,9 @@ img{display:block;max-width:100%;height:auto}
 .lede2{margin-top:10px;color:var(--text-secondary);max-width:70ch}
 .tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 12px;margin-top:24px}
 .tile{display:flex;flex-direction:column;gap:8px;text-decoration:none;padding-bottom:8px}
-.tile .tp{display:block;aspect-ratio:4/5;overflow:hidden;background:#EFEEEA}
+.tile .tp{display:block;aspect-ratio:4/5;overflow:hidden;background:var(--surface-raised)}
 .tile .tp img{width:100%;height:100%;object-fit:cover}
+.tp img,.pph img{filter:drop-shadow(0 0 4px rgba(190,35,41,.95)) drop-shadow(0 0 20px rgba(190,35,41,.6))}
 .tile b{font:800 18px/1.3 var(--font-family-display)}
 .tile .tc{font-size:14px;line-height:1.5;color:var(--text-secondary)}
 .tile:hover b{text-decoration:underline;text-underline-offset:4px}
@@ -322,7 +323,7 @@ img{display:block;max-width:100%;height:auto}
 .crumb{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;padding-top:20px!important;font-size:15px;color:var(--text-muted)}
 .crumb a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;color:var(--text-secondary)}
 .pg2{display:grid;gap:28px;padding-top:8px}
-.pph{margin:0;background:#EFEEEA;aspect-ratio:4/5;overflow:hidden;align-self:start}
+.pph{margin:0;background:var(--surface-raised);aspect-ratio:4/5;overflow:hidden;align-self:start}
 .pph img{width:100%;height:100%;object-fit:cover}
 .pbody{display:grid;gap:36px;align-content:start}
 .pname{display:grid;gap:4px}
@@ -591,7 +592,7 @@ def teacher_page(t):
                  f'{line_btn("สนใจเรียนกับอาจารย์ " + name, "ขอเรียนกับอาจารย์ " + name, "sec")}</div>')
     body = (f'<nav class="crumb" aria-label="เส้นทาง"><a href="/courses/">คอร์สเรียน</a><span aria-hidden="true">/</span><a href="/courses/#teachers">ทีมครู</a>'
             f'<span aria-hidden="true">/</span><span aria-current="page">{E(name)}</span></nav>'
-            f'<div class="pg2"><figure class="pph"><img src="/assets/img/teacher-{s}-640.webp" srcset="/assets/img/teacher-{s}-320.webp 320w, /assets/img/teacher-{s}-640.webp 640w" '
+            f'<div class="pg2"><figure class="pph"><img src="/assets/img/teacher-{s}-cut-640.webp" srcset="/assets/img/teacher-{s}-cut-320.webp 320w, /assets/img/teacher-{s}-cut-640.webp 640w" '
             f'sizes="(min-width:960px) 40vw, 92vw" width="640" height="800" alt="{E(name)} อาจารย์ DJ LAB SIAM" fetchpriority="high" decoding="async"></figure>'
             f'<div class="pbody"><div class="pname"><h1>{E(name)}</h1><p class="role">{E(t["role"].replace(",", " ·"))}</p></div>{sections}</div></div>'
             f'<section class="others"><h2>อาจารย์ท่านอื่น</h2>{tiles(" s", True, exclude=name)}</section>')

@@ -177,6 +177,24 @@ for c in COURSES:
     has = bool(block) and "<figure" in block.group(1)
     ok(has == bool(cimg.get(c["title"])), f"courses: picture of {c['title']} is {'shown' if has else 'hidden'} but data/course-images.json says otherwise")
 
+# ---- images: every /assets/img file a generated page points at exists; the teacher cut-outs are transparent (the dark panel + red glow need the alpha) ----
+for k, s in SRC.items():
+    for u in sorted(set(re.findall(r"/assets/img/[\w.\-]+\.(?:webp|png|jpe?g|svg)", s))):
+        ok(os.path.exists(os.path.join(SITE, u.lstrip("/").replace("/", os.sep))), f"{k}: image {u} does not exist")
+
+
+def webp_has_alpha(p):
+    with open(p, "rb") as fh:
+        h = fh.read(32)
+    return h[:4] == b"RIFF" and h[8:12] == b"WEBP" and h[12:16] == b"VP8X" and bool(h[20] & 0x10)
+
+
+for t in TEACHERS:
+    for w in (320, 640):
+        p = os.path.join(SITE, "assets", "img", f"teacher-{slug(t['name'])}-cut-{w}.webp")
+        ok(os.path.exists(p) and webp_has_alpha(p), f"teacher:{t['name']}: assets/img/teacher-{slug(t['name'])}-cut-{w}.webp is missing or has no transparency")
+        ok(f"/assets/img/teacher-{slug(t['name'])}-cut-{w}.webp" in SRC.get("teacher:" + t["name"], ""), f"teacher:{t['name']}: page does not use the {w}px cut-out")
+
 # ---- YouTube ↔ privacy policy ----
 if any("youtube-nocookie" in s for s in SRC.values()):
     for pol in ("privacy.html", "privacy-en.html"):
