@@ -211,6 +211,44 @@ for fp in sorted(glob.glob(os.path.join(SITE, "data", "*.json"))):
     s = read(fp)
     ok(not re.search(r"\b0\d{2}[- ]?\d{3}[- ]?\d{4}\b|\+66\d{8,9}|[\w.]+@[\w.]+\.\w{2,}", s.replace("02-252-5868", "").replace("@djlabsiam", "").replace("@DJLABSIAM", "")), f"data/{fn}: looks like a phone number or e-mail address")
 
+# ---- Meta Pixel: one ID in one file · never on /book/ · every page that carries the script has the off switch · policies cover it when it can run ----
+PX = os.path.join(SITE, "assets", "js", "meta-pixel.js")
+ok(os.path.exists(PX), "assets/js/meta-pixel.js is missing")
+px = read(PX) if os.path.exists(PX) else ""
+ids = re.findall(r'var PIXEL_ID = "([^"]*)"', px)
+ok(len(ids) == 1 and re.fullmatch(r"(\d{15,16})?", ids[0]) is not None, "meta-pixel.js: PIXEL_ID must be set exactly once, to 15–16 digits or empty")
+PIXEL_ID = ids[0] if len(ids) == 1 else ""
+site_html = [f for f in glob.glob(os.path.join(SITE, "**", "*.html"), recursive=True) if not any(os.sep + x + os.sep in f for x in ("design-system", "node_modules", ".git", "vendor"))]
+site_text = site_html + [f for ext in ("js", "json", "xml") for f in glob.glob(os.path.join(SITE, "**", "*." + ext), recursive=True) if f != PX and not any(os.sep + x + os.sep in f for x in ("design-system", "node_modules", ".git", "vendor"))]
+for f in site_text:
+    s = read(f)
+    rel = os.path.relpath(f, SITE)
+    ok("fbq(" not in s and "connect.facebook.net" not in s, f"{rel}: Pixel code outside assets/js/meta-pixel.js")
+    ok(not PIXEL_ID or PIXEL_ID not in s, f"{rel}: the Pixel ID must appear only in assets/js/meta-pixel.js")
+for f in site_html:
+    s = read(f)
+    rel = os.path.relpath(f, SITE).replace(os.sep, "/")
+    has_script, has_switch = "/assets/js/meta-pixel.js" in s, "data-pixel-toggle" in s and "data-pixel-row" in s
+    ok(has_script == has_switch, f"{rel}: carries the Pixel script ({has_script}) but the off switch is {'there' if has_switch else 'missing'} (both or neither)")
+    if rel.startswith("book/"):
+        ok(not has_script and not has_switch, f"{rel}: the booking page must not carry the Pixel (it holds customers' names and phone numbers)")
+for rel in ("index.html", "privacy.html", "privacy-en.html"):
+    s = read(os.path.join(SITE, rel))
+    ok("/assets/js/meta-pixel.js" in s, f"{rel}: Pixel script missing")
+for k, s in SRC.items():
+    ok("/assets/js/meta-pixel.js" in s and "data-pixel-toggle" in s, f"{k}: Pixel script or off switch missing")
+tracked = re.findall(r'fbq\("track", "(\w+)"(?:, \{([^}]*)\})?', px)
+ok({n for n, _ in tracked} == {"PageView", "ViewContent", "Contact"}, f"meta-pixel.js tracks {sorted({n for n, _ in tracked})}, expected exactly PageView, ViewContent, Contact")
+sent = {k for _, body in tracked for k in re.findall(r"(\w+):", body)}
+ok(sent <= {"content_name", "content_category", "channel"}, f"meta-pixel.js sends parameters {sorted(sent)}: only content_name, content_category, channel are allowed")
+ok(px.find('fbq("set", "autoConfig", false, PIXEL_ID)') != -1 and px.find('fbq("set", "autoConfig", false, PIXEL_ID)') < px.find('fbq("init", PIXEL_ID);'), "meta-pixel.js: autoConfig must be switched off before init, and init must pass no user data")
+if PIXEL_ID:
+    th, en = read(os.path.join(SITE, "privacy.html")), read(os.path.join(SITE, "privacy-en.html"))
+    ok("Meta Pixel" in th and "ปิดการวัดผลโฆษณา" in th, "the Pixel can run but privacy.html does not describe Meta Pixel and the off switch")
+    ok("Meta Pixel" in en and "Turn off ad measurement" in en, "the Pixel can run but privacy-en.html does not describe Meta Pixel and the off switch")
+    ok("ไม่มีสคริปต์วัดผลหรือติดตามการเข้าชม" not in th, "privacy.html still says there is no tracking script while the Pixel can run")
+    ok("no shop analytics or tracking scripts run" not in en, "privacy-en.html still says there are no tracking scripts while the Pixel can run")
+
 print(f"check_pages: {passes} passed, {len(fails)} failed · courses.json md5 {md5}")
 for f in fails:
     print("  FAIL", f)

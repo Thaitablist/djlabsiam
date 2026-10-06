@@ -407,6 +407,11 @@ img{display:block;max-width:100%;height:auto}
 """
 
 
+# Meta Pixel (assets/js/meta-pixel.js holds the only Pixel ID; empty = nothing loads and this row stays hidden). Never on /book/.
+PIXEL_ROW = '<div data-pixel-row hidden><button type="button" data-pixel-toggle>ปิดการวัดผลโฆษณา</button><span data-pixel-state aria-live="polite"></span></div>'
+PIXEL_SCRIPT = '<script src="/assets/js/meta-pixel.js" defer></script>\n'
+
+
 def shell(path, title, desc, body, robots=None, ld=None, script="", active=""):
     links = [("คอร์สเรียน", "/courses/", "courses"), ("ทีมครู", "/courses/#teachers", "teachers"), ("จองห้องซ้อม", "/book/", "book")]
     li = "".join(f'<a href="{h}"{" class=on aria-current=page" if k == active else ""}>{t}</a>' for t, h, k in links)
@@ -417,7 +422,7 @@ def shell(path, title, desc, body, robots=None, ld=None, script="", active=""):
            f'<details class="mnav"><summary>เมนู</summary><nav aria-label="เมนูหลักบนมือถือ">{li}</nav></details></header>')
     foot = ('<footer class="foot"><div><b>DJ LAB SIAM</b><p>Lido Connect ชั้น 2, Siam Square Soi 3<br>ปทุมวัน กรุงเทพฯ 10330</p></div>'
             '<div><p>เปิด 12:00–20:00 น. ทุกวัน<br>02-252-5868 · 088-656-0464<br>LINE @djlabsiam</p></div>'
-            '<div><a href="/privacy.html">นโยบายความเป็นส่วนตัว</a></div></footer>')
+            '<div><a href="/privacy.html">นโยบายความเป็นส่วนตัว</a></div>' + PIXEL_ROW + '</footer>')
     ldj = "".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False).replace("</", "<" + chr(92) + "/")}</script>' for x in (ld or []))
     og = (f'<meta property="og:type" content="website"><meta property="og:url" content="{ORIGIN}{path}"><meta property="og:title" content="{E(title)}">'
           f'<meta property="og:description" content="{E(desc)}"><meta property="og:image" content="{ORIGIN}/og_image.png"><meta property="og:locale" content="th_TH">'
@@ -431,7 +436,7 @@ def shell(path, title, desc, body, robots=None, ld=None, script="", active=""):
             f'<link rel="icon" href="/favicon.ico" sizes="any">\n<link rel="icon" href="/favicon-512.png" type="image/png" sizes="512x512">\n<link rel="apple-touch-icon" href="/apple-touch-icon.png">\n'
             f'<link rel="preload" href="/book/fonts/noto-sans-thai-latin.woff2" as="font" type="font/woff2" crossorigin>\n'
             f'<link rel="preload" href="/book/fonts/noto-sans-thai-thai.woff2" as="font" type="font/woff2" crossorigin>\n'
-            f'<style>\n{FONTS}\n{TOKENS}\n{CSS}</style>\n{ldj}\n</head>\n<body>\n{top}\n<main id="main" class="pgm">{body}</main>\n{foot}\n{script}</body>\n</html>\n')
+            f'<style>\n{FONTS}\n{TOKENS}\n{CSS}</style>\n{ldj}\n</head>\n<body>\n{top}\n<main id="main" class="pgm">{body}</main>\n{foot}\n{PIXEL_SCRIPT}{script}</body>\n</html>\n')
 
 
 # ───────── /courses/ ─────────
