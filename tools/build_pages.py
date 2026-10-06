@@ -131,10 +131,13 @@ for c in COURSES:
 
 
 def faq_text(a):
+    life_m = re.search(r"\d+\s*เดือน", F0["life"])
+    if not life_m or len({f["life"] for f in F.values()}) != 1:
+        die("the payment FAQ states one course life (e.g. '3 เดือน') for all courses, but courses.json has none or differing ones")
     vals = dict(
         course_names=", ".join(short(c["title"]) for c in COURSES), price=F0["price"], learn=F0["learn"], sessions=F0["sessions"], per=F0["per"],
         practice_course=PRACTICE_COURSE or "", practice=FP["practice"] if FP else 0, total=(FP["learn"] + FP["practice"]) if FP else 0,
-        needle_note=needle, life=F0["life"], teacher_count=len(TEACHERS),
+        needle_note=needle, life=F0["life"], life_months=life_m.group(0), teacher_count=len(TEACHERS),
         weekly_courses=" และ ".join(short(c["title"]) for c in COURSES if F[c["title"]]["weekly"]),
         equip_sentence=" · ".join(f"{short(c['title'])}: {F[c['title']]['equip']}" for c in COURSES if F[c["title"]]["equip"]))
     try:

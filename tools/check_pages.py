@@ -161,8 +161,12 @@ if faq_ld:
     ld_pairs = [(e["name"], e["acceptedAnswer"]["text"]) for e in faq_ld["mainEntity"]]
     ok(vis_faq == ld_pairs, f"courses: visible FAQ ({len(vis_faq)}) differs from JSON-LD FAQ ({len(ld_pairs)})")
     ok(len(vis_faq) == len(json.loads(read(os.path.join(SITE, "data", "faq.json")))["items"]), "courses: FAQ count differs from data/faq.json")
+ok(sum("ชำระเงิน" in q for q, _ in vis_faq) == 1, "courses: the FAQ must have exactly one payment question")
 for q, a in vis_faq:
     ok("{" not in a and "}" not in a, f"courses: unfilled placeholder in FAQ answer: {a[:50]}")
+    if "ชำระเงิน" in q:
+        ok("ยังไม่มีบริการผ่อนชำระ" in a and "LINE @djlabsiam เท่านั้น" in a, f"courses: the payment answer must say 'no installments yet' and that the account number is given on LINE only: {a[:60]}")
+        ok(not any(len(re.sub(r"\D", "", m)) >= 10 for m in re.findall(r"\d[\d\- ]*\d", a)), f"courses: the payment answer must not contain a bank account number (a run of 10+ digits): {a[:60]}")
     if "เลื่อน" in q:
         ok("อย่างน้อย 3 วัน" in a and not re.search(r"(?<!\d)[12](?!\d)\s*(?:[–-]\s*[12]\s*)?วัน", a), f"courses: the reschedule answer must say 'at least 3 days' and never a 1–2 day case: {a[:60]}")
 
