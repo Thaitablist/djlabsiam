@@ -22,7 +22,7 @@ CROPS = {
     "Basic DJ Class":        ("basic-dj",        "Basic DJ Mixing.jpg",    0.54, 0.691, 0.712, "มือกำลังเล่นแพดบนคอนโทรลเลอร์ DJ"),
     "Advance DJ Class":      ("advance-dj",      "Advance DJ Mixing.jpg",  0.45, 0.833, 0.680, "มือกำลังเล่นแพดและปุ่มบนคอนโทรลเลอร์ DJ"),
     "Basic Scratch Class":   ("basic-scratch",   "Basic Scratching.jpg",   0.536, 0.9275, 0.0, "มือวางบนจานเสียงสีน้ำเงินของเครื่อง DJ"),
-    "Advance Scratch Class": ("advance-scratch", "Advance Scratching.jpg", 0.52, 0.92, 0.08, "DJ ยืนหลังเทิร์นเทเบิลสองเครื่องและมิกเซอร์"),
+    "Advance Scratch Class": ("advance-scratch", "Advance Scratching.jpg", 0.52, 0.92, 0.08, "Nutty อาจารย์ DJ LAB SIAM ยืนหลังเทิร์นเทเบิลสองเครื่องและมิกเซอร์"),
 }
 
 entries = {}
