@@ -572,7 +572,7 @@ th:{lang:'th',title:'จองห้องซ้อม',lede:'ห้องซ้
  lineIn:n=>`เข้าสู่ระบบด้วย LINE แล้ว · ${n}`,optional:'(ไม่บังคับ)',contactSkip:'ร้านแจ้งผลทาง LINE ให้อยู่แล้ว ใส่เบอร์หรืออีเมลไว้ถ้าอยากให้ติดต่อทางอื่นด้วย',
  e_name:'กรอกชื่อ',e_phone:'เบอร์โทรยังไม่ถูกต้อง ตรวจรหัสประเทศและตัวเลขอีกครั้ง',e_consent:'ต้องติ๊กยินยอมก่อนส่งคำขอ',
  s_loadH:'กำลังโหลดเวลาว่าง',s_failT:'โหลดเวลาว่างไม่สำเร็จ',s_failB:'เชื่อมต่อไม่ได้ ข้อมูลที่เลือกไว้ยังอยู่',retry:'ลองใหม่',
- s_todayFull:'วันนี้เลยเวลารับจองแล้ว ต้องจองก่อนเริ่มอย่างน้อย 1 ชม. และร้านปิด 20:00',s_todayNext:'ช่องแรกที่จองได้',soon:'เร็วเกินไป',ariaSoon:'เร็วเกินไป ต้องจองล่วงหน้าอย่างน้อย 1 ชั่วโมง',legendSoon:'เร็วเกินไป = ต้องจองล่วงหน้าอย่างน้อย 1 ชม.',past:'ปิดรับ',ariaPast:'เลยเวลารับจองของวันนี้',
+ s_todayFull:'วันนี้เลยเวลารับจองแล้ว ต้องจองก่อนเริ่มอย่างน้อย 1 ชม. และร้านปิด 20:00',s_todayNext:'ช่องแรกที่จองได้',soon:'เร็วเกินไป',ariaSoon:'เร็วเกินไป ต้องจองล่วงหน้าอย่างน้อย 1 ชั่วโมง',legendSoon:'เร็วเกินไป = ต้องจองล่วงหน้าอย่างน้อย 1 ชม. นับเฉพาะเวลาร้านเปิด (12:00–20:00)',past:'ปิดรับ',ariaPast:'เลยเวลารับจองของวันนี้',
  s_taken:h=>`เวลา ${h} เพิ่งถูกจองไปแล้ว เลือกช่วงใกล้เคียงที่ยังว่าง ข้อมูลที่กรอกไว้ยังอยู่`,
  s_net:'ส่งไม่สำเร็จ เครือข่ายหลุด ข้อมูลของคุณยังอยู่ กดส่งอีกครั้งได้ จะไม่เกิดการจองซ้ำ',
  s_rate:n=>`คุณมีคำขอที่รอร้านยืนยันในวันที่เลือกอยู่แล้ว ${n} รายการ รอร้านยืนยันก่อนจองเพิ่ม เลือกวันอื่น หรือโทรหาร้านได้เลย`,
@@ -604,7 +604,7 @@ en:{lang:'en',title:'Book the practice room',lede:'DJ practice room in Siam Squa
  lineIn:n=>`Signed in with LINE · ${n}`,optional:'(optional)',contactSkip:'The shop replies on LINE already. Add a phone or email only if you want another way to reach you.',
  e_name:'Enter a name',e_phone:'This phone number does not look right. Check the country code and digits.',e_consent:'Tick the box to agree before sending',
  s_loadH:'Loading availability',s_failT:"Couldn't load availability",s_failB:'No connection. Your choices are still here.',retry:'Try again',
- s_todayFull:'Booking for today has closed. Bookings need at least 1 hour notice and the shop closes at 20:00',s_todayNext:'First available time',soon:'Too soon',ariaSoon:'too soon: bookings need at least 1 hour notice',legendSoon:'Too soon = bookings need at least 1 hour notice',past:'Closed',ariaPast:'past the booking cutoff for today',
+ s_todayFull:'Booking for today has closed. Bookings need at least 1 hour notice and the shop closes at 20:00',s_todayNext:'First available time',soon:'Too soon',ariaSoon:'too soon: bookings need at least 1 hour notice',legendSoon:'Too soon = book at least 1 hour ahead, counted within opening hours (12:00–20:00)',past:'Closed',ariaPast:'past the booking cutoff for today',
  s_taken:h=>`${h} was just booked by someone else. Pick a nearby free time. What you entered is kept.`,
  s_net:'Not sent. The connection dropped. Your details are kept. Send again. It will not create a duplicate booking.',
  s_rate:n=>`You already have ${n} requests waiting for the shop on the day you chose. Wait for them to be confirmed, pick another day, or call the shop.`,
@@ -664,7 +664,7 @@ const tx=s=>{if(!S.cfg||typeof s!=='string')return s;const c=S.cfg;
   return s.replace(/12:00–20:00/g,`${c.open}–${c.close}`).replace(/\b20:00\b/g,c.close)
    .replace(/สูงสุด 4 ชม\./g,`สูงสุด ${c.max_hours} ชม.`).replace(/Up to 4 h\b/g,`Up to ${c.max_hours} h`)
    .replace(/30 วัน/g,`${c.max_days_ahead} วัน`).replace(/30 days/g,`${c.max_days_ahead} days`)
-   .replace(/อย่างน้อย 1 ชม\./g,`อย่างน้อย ${leadTxt('th')}`).replace(/at least 1 hour/g,`at least ${leadTxt('en')}`)};
+   .replace(/อย่างน้อย 1 ชม\./g,`อย่างน้อย ${leadTxt('th')}`).replace(/อย่างน้อย 1 ชั่วโมง/g,`อย่างน้อย ${leadTxt('th').replace('ชม.','ชั่วโมง')}`).replace(/at least 1 hour/g,`at least ${leadTxt('en')}`)};
 const T=()=>new Proxy(T0[S.lang],{get:(o,k)=>{const v=o[k];return typeof v==='string'?tx(v):typeof v==='function'?(...a)=>tx(v(...a)):v}});
 const money=h=>baht(S.cfg.price_per_hour*h);
 const equip=()=>S.cfg.equipment_sets.map(n=>{const m=String(n).match(/^(.*?)\s*\((.*)\)\s*$/);return m?[m[1],m[2]]:[String(n),'']});
