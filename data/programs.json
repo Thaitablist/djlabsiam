@@ -1,5 +1,5 @@
 {
-  "_about": "รายการประจำของหน้า /content/ — ข้อความ Sunday Live คัดจากหน้าแรกปัจจุบัน (index.html) · DJ LAB Podcast: ออกอากาศ VDO เต็มทางช่อง YouTube หลักทุกวันพุธ 18:00 (เจ้าของแจ้งผ่านผู้จัดการข้อมูล 6 ต.ค.) ยังไม่มีลิงก์ตอน → ลิงก์ไปช่อง @DJLABSIAM · คำอธิบายรายการยังไม่มี ห้ามแต่งเอง",
+  "_about": "รายการประจำของหน้า /content/ — ข้อความ Sunday Live คัดจากหน้าแรกปัจจุบัน (index.html) · DJ LAB Podcast: ออกอากาศ VDO เต็มทางช่อง YouTube หลักทุกวันพุธ 18:00 (เจ้าของแจ้งผ่านผู้จัดการข้อมูล 6 ต.ค.) ยังไม่มีลิงก์ตอน → ลิงก์ไปช่อง @DJLABSIAM · คำอธิบายรายการยังไม่มี ห้ามแต่งเอง · listen = ปุ่มฟัง/ดูที่หัวหน้า /content/ (Spotify show ที่เจ้าของลงตอนแรกแล้ว ผู้จัดการข้อมูลตรวจ 7 ต.ค. ว่าขึ้นแล้ว · ยังไม่ใส่ Apple Podcasts เพราะยังไม่ได้ส่งเข้า Apple)",
   "items": [
     {
       "name": "Sunday Live",
@@ -13,6 +13,16 @@
       "when": "ทุกวันพุธ · 18:00 น. ออกอากาศ VDO เต็มทางช่อง YouTube หลัก",
       "link": "https://www.youtube.com/@DJLABSIAM",
       "link_label": "ดูที่ช่อง YouTube"
+    }
+  ],
+  "listen": [
+    {
+      "label": "ฟังบน Spotify",
+      "url": "https://open.spotify.com/show/15ihoWgHK0fzmoyvvVqA2a"
+    },
+    {
+      "label": "ช่อง YouTube",
+      "url": "https://www.youtube.com/@DJLABSIAM"
     }
   ]
 }

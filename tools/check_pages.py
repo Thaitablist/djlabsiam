@@ -267,6 +267,26 @@ if PIXEL_ID:
     ok("ไม่มีสคริปต์วัดผลหรือติดตามการเข้าชม" not in th, "privacy.html still says there is no tracking script while the Pixel can run")
     ok("no shop analytics or tracking scripts run" not in en, "privacy-en.html still says there are no tracking scripts while the Pixel can run")
 
+# ---- /content/: the clip list comes from the database through one public function; YouTube is touched only after a press; nothing from the database is ever treated as HTML ----
+for k, s in SRC.items():
+    ok(s.count("/assets/js/meta-pixel.js") == 1, f"{k}: the Pixel script must be on the page exactly once")
+c = SRC.get("content", "")
+cs = "\n".join(re.findall(r"<script>(.*?)</script>", c, re.S))            # inline page scripts only (the Pixel and JSON-LD tags have attributes)
+book = read(os.path.join(SITE, "book", "index.html"))
+b_api, b_key = re.search(r"const API='([^']+)'", book), re.search(r"const KEY='([^']+)'", book)
+ok(bool(b_api and b_key) and f"API='{b_api.group(1)}'" in cs and f"KEY='{b_key.group(1)}'" in cs, "content: the Supabase address / anon key must be the ones /book/ uses")
+ok("fetch(API+'web_content_videos'" in cs, "content: the page must call web_content_videos")
+ok("args.p_before=g.next.before" in cs and "args.p_before_id=g.next.before_id" in cs, "content: loading more must send both before and before_id")
+ok(all(f"['{k_}'," in cs for k_ in ("podcast", "video", "short")), "content: the list must be split into podcast / video / short")
+ok(bool(cs) and not re.search(r"innerHTML|outerHTML|insertAdjacentHTML|document\.write|\beval\(|new Function", cs), "content: the page script must never turn database text into HTML (innerHTML / outerHTML / insertAdjacentHTML / document.write / eval)")
+ok("service_role" not in c, "content: a service key must never be on a public page")
+ok("<iframe" not in c, "content: no iframe may exist in the page before a press (it is created on click)")
+ok("youtube-nocookie.com/embed" not in re.sub(r"<script>.*?</script>", "", c, flags=re.S), "content: the YouTube player address may only appear in the click handler script, not in the page itself")
+ok(re.search(r"el\('button','btn pri sm'", cs) is not None and "btn.addEventListener('click',function(){play(li,v,btn)})" in cs and "f.src='https://www.youtube-nocookie.com/embed/'" in cs, "content: the player must be created by the play button's click handler")
+ok("role','alert'" in cs and "ลองใหม่" in cs, "content: the failed-to-load state (red banner with a retry button) is missing")
+ok("https://www.youtube.com/@DJLABSIAM" in c and "ตอนนี้ยังไม่มีคลิปแสดงที่หน้านี้" in cs, "content: the empty state (message + link to the YouTube channel) is missing")
+ok('href="https://open.spotify.com/show/15ihoWgHK0fzmoyvvVqA2a" target="_blank" rel="noopener"' in c, "content: the Spotify button is missing or is not the owner's show")
+
 print(f"check_pages: {passes} passed, {len(fails)} failed · courses.json md5 {md5}")
 for f in fails:
     print("  FAIL", f)

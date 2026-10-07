@@ -45,7 +45,9 @@ COURSES = D["items"]
 TEACHERS = D["instructors"]["items"]
 PROFILES = load(A.profiles)
 FAQ = load(A.faq)["items"]
-PROGRAMS = load(A.programs)["items"]
+_PROG = load(A.programs)
+PROGRAMS = _PROG["items"]
+LISTEN = _PROG["listen"]
 CIMG = load(A.course_images) if os.path.exists(A.course_images) else {}   # per-course picture: {file, w, h, alt} or null = no picture, no empty space
 
 
@@ -350,11 +352,29 @@ img{display:block;max-width:100%;height:auto}
 .fc-msg{position:absolute;inset:0;display:none;place-content:center;justify-items:center;gap:12px;padding:16px;text-align:center;background:rgba(0,0,0,.78);color:var(--text-secondary);font-size:15px}
 .fc-box.loading .fc-msg.l,.fc-box.failed .fc-msg.e{display:grid}
 .fc-box.loading .fc-btn,.fc-box.failed .fc-btn{display:none}
+.cl-group{margin-top:32px}
+.cl-group h3{font-size:22px;line-height:1.3}
+.cl-list{list-style:none;margin:12px 0 0;padding:0;max-width:760px}
+.cl-i{display:grid;gap:8px;padding:18px 0;border-top:1px solid var(--border-hairline)}
+.cl-title{margin:0;font:700 18px/1.5 var(--font-family-display);overflow-wrap:anywhere}
+.cl-meta{margin:0;font-size:15px;color:var(--text-secondary)}
+.cl-actions{display:flex;flex-wrap:wrap;gap:10px}
+.cl-frame{position:relative;aspect-ratio:16/9;background:var(--surface-sunken);border:1px solid var(--border-hairline)}
+.cl-frame.short{aspect-ratio:9/16;max-width:300px}
+.cl-frame>iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.cl-fail{position:absolute;left:0;right:0;bottom:0;margin:0;padding:10px 14px;background:rgba(0,0,0,.82);font-size:15px}
+.cl-note{margin:8px 0 0;font-size:15px;color:var(--text-secondary)}
+.cl-group .btn.sec:not(.sm){margin-top:12px}
+.cl-err,.cl-empty{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;padding:16px 18px;max-width:760px}
+.cl-err p,.cl-empty p{margin:0;flex:1 1 260px}
+.cl-err{border:1px solid var(--brand-base);background:rgba(190,35,41,.16)}
+.cl-empty{border:1px solid var(--border-strong)}
 .fc-priv{font-size:14px}
 .fc-priv summary{display:inline-flex;align-items:center;min-height:44px;cursor:pointer;list-style:none;font:600 14px/1.4 var(--font-family-display);color:var(--text-secondary);text-decoration:underline;text-underline-offset:4px}
 .fc-priv summary::-webkit-details-marker{display:none}
 .fc-priv p{margin:0 0 8px;max-width:64ch;color:var(--text-secondary)}
 /* content page */
+.listen{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
 .slgrid{display:grid;gap:16px;margin-top:20px}
 .slc{display:grid;gap:12px;justify-items:start;align-content:start;padding:24px;border:1px solid var(--border-strong)}
 .slc h3{font-size:30px;line-height:1.25}
@@ -602,6 +622,74 @@ def teacher_page(t):
 
 
 # ───────── /content/ ─────────
+def book_backend():
+    b = io.open(os.path.join(SITE, "book", "index.html"), encoding="utf-8").read()
+    api, key = re.search(r"const API='(https://[a-z0-9.-]+\.supabase\.co/rest/v1/rpc/)'", b), re.search(r"const KEY='([A-Za-z0-9._-]+)'", b)
+    if not (api and key):
+        die("cannot read the Supabase address / anon key from book/index.html")
+    return api.group(1), key.group(1)
+
+
+CONTENT_JS = r"""<script>
+(function(){
+var API='@@API@@',KEY='@@KEY@@',PAGE=12,KINDS=[['podcast','Podcast'],['video','วิดีโอ'],['short','Shorts']];
+var MONTH=['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+var status=document.getElementById('cl-status'),lists=document.getElementById('cl-lists');
+if(!status||!lists)return;
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+function thDate(iso){var d=new Date(iso);if(isNaN(d))return '';var t=new Date(d.getTime()+7*3600000);return t.getUTCDate()+' '+MONTH[t.getUTCMonth()]+' '+(t.getUTCFullYear()+543)}
+function dur(s){if(typeof s!=='number'||!(s>0))return '';if(s<60)return s+' วินาที';var m=Math.round(s/60),h=Math.floor(m/60);return h?h+' ชม.'+(m%60?' '+(m%60)+' นาที':''):m+' นาที'}
+async function rpc(args){var ctl=new AbortController(),to=setTimeout(function(){ctl.abort()},15000);
+  try{var r=await fetch(API+'web_content_videos',{method:'POST',headers:{apikey:KEY,Authorization:'Bearer '+KEY,'Content-Type':'application/json'},body:JSON.stringify(args),signal:ctl.signal});
+    if(!r.ok)throw new Error('http '+r.status);var j=await r.json();if(!j||j.ok!==true||!Array.isArray(j.items))throw new Error('bad answer');return j}
+  finally{clearTimeout(to)}}
+function play(li,v,btn){
+  var short=v.kind==='short',box=el('div','cl-frame'+(short?' short':'')),f=document.createElement('iframe'),msg=el('p','cl-fail','เปิดวิดีโอในหน้านี้ไม่ได้ ');
+  var a=el('a','','ดูบน YouTube');a.href='https://www.youtube.com/watch?v='+v.id;a.target='_blank';a.rel='noopener';msg.appendChild(a);msg.hidden=true;
+  f.src='https://www.youtube-nocookie.com/embed/'+v.id+'?autoplay=1&rel=0';f.title=v.title;
+  f.allow='autoplay; encrypted-media; picture-in-picture';f.referrerPolicy='strict-origin-when-cross-origin';f.setAttribute('allowfullscreen','');
+  var t=setTimeout(function(){msg.hidden=false},10000);f.addEventListener('load',function(){clearTimeout(t)});
+  box.appendChild(f);box.appendChild(msg);btn.hidden=true;li.appendChild(box)}
+function item(v){
+  var li=el('li','cl-i');li.appendChild(el('p','cl-title',v.title));
+  var meta=[thDate(v.published_at),dur(v.duration_s)].filter(Boolean).join(' · ');if(meta)li.appendChild(el('p','cl-meta',meta));
+  var row=el('div','cl-actions'),btn=null;
+  if(v.embeddable!==false){btn=el('button','btn pri sm','เล่นที่นี่');btn.type='button';btn.setAttribute('aria-label','เล่น: '+v.title);btn.addEventListener('click',function(){play(li,v,btn)});row.appendChild(btn)}
+  var a=el('a','btn sec sm','ดูบน YouTube');a.href='https://www.youtube.com/watch?v='+v.id;a.target='_blank';a.rel='noopener';row.appendChild(a);li.appendChild(row);return li}
+function validItems(j){return j.items.filter(function(v){return v&&typeof v.id==='string'&&/^[A-Za-z0-9_-]{11}$/.test(v.id)&&typeof v.title==='string'&&v.title})}
+function makeGroup(kind,label){
+  var box=el('section','cl-group'),ul=el('ul','cl-list'),more=el('button','btn sec','โหลดเพิ่ม'),note=el('p','cl-note');more.type='button';more.hidden=true;note.hidden=true;
+  box.hidden=true;box.appendChild(el('h3','',label));box.appendChild(ul);box.appendChild(more);box.appendChild(note);lists.appendChild(box);
+  var g={next:null,count:0,failed:false};
+  g.load=async function(){
+    var args={p_limit:PAGE,p_kind:kind};if(g.next){args.p_before=g.next.before;args.p_before_id=g.next.before_id}
+    more.disabled=true;note.hidden=true;
+    try{var j=await rpc(args);validItems(j).forEach(function(v){ul.appendChild(item(v));g.count++});
+      g.next=j.next&&j.next.before&&j.next.before_id?j.next:null;g.failed=false;more.hidden=!g.next;box.hidden=g.count===0}
+    catch(e){if(g.count){note.textContent='โหลดเพิ่มไม่สำเร็จ ลองกดอีกครั้ง';note.hidden=false;more.hidden=false}else g.failed=true}
+    more.disabled=false};
+  more.addEventListener('click',g.load);return g}
+var groups=KINDS.map(function(k){return makeGroup(k[0],k[1])});
+function banner(){status.textContent='';status.removeAttribute('role');
+  var failed=groups.some(function(g){return g.failed}),total=groups.reduce(function(n,g){return n+g.count},0);
+  if(failed){status.setAttribute('role','alert');var b=el('div','cl-err');b.appendChild(el('p','','โหลดรายการคลิปไม่สำเร็จ ตรวจสอบอินเทอร์เน็ตแล้วลองใหม่'));
+    var r=el('button','btn sec sm','ลองใหม่');r.type='button';r.addEventListener('click',start);b.appendChild(r);status.appendChild(b);return}
+  if(!total){var e=el('div','cl-empty');e.appendChild(el('p','','ตอนนี้ยังไม่มีคลิปแสดงที่หน้านี้ ดูคลิปทั้งหมดได้ที่ช่อง YouTube ของ DJ LAB SIAM'));
+    var a=el('a','btn pri','ดูคลิปทั้งหมดบน YouTube');a.href='https://www.youtube.com/@DJLABSIAM';a.target='_blank';a.rel='noopener';e.appendChild(a);status.appendChild(e)}}
+async function start(){status.removeAttribute('role');status.textContent='กำลังโหลดรายการคลิป…';
+  await Promise.all(groups.filter(function(g){return !g.count}).map(function(g){return g.load()}));banner()}
+start();
+})();
+</script>
+"""
+
+
+CONTENT_NOTE = ('<details class="fc-priv"><summary>ข้อมูลความเป็นส่วนตัวของหน้านี้</summary>'
+                '<p>รายการคลิปดึงจากฐานข้อมูลของร้านบน Supabase เมื่อเปิดหน้านี้ Supabase จะได้รับข้อมูลทางเทคนิคของคุณ เช่น หมายเลข IP และชนิดเบราว์เซอร์ '
+                'ก่อนกดเล่น หน้านี้ไม่เรียกข้อมูลใดจาก YouTube เมื่อกด "เล่นที่นี่" เบราว์เซอร์ของคุณจะเชื่อมต่อกับ YouTube (Google) เพื่อแสดงวิดีโอ โดยใช้โหมดความเป็นส่วนตัวขั้นสูง (youtube-nocookie.com) '
+                'Google อาจเก็บข้อมูลการใช้งานตามนโยบายของ Google ร้านไม่ได้รับข้อมูลนั้น · <a href="/privacy.html">นโยบายความเป็นส่วนตัวของร้าน</a></p></details>')
+
+
 def content_page():
     cards = ""
     for p in PROGRAMS:
@@ -613,12 +701,17 @@ def content_page():
         if p.get("link"):
             inner += f'<a class="btn pri" href="{E(p["link"])}" target="_blank" rel="noopener">{E(p.get("link_label", "ดูรายการ"))} {ic("ext", 18)}</a>'
         cards += f'<div class="slc">{inner}</div>'
+    listen = "".join(f'<a class="btn {"pri" if i == 0 else "sec"}" href="{E(x["url"])}" target="_blank" rel="noopener">{E(x["label"])} {ic("ext", 18)}</a>' for i, x in enumerate(LISTEN))
+    api, key = book_backend()
     body = (f'<section class="hero"><h1>วิดีโอและรายการจาก DJ LAB SIAM</h1>'
-            f'<p class="lede">เทคนิค อุปกรณ์ และเรื่องราววงการ DJ จากทีมงานที่เป็น DJ จริง</p></section>'
+            f'<p class="lede">เทคนิค อุปกรณ์ และเรื่องราววงการ DJ จากทีมงานที่เป็น DJ จริง</p><div class="listen">{listen}</div></section>'
             f'<section><h2>รายการประจำ</h2><div class="slgrid">{cards}</div></section>'
+            f'<section id="clips"><h2>คลิปล่าสุด</h2><div id="cl-status" aria-live="polite"></div><div id="cl-lists"></div>'
+            f'<noscript><p class="lede2">ต้องเปิด JavaScript เพื่อดูรายการคลิปในหน้านี้ หรือดูคลิปทั้งหมดได้ที่ช่อง YouTube</p></noscript>{CONTENT_NOTE}</section>'
             f'<section><h2>คลิปบน YouTube</h2><div class="ytcta"><p>คลิปทั้งหมดของร้านอยู่ที่ช่อง YouTube</p>'
             f'<a class="btn pri" href="https://www.youtube.com/@DJLABSIAM" target="_blank" rel="noopener">ดูคลิปทั้งหมดบน YouTube {ic("ext", 18)}</a></div></section>')
-    return shell("/content/", "วิดีโอและรายการ — DJ LAB SIAM", "รายการประจำและคลิปจากทีม DJ LAB SIAM", body, robots="noindex,follow", active="content")
+    return shell("/content/", "วิดีโอและรายการ — DJ LAB SIAM", "รายการประจำและคลิปจากทีม DJ LAB SIAM", body, robots="noindex,follow", active="content",
+                 script=CONTENT_JS.replace("@@API@@", api).replace("@@KEY@@", key))
 
 
 def write(path, text):
