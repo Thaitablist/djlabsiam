@@ -352,6 +352,7 @@ img{display:block;max-width:100%;height:auto}
 .fc-msg{position:absolute;inset:0;display:none;place-content:center;justify-items:center;gap:12px;padding:16px;text-align:center;background:rgba(0,0,0,.78);color:var(--text-secondary);font-size:15px}
 .fc-box.loading .fc-msg.l,.fc-box.failed .fc-msg.e{display:grid}
 .fc-box.loading .fc-btn,.fc-box.failed .fc-btn{display:none}
+#clips [hidden]{display:none!important}
 .cl-group{margin-top:32px}
 .cl-group h3{font-size:22px;line-height:1.3}
 .cl-list{list-style:none;margin:12px 0 0;padding:0;max-width:760px}
@@ -380,8 +381,6 @@ img{display:block;max-width:100%;height:auto}
 .slc h3{font-size:30px;line-height:1.25}
 .slc p{color:var(--text-secondary);max-width:52ch}
 .slc .when{color:var(--text-primary)}
-.ytcta{display:grid;gap:14px;justify-items:start;margin-top:20px;padding:24px;border:1px solid var(--border-hairline)}
-.ytcta p{color:var(--text-secondary);max-width:56ch}
 @media (min-width:960px){
   h1{font-size:44px}
   .top{padding:10px 80px}
@@ -707,9 +706,7 @@ def content_page():
             f'<p class="lede">เทคนิค อุปกรณ์ และเรื่องราววงการ DJ จากทีมงานที่เป็น DJ จริง</p><div class="listen">{listen}</div></section>'
             f'<section><h2>รายการประจำ</h2><div class="slgrid">{cards}</div></section>'
             f'<section id="clips"><h2>คลิปล่าสุด</h2><div id="cl-status" aria-live="polite"></div><div id="cl-lists"></div>'
-            f'<noscript><p class="lede2">ต้องเปิด JavaScript เพื่อดูรายการคลิปในหน้านี้ หรือดูคลิปทั้งหมดได้ที่ช่อง YouTube</p></noscript>{CONTENT_NOTE}</section>'
-            f'<section><h2>คลิปบน YouTube</h2><div class="ytcta"><p>คลิปทั้งหมดของร้านอยู่ที่ช่อง YouTube</p>'
-            f'<a class="btn pri" href="https://www.youtube.com/@DJLABSIAM" target="_blank" rel="noopener">ดูคลิปทั้งหมดบน YouTube {ic("ext", 18)}</a></div></section>')
+            f'<noscript><p class="lede2">ต้องเปิด JavaScript เพื่อดูรายการคลิปในหน้านี้ หรือ <a href="https://www.youtube.com/@DJLABSIAM" target="_blank" rel="noopener">ดูคลิปทั้งหมดที่ช่อง YouTube</a></p></noscript>{CONTENT_NOTE}</section>')
     return shell("/content/", "วิดีโอและรายการ — DJ LAB SIAM", "รายการประจำและคลิปจากทีม DJ LAB SIAM", body, robots="noindex,follow", active="content",
                  script=CONTENT_JS.replace("@@API@@", api).replace("@@KEY@@", key))
 

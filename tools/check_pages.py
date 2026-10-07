@@ -286,6 +286,8 @@ ok(re.search(r"el\('button','btn pri sm'", cs) is not None and "btn.addEventList
 ok("role','alert'" in cs and "ลองใหม่" in cs, "content: the failed-to-load state (red banner with a retry button) is missing")
 ok("https://www.youtube.com/@DJLABSIAM" in c and "ตอนนี้ยังไม่มีคลิปแสดงที่หน้านี้" in cs, "content: the empty state (message + link to the YouTube channel) is missing")
 ok('href="https://open.spotify.com/show/15ihoWgHK0fzmoyvvVqA2a" target="_blank" rel="noopener"' in c, "content: the Spotify button is missing or is not the owner's show")
+ok("#clips [hidden]{display:none!important}" in c, "content: the CSS rule that makes the hidden attribute win over .btn is missing (the 'load more' and play buttons would show when they should not)")
+ok("ytcta" not in c and "<h2>คลิปบน YouTube</h2>" not in c, "content: the old bottom 'YouTube clips' block must stay removed (the channel button at the top and the empty state already link to the channel)")
 
 print(f"check_pages: {passes} passed, {len(fails)} failed · courses.json md5 {md5}")
 for f in fails:
